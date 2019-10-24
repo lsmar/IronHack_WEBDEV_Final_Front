@@ -1,4 +1,4 @@
-Last deply result: [![Netlify Status](https://api.netlify.com/api/v1/badges/92a863ed-c182-41da-b550-b0d521795129/deploy-status)](https://app.netlify.com/sites/ironhackfinal/deploys)
+Last deploy result: [![Netlify Status](https://api.netlify.com/api/v1/badges/92a863ed-c182-41da-b550-b0d521795129/deploy-status)](https://app.netlify.com/sites/ironhackfinal/deploys)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
