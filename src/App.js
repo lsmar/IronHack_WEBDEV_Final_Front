@@ -1,18 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Logo from './components/Logo'
-import Title from './components/Title'
+import React, {Component, Fragment} from 'react';
+// COMPONETS IMPORT AREA
+import Logo from './components/Logo';
+import Title from './components/Title';
+import Delete from './components/iconDelete';
+import Edit from './components/iconEdit';
 
 function App() {
   return (
-    <div>
+    <Fragment>
       <Logo />
       <Title>
-        guilherme
-        <h5>biel</h5>
+        Titulo
       </Title>
-    </div>
+      <Delete method={() => console.log('banana')}></Delete>
+      <Edit url='https://google.com.br' />
+    </Fragment>
   );
 }
 
