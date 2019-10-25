@@ -1,8 +1,7 @@
 import React from "react";
 
-const TextArea = ({ name, type, value, method }) => {
-  return ( <input
-        type={type}
+const TextArea = ({ name, value, method }) => {
+  return ( <textarea
         name={name}
         value={value}
         onChange={method} 
