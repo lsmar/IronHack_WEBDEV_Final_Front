@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import Routes from "./routes/routes";
-import Button from '../src/components/Button';
-import CardProject from '../src/components/CardProject';
-import './Grazi.css';
-import TextArea from './components/TextArea';
-import Profile from './components/Profile';
+import './App.css';
+
+import Logo from './components/Logo'
+import Title from './components/Title'
+import StudentsList from './components/StudentsList';
+
+
 
 
 class App extends Component {
