@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import Routes from "./routes/routes";
-import './Gabriel.css';
-
+import Routes from "./routes/routes"
 import Logo from './components/Logo'
 import Title from './components/Title'
 import StudentsList from './components/StudentsList';
