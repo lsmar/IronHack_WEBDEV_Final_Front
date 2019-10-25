@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Routes from "./routes/routes";
-import './App.css';
+import './Gabriel.css';
 
 import Logo from './components/Logo'
 import Title from './components/Title'
@@ -19,7 +19,6 @@ class App extends Component {
   render (){
     return (
     <div className="App">
-   
     </div>
     );
   }
