@@ -4,8 +4,7 @@ const Input = ({ name, type, value, handleChange }) => (
   <div className="">
     <div className="">
       <input
-      className='components-input'
-        className=""
+        className='components-input'
         type={type}
         placeholder={`enter ${name}`}
         name={name}

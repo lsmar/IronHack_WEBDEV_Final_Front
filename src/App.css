@@ -39,7 +39,8 @@
   border: 1px solid black;
   border-radius: 10px;
   background-color: #fff;
-  padding: 10px 80px;
+  width: 260px;
+  height: 40px;
   font-size: 18px;
 }
 
@@ -71,5 +72,10 @@
 }
 
 .components-input{
-  border: 1px solid black; 
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #fff;
+  width: 260px;
+  height: 40px;
+  font-size: 18px;
 }

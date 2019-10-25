@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import apiAxios from "../services/api";
 import { login } from "../services/auth";
+import Button from '../components/Button'
+import Input from "../components/input";
 
 class Login extends Component {
   constructor(props) {
@@ -46,11 +48,10 @@ class Login extends Component {
       <div>
         <form onSubmit={this.handleLogin}>
           {this.state.error && <p>{this.state.error}</p>}
-          <input type="email" placeholder="Endereço de e-mail" name="email" onChange={this.handleFormEdit} />
-          <input type="password" placeholder="Senha" name="password" onChange={this.handleFormEdit} />
-          <button type="submit">Logar</button>
-          <hr />
-          <Link to="/signup">Cadastrar</Link>
+          <Input type="email" placeholder="Endereço de e-mail" name="email" handleChange={this.handleFormEdit} />
+          <Input type="password" placeholder="Senha" name="password" handleChange={this.handleFormEdit} />
+          <Button type="submit" label={'Logar'}/>
+          <Link to="/signup">Cadastrar Instituição</Link>
         </form>
       </div>
     );
