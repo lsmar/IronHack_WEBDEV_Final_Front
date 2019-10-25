@@ -8,9 +8,6 @@ import Logo from './components/Logo'
 import Title from './components/Title'
 import Button from './components/button';
 import StudentsList from './components/StudentsList';
-import Button from './components/Button';
-import TextArea from './components/TextArea';
-
 
 
 class App extends Component {
@@ -22,7 +19,6 @@ class App extends Component {
   }
   render (){
     return (
-
   
     <div className="App">
       <Routes />
@@ -36,7 +32,6 @@ class App extends Component {
 
       <StudentsList students={this.state.obj}/>
     </div>
-
     );
   }
 
