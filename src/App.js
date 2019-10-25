@@ -1,23 +1,42 @@
-import React, {Component, Fragment} from 'react';
-// COMPONETS IMPORT AREA
-import Logo from './components/Logo';
-import Title from './components/Title';
-import Delete from './components/iconDelete';
-import Edit from './components/iconEdit';
-import Navbar from './components/navbar'
 
-function App() {
-  return (
-    <Fragment>
+
+import React, {Component} from 'react';
+import Routes from "./routes/routes";
+import './App.css';
+
+import Logo from './components/Logo'
+import Title from './components/Title'
+import Button from './components/button';
+import StudentsList from './components/StudentsList';
+
+
+class App extends Component {
+  constructor(){
+    super() 
+    this.state={
+      obj: [{_id:123,name:'grazi'},{_id:456,name:'biel'},{_id:789,name:'monicat'},{_id:123,name:'lucax'}]
+    }
+  }
+  render (){
+    return (
+  
+    <div className="App">
+      <Routes />
+
+
       <Logo />
       <Title>
         Titulo
       </Title>
-      <Delete method={() => console.log('banana')}></Delete>
-      <Edit url='https://google.com.br' />
-      <Navbar role={'COORDINATOR'}/>
-    </Fragment>
-  );
+
+
+      <StudentsList students={this.state.obj}/>
+    </div>
+    );
+  }
+
+
 }
+
 
 export default App;
