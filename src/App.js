@@ -1,4 +1,5 @@
 
+
 import React, {Component} from 'react';
 import Routes from "./routes/routes";
 import './App.css';
@@ -22,15 +23,18 @@ class App extends Component {
     <div className="App">
       <Routes />
 
+
       <Logo />
       <Title>
         Titulo
       </Title>
 
+
       <StudentsList students={this.state.obj}/>
     </div>
     );
   }
+
 
 }
 
