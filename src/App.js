@@ -1,5 +1,3 @@
-
-
 import React, {Component} from 'react';
 import Routes from "./routes/routes";
 import './Gabriel.css';
@@ -20,17 +18,10 @@ class App extends Component {
   }
   render (){
     return (
-
-  
     <div className="App">
-      <Routes />
-      <StudentsList isChecked={true} students={this.state.obj}/>
     </div>
-
     );
   }
-
-
 }
 
 
