@@ -5,7 +5,7 @@ import React from 'react';
 
 const ArrowButton = ({ method , classStyle }) => {
   return (
-    <button onClick={method} className="button-vertical"><img src="/images/arrow.png" className={classStyle} /> </button>
+    <button onClick={method} className="components-button-vertical"><img src="/images/arrow.png" className={classStyle} /> </button>
   );
 }
 
