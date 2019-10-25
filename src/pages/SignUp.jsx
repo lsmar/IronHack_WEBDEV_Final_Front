@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import  {Link} from "react-router-dom";
 import apiAxios from "../services/api"
 import { login } from "../services/auth";
+import Input from "../components/input";
+import Button from "../components/Button";
+import Logo from "../components/Logo";
 
 class SignUp extends Component {
   constructor(props){
@@ -33,7 +36,7 @@ class SignUp extends Component {
       } catch (err) {
         debugger;
         console.log(err);
-        this.setState({ error: "Ocorreu um erro ao registrar sua conta. T.T" });
+        this.setState({ error: "Ocorreu um erro ao registrar sua conta." });
       }
     }
   };
@@ -44,37 +47,36 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSignUp}>
-          
+      <div className='page-loginSignup-bcg'>
+        <form className='page-loginSignup-container' onSubmit={this.handleSignUp}>
+        <Logo />
           {this.state.error && <p>{this.state.error}</p>}
-          <input
+          <Input
             type="text"
             placeholder="Institution "
             name="institution"
-            onChange={this.handleFormEdit}
+            handleChange={this.handleFormEdit}
           />
-          <input
+          <Input
             type="text"
             placeholder="Nome "
             name="name"
-            onChange={this.handleFormEdit}
+            handleChange={this.handleFormEdit}
           />
-          <input
+          <Input
             type="email"
             placeholder="Endereço de e-mail"
             name="email"
-            onChange={this.handleFormEdit}
+            handleChange={this.handleFormEdit}
           />
-          <input
+          <Input
             type="password"
             placeholder="Senha"
             name="password"
-            onChange={this.handleFormEdit}
+            handleChange={this.handleFormEdit}
           />
-          <button type="submit">Cadastrar E Logar</button>
-          <hr />
-          <Link to="/">Fazer login</Link>
+          <Button type="submit" label={'Cadastrar e logar'}/>
+          <Link className='page-loginSignup-link' to="/">Fazer login</Link>
         </form>
       </div>
     );

@@ -46,14 +46,14 @@ class Login extends Component {
 
   render() {
     return (
-      <div className='page-login-bcg'>
-        <form className='page-login-container' onSubmit={this.handleLogin}>
+      <div className='page-loginSignup-bcg'>
+        <form className='page-loginSignup-container' onSubmit={this.handleLogin}>
         <Logo />
           {this.state.error && <p>{this.state.error}</p>}
           <Input type="email" placeholder="E-mail" name="email" handleChange={this.handleFormEdit} />
           <Input type="password" placeholder="Senha" name="password" handleChange={this.handleFormEdit} />
           <Button type="submit" label={'Logar'}/>
-          <Link className='page-login-linkSignup' to="/signup">Cadastrar Instituição</Link>
+          <Link className='page-loginSignup-link' to="/signup">Cadastrar Instituição</Link>
         </form>
       </div>
     );

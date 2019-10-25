@@ -3,6 +3,7 @@
   padding: 0;
 }
 
+/*COMPONENT*/
 .component-navbar-nav{
   background-color: red;
   position: fixed;
@@ -91,8 +92,8 @@
   padding-left: 10px;
 }
 
-/*Login*/
-.page-login-bcg{
+/*pages login and signup*/
+.page-loginSignup-bcg{
   background-color: #3D5E73;
   height: 100vh;
   width: 100vw;
@@ -101,7 +102,7 @@
   align-items: center;
 }
 
-.page-login-container{
+.page-loginSignup-container{
   background-color: #fff;
   width: 80vw;
   height: 85vh;
@@ -112,8 +113,10 @@
   justify-content: center;
 }
 
-.page-login-linkSignup{
+.page-loginSignup-link{
   margin-top: 30px;
   text-decoration: none;
   color: black;
 }
+
+
