@@ -1,11 +1,14 @@
+
+
 import React, {Component} from 'react';
 import Routes from "./routes/routes";
 import './App.css';
 
 import Logo from './components/Logo'
 import Title from './components/Title'
-import Button from './components/button';
 import StudentsList from './components/StudentsList';
+
+
 
 
 class App extends Component {
@@ -17,18 +20,25 @@ class App extends Component {
   }
   render (){
     return (
+
   
     <div className="App">
       <Routes />
+
+
       <Logo />
       <Title>
-        guilherme
-        <h5>biel</h5>
+        Titulo
       </Title>
+
+
       <StudentsList students={this.state.obj}/>
     </div>
+
     );
   }
+
+
 }
 
 
