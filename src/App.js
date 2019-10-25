@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
 import StudentsList from './components/StudentsList';
+import Button from './components/Button';
+import TextArea from './components/TextArea';
+
 
 class App extends Component {
 constructor(){
@@ -12,7 +15,11 @@ this.state={
   
   render (){
     return (
+      <div>
         <StudentsList students={this.state.obj}/>
+        <Button method={()=> console.log('olaaaa')} label={'clica em mim!'}/>
+        <TextArea name={'comente aqui'}/>
+       </div>
     );
   }
 }
