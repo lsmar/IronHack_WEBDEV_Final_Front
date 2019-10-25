@@ -7,8 +7,7 @@ import './App.css';
 import Logo from './components/Logo'
 import Title from './components/Title'
 import StudentsList from './components/StudentsList';
-import Button from './components/Button';
-import TextArea from './components/TextArea';
+
 
 
 
