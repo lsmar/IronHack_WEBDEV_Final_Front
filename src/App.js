@@ -1,16 +1,10 @@
-
-
 import React, {Component} from 'react';
 import Routes from "./routes/routes";
-import './App.css';
-
-import Logo from './components/Logo'
-import Title from './components/Title'
-import Button from './components/button';
-import StudentsList from './components/StudentsList';
-import Button from './components/Button';
+import Button from '../src/components/Button';
+import CardProject from '../src/components/CardProject';
+import './Grazi.css';
 import TextArea from './components/TextArea';
-
+import Profile from './components/Profile';
 
 
 class App extends Component {
@@ -22,25 +16,11 @@ class App extends Component {
   }
   render (){
     return (
-
-  
     <div className="App">
-      <Routes />
-
-
-      <Logo />
-      <Title>
-        Titulo
-      </Title>
-
-
-      <StudentsList students={this.state.obj}/>
+   
     </div>
-
     );
   }
-
-
 }
 
 

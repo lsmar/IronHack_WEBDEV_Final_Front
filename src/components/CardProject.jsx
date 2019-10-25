@@ -1,19 +1,22 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+
 
 const CardProject = (props) => {
   return (
-    <Fragment>
+    <div className='components-cardproject-container'>
     {props.projects.map((elem, idx) => {
-        return <div> 
-          <img src={elem.image} alt={elem.name}/>
+        return <div className='components-cardProject-card'> 
+          <a><img className='components-cardProject-img' src={elem.image} alt={elem.name}/></a>
           <div>
-            <h5>{elem.name}</h5>
-            <p>{elem.teachers.name}</p>
-            <p>{elem.students.class} {elem.students.subClass}</p>
+            <h5 className='components-cardProject-title'>{elem.name}</h5>
+            <p>teacher name</p>
+            <p>turma e classe</p>
+            {/* <p>{elem.teachers.name}</p>
+            <p>{elem.students.class} {elem.students.subClass}</p> */}
           </div>
           </div>
       })}
-    </Fragment>
+    </div>
   )
 }
 
