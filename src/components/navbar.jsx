@@ -1,15 +1,16 @@
 import React from 'react';
+import '../Gabriel.css'
 
 // SUBSTITUIR <a> POR <Link>
 // ADICIONAR IMAGENS DENTRO DOS <Link>
 
-const navBar = ({role}) => {
+const navbar = ({role}) => {
   return(
-    <nav>
-      <ul>
+    <nav className='component-navbar-nav'>
+      <ul className='component-navbar-ul'>
         {
           role === 'COORDINATOR' ?
-          <li><a href="https://google.com.br">COORDENATOR</a></li> :
+          <li><a href="https://google.com.br">1</a></li> :
           <li> <a href="https://google.com.br">PROFESSOR</a></li>
         }
         <li> <a href="https://google.com.br">1</a></li>
@@ -20,4 +21,4 @@ const navBar = ({role}) => {
   );
 }
 
-export default navBar;
+export default navbar;

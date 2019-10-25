@@ -1,0 +1,12 @@
+.component-navbar-nav{
+  background-color: red;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100vw;
+}
+
+.component-navbar-ul{
+  display: flex;
+  justify-content: space-around;
+}
