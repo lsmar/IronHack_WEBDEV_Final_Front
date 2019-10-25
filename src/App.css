@@ -21,9 +21,9 @@
   color: #09d3ac;
 }
 
-img {
+/* img {
   width: 260px;
-}
+} */
 .arrow-left {
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
