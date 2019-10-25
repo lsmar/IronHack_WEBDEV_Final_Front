@@ -1,19 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
+import Routes from "./routes/routes";
 import './App.css';
+
 import Logo from './components/Logo'
 import Title from './components/Title'
+import Button from './components/button';
 
-function App() {
-  return (
-    <div>
-      <Logo />
-      <Title>
+const App = () => (
+  <div className="App">
+    <Routes />;
+    <Logo />;
+    <Title>
         guilherme
         <h5>biel</h5>
-      </Title>
-    </div>
-  );
-}
+     </Title>
+   </div>
+);
 
 export default App;
