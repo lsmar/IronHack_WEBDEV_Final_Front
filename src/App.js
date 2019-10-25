@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import Routes from "./routes/routes";
-import './App.css';
+import './Gabriel.css';
 
 import Logo from './components/Logo'
 import Title from './components/Title'
@@ -24,15 +24,7 @@ class App extends Component {
   
     <div className="App">
       <Routes />
-
-
-      <Logo />
-      <Title>
-        Titulo
-      </Title>
-
-
-      <StudentsList students={this.state.obj}/>
+      <StudentsList isChecked={false} students={this.state.obj}/>
     </div>
 
     );
