@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import apiAxios from "../services/api";
-import { login } from "../services/auth";
+import { login, logout } from "../services/auth";
 import Button from '../components/Button'
 import Input from "../components/input";
+import Logo from '../components/Logo';
 
 class Login extends Component {
   constructor(props) {
@@ -45,13 +46,14 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleLogin}>
+      <div className='page-login-bcg'>
+        <form className='page-login-container' onSubmit={this.handleLogin}>
+        <Logo />
           {this.state.error && <p>{this.state.error}</p>}
-          <Input type="email" placeholder="Endereço de e-mail" name="email" handleChange={this.handleFormEdit} />
+          <Input type="email" placeholder="E-mail" name="email" handleChange={this.handleFormEdit} />
           <Input type="password" placeholder="Senha" name="password" handleChange={this.handleFormEdit} />
           <Button type="submit" label={'Logar'}/>
-          <Link to="/signup">Cadastrar Instituição</Link>
+          <Link className='page-login-linkSignup' to="/signup">Cadastrar Instituição</Link>
         </form>
       </div>
     );
