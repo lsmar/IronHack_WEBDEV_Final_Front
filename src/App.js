@@ -24,7 +24,7 @@ class App extends Component {
   
     <div className="App">
       <Routes />
-      <StudentsList isChecked={false} students={this.state.obj}/>
+      <StudentsList isChecked={true} students={this.state.obj}/>
     </div>
 
     );
