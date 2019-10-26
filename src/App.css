@@ -67,7 +67,11 @@
 
 .components-TextArea{
   border: 1px solid black;
-  padding: 10px 70px;
+  border-radius: 10px;
+  padding: 0px 5px;
+  width: 220px;
+  height: 80px;
+  font-size: 18px;
 }
 
 .components-input{
@@ -78,6 +82,7 @@
   height: 40px;
   font-size: 18px;
   margin-bottom: 20px;
+  padding: 0 5px;
 }
 
 .components-logo{
@@ -98,6 +103,18 @@
 ::placeholder{
   padding-left: 10px;
 }
+
+/*component dropdown*/
+.ui.fluid.dropdown{
+  width: 220px !important;
+  border: 1px solid black  !important;
+  border-radius: 10px !important;
+  min-height: 40px !important;
+}
+
+ .components-dropDown{
+  margin-bottom: 20px;
+ }
 
 /*pages login and signup*/
 .page-loginSignup-bcg{

@@ -4,7 +4,7 @@ import Button from "../components/Button";
 import Title from "../components/Title";
 import apiAxios from "../services/api";
 
-class AddProfessor extends Component {
+class AddNewProfessor extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -54,4 +54,4 @@ class AddProfessor extends Component {
   }
 }
 
-export default AddProfessor;
+export default AddNewProfessor;
