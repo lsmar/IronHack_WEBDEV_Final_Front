@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /*COMPONENT*/
@@ -86,6 +87,12 @@
 
 .components-logo-img{
   width: 100%;
+}
+
+.component-title{
+  color:#3D5E73;
+  margin-bottom: 100px;
+  text-align: center;
 }
 
 ::placeholder{

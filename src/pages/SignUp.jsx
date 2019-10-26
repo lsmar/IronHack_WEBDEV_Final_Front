@@ -65,7 +65,7 @@ class SignUp extends Component {
           />
           <Input
             type="email"
-            placeholder="Endereço de e-mail"
+            placeholder="E-mail"
             name="email"
             handleChange={this.handleFormEdit}
           />

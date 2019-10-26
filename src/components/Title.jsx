@@ -2,7 +2,7 @@ import React from 'react';
 
 const Title = (props) => {
   return(
-    <h2>{props.children}</h2>
+    <h3 className='component-title'>{props.children}</h3>
   );
 }
 
