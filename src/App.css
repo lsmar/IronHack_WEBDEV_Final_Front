@@ -1,4 +1,9 @@
-/* GABRIEL */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/*COMPONENT*/
 .component-navbar-nav{
   background-color: red;
   position: fixed;
@@ -20,14 +25,6 @@
   color: red;
 }
 
-/* GRAZY */
-
-
-*{
-  margin: 0;
-  padding: 0;
-}
-
 .components-button-vertical {
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
@@ -39,8 +36,10 @@
   border: 1px solid black;
   border-radius: 10px;
   background-color: #fff;
-  padding: 10px 80px;
+  min-width: 220px;
+  height: 40px;
   font-size: 18px;
+  margin-top: 20px;
 }
 
 .components-cardproject-container{
@@ -71,5 +70,53 @@
 }
 
 .components-input{
-  border: 1px solid black; 
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #fff;
+  min-width: 220px;
+  height: 40px;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
+
+.components-logo{
+ width: 90px;
+ margin-bottom: 50px;
+}
+
+.components-logo-img{
+  width: 100%;
+}
+
+::placeholder{
+  padding-left: 10px;
+}
+
+/*pages login and signup*/
+.page-loginSignup-bcg{
+  background-color: #3D5E73;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-loginSignup-container{
+  background-color: #fff;
+  width: 80vw;
+  height: 85vh;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-loginSignup-link{
+  margin-top: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+

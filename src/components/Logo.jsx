@@ -2,7 +2,9 @@ import React from 'react';
 
 const Logo = () => {
   return(
-    <img src="/test.png" alt=" Logo"/>
+    <figure className='components-logo'>
+    <img className='components-logo-img' src="/test.png" alt="Logo"/>
+    </figure>
   );
 }
 
