@@ -3,7 +3,7 @@ import  {Link} from "react-router-dom";
 import apiAxios from "../services/api"
 import { login } from "../services/auth";
 import Input from "../components/input";
-import Button from "../components/Button";
+import Button from "../components/button";
 import Logo from "../components/Logo";
 
 class SignUp extends Component {
@@ -14,7 +14,8 @@ class SignUp extends Component {
     name: "",
     email: "",
     password:"",
-    error: ""
+    error: "",
+    role: "COORDINATOR",
   }
   this.handleFormEdit = this.handleFormEdit.bind(this)
   this.handleSignUp = this.handleSignUp.bind(this)
@@ -23,12 +24,12 @@ class SignUp extends Component {
   //* Form submit
   handleSignUp = async e => {
     e.preventDefault();
-    const {institution,name, email, password } = this.state;
+    const {institution,name, email, password,role } = this.state;
     if (!institution ||!name || !email || !password) {
       this.setState({ error: "Preencha todos os dados para se cadastrar" });
     } else {
       try {
-        const signupResponse = await apiAxios.post("/auth/signup", { institution,name, email, password });
+        const signupResponse = await apiAxios.post("/auth/signup", { institution, name, email, password, role });
         login(signupResponse.data.token)
         debugger;
 
@@ -75,6 +76,7 @@ class SignUp extends Component {
             name="password"
             handleChange={this.handleFormEdit}
           />
+          <Input type="text" name="role" value= "COORDINATOR" hidden="true"/>
           <Button type="submit" label={'Cadastrar e logar'}/>
           <Link className='page-loginSignup-link' to="/">Fazer login</Link>
         </form>
