@@ -6,6 +6,7 @@ import Input from "../components/input";
 import Button from "../components/Button";
 import Logo from "../components/Logo";
 
+
 class SignUp extends Component {
   constructor(props){
   super(props)
