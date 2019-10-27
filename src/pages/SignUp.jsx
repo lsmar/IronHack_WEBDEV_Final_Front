@@ -3,7 +3,7 @@ import  {Link} from "react-router-dom";
 import apiAxios from "../services/api"
 import { login } from "../services/auth";
 import Input from "../components/input";
-import Button from "../components/button";
+import Button from "../components/Button";
 import Logo from "../components/Logo";
 
 class SignUp extends Component {
@@ -66,7 +66,7 @@ class SignUp extends Component {
           />
           <Input
             type="email"
-            placeholder="Endereço de e-mail"
+            placeholder="E-mail"
             name="email"
             handleChange={this.handleFormEdit}
           />
