@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Input from "../components/input";
-import Button from "../components/Button";
+import Button from "../components/Botao";
 import Title from "../components/Title";
 import apiAxios from "../services/api";
 

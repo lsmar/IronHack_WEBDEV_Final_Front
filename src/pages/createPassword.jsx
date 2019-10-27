@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import apiAxios from "../services/api";
-import Button from '../components/Button';
+import Button from '../components/Botao';
 import Input from "../components/input";
 import Logo from '../components/Logo';
 import base64 from "base-64"
