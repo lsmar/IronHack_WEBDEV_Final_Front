@@ -20,7 +20,7 @@ const Routes = () => (
       <Route exact path="/" component={Login} />
       <Route path="/signup" component={SignUp} />
       <PrivateRoute path="/app" role="TEACHER" component={() => <h1>App</h1>} />
-      <Route path="/newTeacher" role="COORDINATOR" component={AddNewProfessor} />
+      <Route path="/newUser" role="COORDINATOR" component={AddNewProfessor} />
       <Route path="/newProject" role="" component={AddNewProject} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>

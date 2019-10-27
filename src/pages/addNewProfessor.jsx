@@ -3,6 +3,7 @@ import Input from "../components/input";
 import Button from "../components/Button";
 import Title from "../components/Title";
 import apiAxios from "../services/api";
+import  Navbar  from "../components/navbar";
 
 class AddNewProfessor extends Component {
   constructor(props){
@@ -31,8 +32,8 @@ class AddNewProfessor extends Component {
 
   render(){
     return(
-      <div className='page-loginSignup-bcg'>
-        <form className='page-loginSignup-container' onSubmit={this.handleAddprof}>
+      <div>
+        <form className='page-add-container'  onSubmit={this.handleAddprof}>
         <Title>CADASTRAR NOVO PROFESSOR</Title>
           {this.state.error && <p>{this.state.error}</p>}
           <Input
@@ -48,6 +49,7 @@ class AddNewProfessor extends Component {
             handleChange={this.handleFormEdit}
           />
           <Button type="submit" label={'Cadastrar'}/>
+          <Navbar />
         </form>
       </div>
     )

@@ -1,12 +1,12 @@
 import React from "react";
 
-const TextArea = ({ name, value, placeholder, method }) => {
+const TextArea = ({ name, value, placeholder, handleChange}) => {
   return ( <textarea
     className='components-TextArea'
         name={name}
         value={value}
         placeholder={placeholder}
-        onChange={method} 
+        onChange={e => handleChange(e)}
   /> 
   );
 };
