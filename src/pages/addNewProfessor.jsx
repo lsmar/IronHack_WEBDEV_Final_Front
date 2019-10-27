@@ -15,12 +15,12 @@ class AddNewProfessor extends Component {
     this.handleAddprof = this.handleAddprof.bind(this)
   }
 
-  handleAddprof = (name, email) => {
+  handleAddprof = (e) => {
+    e.preventDefault(); 
+    const { name, email } = this.state
     apiAxios.post("/user",{ name, email })
     .then(
       response => {
-        this.props.getData();
-        console.log(response.data);
         this.setState({ name: "", email: "" });
       }
     ).catch(e => console.log(e))

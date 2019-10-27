@@ -4,29 +4,32 @@ import { Dropdown } from "semantic-ui-react";
 class DropdownHabilidades extends Component {
   constructor(props) {
     super(props);
+   
     this.state = {
-      values: [
-        { text: "Linguagens", value: "linguage" },
-        { text: "Matemática", value: "math" },
-        { text: "Ciências da natureza", value: "natureza" },
-        { text: "Ciências humanas", value: "humanas" },
-      ],
+      values: props.values,
       value: []
     };
+    this.handleChange = this.handleChange.bind(this)
   }
   handleChange = (e, { value }) => {
-    this.setState({ value });
+    this.setState({ value },()=>
+    this.props.onChange(this.state.value)
+    );
     
   };
+  componentDidUpdate=(e)=>{
+  
+  }
   render() {
     const options = this.state.values.map((el, idx) => {
       el.key = idx;
       return el;
     });
+
     return (
       <Dropdown
       className='components-dropDown'
-        placeholder="Habilidades"
+        placeholder={this.props.placeholder}
         fluid
         multiple
         selection

@@ -6,8 +6,7 @@ import React from "react";
       <div>
         <select  className='components-input' 
           name={name} 
-          value={name}
-          onChange={e => handleChange(e)}
+          onChange={(e) => handleChange(e)}
         >
           <option key={name} value={name}>{name}</option>
           {options.map((option, idx)=> <option key={idx} value={option}>{option}</option>)}
