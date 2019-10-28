@@ -5,15 +5,22 @@ import Title from '../components/Title';
 import Search from '../components/searchBar'
 import Card from '../components/CardProject'
 import Nav from '../components/navbar'
+import apiAxios from '../services/api'
 
 class Home extends Component {
   constructor(props){
     super(props)
     this.state = {
-      project: [{name: 'Projeto incrivel', image: 'https://www.ledr.com/colours/grey.jpg'}, {name: 'monicat', image: 'https://www.ledr.com/colours/grey.jpg'}, {name: 'Lucas', image: 'https://www.ledr.com/colours/grey.jpg'}, {name: 'Grazy linda', image: 'https://www.ledr.com/colours/grey.jpg'}],
+      project: [],
       input:''
     }
     this.onChangeHandler = this.onChangeHandler.bind(this)
+  }
+
+  componentDidMount(){
+    apiAxios.get('/project')
+    .then(response => this.setState({project: response.data}))
+    .catch(err => console.log(err))
   }
 
   onChangeHandler(e){

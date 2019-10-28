@@ -22,6 +22,7 @@ class AddNewProfessor extends Component {
     .then(
       response => {
         this.setState({ name: "", email: "" });
+        this.props.history.push("/professorCreated");
       }
     ).catch(e => console.log(e))
   };
@@ -41,12 +42,14 @@ class AddNewProfessor extends Component {
             placeholder="Nome "
             name="name"
             handleChange={this.handleFormEdit}
+            value= {this.state.name}
           />
           <Input
             type="email"
             placeholder="E-mail"
             name="email"
             handleChange={this.handleFormEdit}
+            value= {this.state.email}
           />
           <Button type="submit" label={'Cadastrar'}/>
           <Navbar />

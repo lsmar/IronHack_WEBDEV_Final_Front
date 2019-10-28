@@ -4,7 +4,7 @@ import apiAxios from "../services/api";
 import { login, logout } from "../services/auth";
 import Button from '../components/Botao'
 import Input from "../components/input";
-import Logo from '../components/Logo';
+import LogoSL from '../components/LogoSL'
 
 class Login extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class Login extends Component {
       try {
         const LoginResponse = await apiAxios.post("/auth/login", { email, password });
         login(LoginResponse.data.token);
-        this.props.history.push("/home");
+        this.props.history.push("/project");
       } catch (err) {
         this.setState({ error: "Ocorreu um erro ao fazer o login" });
       }
@@ -45,7 +45,7 @@ class Login extends Component {
     return (
       <div className='page-loginSignup-bcg'>
         <form className='page-loginSignup-container' onSubmit={this.handleLogin}>
-        <Logo />
+        <LogoSL />
           {this.state.error && <p>{this.state.error}</p>}
           <Input type="email" placeholder="E-mail" name="email" handleChange={this.handleFormEdit} />
           <Input type="password" placeholder="Senha" name="password" handleChange={this.handleFormEdit} />

@@ -10,7 +10,7 @@ const CardProject = (props) => {
   return (
     <div className='components-cardproject-container'>
     {props.projects.map((elem, idx) => {
-        return <a key={idx}  href="https://google.com">
+        return <a key={idx} href={`/project/${elem._id}`}>
           <div data-aos='fade-right' className='components-cardProject-card'> 
           <img className='components-cardProject-img' src={elem.image} alt={elem.name}/>
           <div className='components-cardProject-text'>
