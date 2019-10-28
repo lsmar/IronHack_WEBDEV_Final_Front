@@ -29,7 +29,7 @@ class Home extends Component {
       <Fragment>
         <Logo />
         <hr />
-        <Title>Home</Title>
+        <Title>Projetos</Title>
         <Search placeholder='🔎 Buscar...' method={this.onChangeHandler}/>
         <Card projects={projects}/>
         <Nav />
