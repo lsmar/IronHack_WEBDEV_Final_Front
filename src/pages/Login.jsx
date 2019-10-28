@@ -5,6 +5,7 @@ import { login, logout } from "../services/auth";
 import Button from '../components/Botao'
 import Input from "../components/input";
 import Logo from '../components/Logo';
+import LogoSL from '../components/LogoSL'
 
 class Login extends Component {
   constructor(props) {
@@ -45,7 +46,7 @@ class Login extends Component {
     return (
       <div className='page-loginSignup-bcg'>
         <form className='page-loginSignup-container' onSubmit={this.handleLogin}>
-        <Logo />
+        <LogoSL />
           {this.state.error && <p>{this.state.error}</p>}
           <Input type="email" placeholder="E-mail" name="email" handleChange={this.handleFormEdit} />
           <Input type="password" placeholder="Senha" name="password" handleChange={this.handleFormEdit} />
