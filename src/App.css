@@ -11,7 +11,7 @@
   bottom: 0px;
   left: 0px;
   width: 100vw;
-  height: 45px;
+  height: 50px;
 }
 
 .component-navbar-ul{
@@ -103,8 +103,11 @@
 
 .components-searchBar{
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 0.5px solid lightgray;
+  width: 300px;
+  height: 30px;
 }
+
 
 .components-TextArea{
   border: 1px solid black;
@@ -130,12 +133,17 @@
 }
 
 .components-logo-container{
-  width: 100vw;
-  height: 10vh;
+  min-width: 100vw;
+  min-height: 10vh;
   border-bottom: 1px solid lightgray;
-  background-color: #fff;
+  background-color: white;
   position: fixed;
   top: 0px;
+  z-index: 4;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .component-logoSL{
@@ -146,8 +154,8 @@
 .components-logo{
  width: 90px;
  margin-bottom: 5px;
- margin-left: 10px;
- position: fixed;
+ margin-left: 20px;
+
 }
 
 .components-logo-img{
@@ -156,10 +164,12 @@
 
 .component-title{
   color:#338ceb;
-  font-size: 30px;
-  margin-bottom: 15px;
+  font-size: 20px;
+  margin-top: 0px;
   text-align: center;
   font-family: 'Assistant', sans-serif;
+  margin-right: 20px;
+  font-weight: 100;
 }
 
 ::placeholder{
@@ -229,4 +239,5 @@ height: 100vh;
 
   /*PAGE HOME */
   .page-home-container{
+    padding-top: 100px;
   }
