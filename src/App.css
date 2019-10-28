@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Saira+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 *{
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -44,14 +47,20 @@
 }
 
 .components-button {
-  border: 1px solid black;
+  border: 0.5px solid #75aeeb;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: #75aeeb;
   min-width: 220px;
   height: 40px;
   font-size: 18px;
   margin-top: 20px;
   margin-bottom: 20px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.components-button:hover{
+  box-shadow: 0 0 5px 0 #338ceb inset, 0 0 5px 4px #338ceb;
 }
 
 .components-cardproject-container{
@@ -218,8 +227,8 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-width: 100vw;
-height: 100vh;
+min-width: 100vw;
+min-height: 100vh;
 }
 
 /*PAGE PROJECT DETAIL*/
@@ -228,10 +237,33 @@ height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   }
 
+.page-projectDetail-title{
+  font-size: 35px;
+  min-width: 150px;
+  margin: none;
+  color: 
+  #FF7578;
+  font-style: italic;
+  font-family: 'Roboto', sans-serif;
+}
+
+.page-projectDetail-text{
+margin: 10px !important;
+font-size: 20px;
+font-family: 'Roboto', sans-serif;
+}
+
+.page-projectDetail-text-span{
+  margin: 50px 0;
+}
+
+.page-projectDetail-text-value{
+  font-weight: 100;
+}
   /*PAGE HOME */
   .page-home-container{
     padding-top: 100px;
