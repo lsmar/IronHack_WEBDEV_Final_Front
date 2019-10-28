@@ -12,15 +12,20 @@ class Home extends Component {
     super(props)
     this.state = {
       project: [],
-      input:''
+      input:'',
+      error: ''
     }
     this.onChangeHandler = this.onChangeHandler.bind(this)
   }
 
   componentDidMount(){
     apiAxios.get('/project')
-    .then(response => this.setState({project: response.data}))
-    .catch(err => console.log(err))
+    .then(response => this.setState({project: response.data}, () => {
+      this.state.project.length === 0 ? this.setState({error: 'Ainda não há projetos'}) : this.setState({error: ''})
+    })
+    )
+    .catch(err => console.log(err)
+    )
   }
 
   onChangeHandler(e){
@@ -37,6 +42,7 @@ class Home extends Component {
         <Logo title={'Home'}/>
         <div className='page-home-container'>
         <Search placeholder='🔎 Buscar...' method={this.onChangeHandler}/>
+        <p className="error">{this.state.error}</p>
         <Card projects={projects}/>
         <Nav />
         </div>
