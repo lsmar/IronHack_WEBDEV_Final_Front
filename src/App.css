@@ -33,11 +33,11 @@
 
 
 .component-student-green{
-  color: green;
+  color: #A3B816;
 }
 
 .component-student-red{
-  color: red;
+  color: #EE584C;
 }
 
 .components-button-vertical {
@@ -62,7 +62,7 @@
 }
 
 .components-button:hover{
-  box-shadow: 0 0 8px 0 #338ceb inset, 0 0 5px 4px #338ceb;
+  box-shadow: 0 0 8px 0 #75aeeb inset, 0 0 5px 4px #75aeeb;
 }
 
 .components-cardproject-container{
@@ -92,7 +92,7 @@
 .components-cardProject-text{
   margin-left: 20px;
   margin-top: 5px;
-  color: #FF7578;
+  color: #EE584C;
 }
 
 .components-cardProject-title{
@@ -174,7 +174,7 @@
 }
 
 .component-title{
-  color:#5D7A99;
+  color: #EE584C;
   font-size: 20px;
   margin-top: 0px;
   text-align: center;
@@ -253,7 +253,7 @@ min-height: 100vh;
   min-width: 150px;
   margin: none;
   color: 
-  #FF7578;
+  #EE584C;
   font-style: italic;
   font-family: 'Roboto', sans-serif;
 }
@@ -286,7 +286,7 @@ font-family: 'Roboto', sans-serif;
   }
 
   .page-sucess-title{
-    color:#FF7578;
+    color:#EE584C;
     font-family: 'M PLUS 1p', sans-serif;
     text-align: center;
     font-size: 35px;
