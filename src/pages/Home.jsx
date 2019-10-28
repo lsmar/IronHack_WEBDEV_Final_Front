@@ -28,7 +28,6 @@ class Home extends Component {
     return(
       <Fragment>
         <Logo />
-        <hr />
         <Title>Home</Title>
         <Search placeholder='🔎 Buscar...' method={this.onChangeHandler}/>
         <Card projects={projects}/>
