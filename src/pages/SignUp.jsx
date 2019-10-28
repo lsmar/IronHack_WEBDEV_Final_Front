@@ -3,8 +3,9 @@ import  {Link} from "react-router-dom";
 import apiAxios from "../services/api"
 import { login } from "../services/auth";
 import Input from "../components/input";
-import Button from "../components/Button";
+import Button from "../components/Botao";
 import Logo from "../components/Logo";
+
 
 class SignUp extends Component {
   constructor(props){
