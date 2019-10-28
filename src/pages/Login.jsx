@@ -4,7 +4,6 @@ import apiAxios from "../services/api";
 import { login, logout } from "../services/auth";
 import Button from '../components/Botao'
 import Input from "../components/input";
-import Logo from '../components/Logo';
 import LogoSL from '../components/LogoSL'
 
 class Login extends Component {

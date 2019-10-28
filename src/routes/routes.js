@@ -25,7 +25,7 @@ const Routes = () => (
     <Switch>
       <Route exact path="/" component={Login} />
       <Route path="/signup" component={SignUp} />
-      <Route path="/home" component={Home} />
+      <PrivateRoute role='' exact path="/project" component={Home} />
       <PrivateRoute path="/app" role="TEACHER" component={() => <h1>App</h1>} />
       <Route path="/newTeacher" role="COORDINATOR" component={AddNewProfessor} />
       <Route path="/newUser/:token" role="" component={CreatePassword} />
