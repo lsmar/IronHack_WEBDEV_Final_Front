@@ -1,4 +1,8 @@
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 
 
@@ -7,7 +11,7 @@ const CardProject = (props) => {
     <div className='components-cardproject-container'>
     {props.projects.map((elem, idx) => {
         return <a key={idx}  href="https://google.com">
-          <div className='components-cardProject-card'> 
+          <div data-aos='fade-right' className='components-cardProject-card'> 
           <img className='components-cardProject-img' src={elem.image} alt={elem.name}/>
           <div className='components-cardProject-text'>
             <h5 className='components-cardProject-title'>{elem.name}</h5>
