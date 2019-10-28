@@ -6,6 +6,7 @@ import AddNewProfessor from "../pages/addNewProfessor";
 import AddNewProject from "../pages/addNewProject";
 
 import { isAuthenticated } from "../services/auth";
+import ProjectDetail from "../pages/projectDetail";
 
 const PrivateRoute = ({ component: Component, role, ...rest }) => (
   <Route
@@ -22,6 +23,7 @@ const Routes = () => (
       <PrivateRoute path="/app" role="TEACHER" component={() => <h1>App</h1>} />
       <Route path="/newUser" role="COORDINATOR" component={AddNewProfessor} />
       <Route path="/newProject" role="" component={AddNewProject} />
+      <Route path="/project/:id" role="" component={ProjectDetail} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
   </BrowserRouter>
