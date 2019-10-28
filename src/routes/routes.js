@@ -5,6 +5,8 @@ import Login from "../pages/Login";
 import AddNewProfessor from "../pages/addNewProfessor";
 import AddNewProject from "../pages/addNewProject";
 import CreatePassword from "../pages/createPassword";
+import ProjectCreated from "../pages/projectCreated";
+import ProfessorCreated from "../pages/professorCreated";
 import Home from '../pages/Home'
 
 
@@ -28,6 +30,8 @@ const Routes = () => (
       <Route path="/newUser/:token" role="" component={CreatePassword} />
       <Route path="/newUser" role="COORDINATOR" component={AddNewProfessor} />
       <Route path="/newProject" role="" component={AddNewProject} />
+      <Route path="/projectCreated" role="" component={ProjectCreated} />
+      <Route path="/professorCreated" role="" component={ProfessorCreated} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
   </BrowserRouter>
