@@ -6,20 +6,27 @@
 
 /*COMPONENT*/
 .component-navbar-nav{
-  background-color: #3D5E73;
+  background-color: #338ceb;
   position: fixed;
   bottom: 0px;
   left: 0px;
   width: 100vw;
+  height: 45px;
 }
 
 .component-navbar-ul{
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  min-height: 50px;
-  
 }
+
+.component-navbar-ul > li{
+  list-style: none;
+}
+
+.component-navbar-img{
+  height: 50px;
+}
+
 
 .component-student-green{
   color: green;
@@ -48,25 +55,55 @@
 }
 
 .components-cardproject-container{
-  border: 1px solid black;  
+  /* border: 1px solid black;   */
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 50px;
 }
 
 .components-cardProject-card{
-  border: 1px solid black;
-  width: 140px;
-  height: 160px ;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 3px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: 230px ;
   margin: 20px 0;
   display: flex;
   flex-direction: column;
 }
 
+.components-cardProject-img{
+  height: 140px;
+  width: 100%;
+}
+
+.components-cardProject-text{
+  margin-left: 20px;
+  margin-top: 5px;
+  color: #338ceb;
+}
+
+.components-cardProject-title{
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.components-cardProject-p{
+  font-size: 15px;
+  margin-bottom: 0px;
+  line-height: 15px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.components-searchBar-DF{
+  display: flex;
+  justify-content: center;
+}
+
 .components-searchBar{
-  border: 1px solid black;
-  padding: 10px 70px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .components-TextArea{
@@ -94,7 +131,8 @@
 
 .components-logo{
  width: 90px;
- margin-bottom: 50px;
+ margin-bottom: 5px;
+ margin-left: 10px;
 }
 
 .components-logo-img{
@@ -102,13 +140,17 @@
 }
 
 .component-title{
-  color:#3D5E73;
-  margin-bottom: 30px;
+  color:#338ceb;
+  font-size: 30px;
+  margin-bottom: 15px;
   text-align: center;
+  font-family: 'Assistant', sans-serif;
 }
 
 ::placeholder{
   padding-left: 10px;
+  font-family: 'Assistant', sans-serif;
+  font-size: 15px;
 }
 
 /*component dropdown*/
@@ -125,7 +167,7 @@
 
 /*pages login and signup*/
 .page-loginSignup-bcg{
-  background-color: #3D5E73;
+  background-color: #338ceb;
   height: 100vh;
   width: 100vw;
   display: flex;
