@@ -65,11 +65,11 @@ class AddNewProject extends Component {
   handleAddproject = (e) => {
     e.preventDefault();
     const {name, teachers, grade, classRoom, description, subjects, image} = this.state
-    console.log("vou postar")
     apiAxios
     .post("/project", { name, teachers, grade, classRoom, description, subjects, image })
     .then(() => {
           this.setState({ name: '', teachers: [], grade: '', classRoom: '', description: '', subjects: [], image: '' })
+          this.props.history.push("/projectCreated");
         })
     .catch(e => console.log(e))
   };
