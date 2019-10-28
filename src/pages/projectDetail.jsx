@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import apiAxios from "../services/api";
 import Button from "../components/Botao"
+import Navbar from '../components/navbar';
+import Logo from '../components/Logo';
 
 class ProjectDetail extends Component {
   constructor(props) {
@@ -32,6 +34,8 @@ class ProjectDetail extends Component {
 
   render() {
     return (
+      <Fragment>
+        <Logo />
       <div className='page-add-container'>
         <h1>{this.state.name}</h1>
         <h5>Professor: {this.state.teachers.length > 0 ? this.state.teachers.map(e => e.name) : null}</h5>
@@ -41,6 +45,8 @@ class ProjectDetail extends Component {
         <Button type="submit" label={'Avaliação'} />
         <Button type="submit" label={'Resultados'} />
       </div>
+      <Navbar/>
+      </Fragment>
     )
   }
 }

@@ -129,10 +129,20 @@
   color: #d5d5d5;
 }
 
+.components-logo-container{
+  width: 100vw;
+  height: 10vh;
+  border-bottom: 1px solid lightgray;
+  background-color: #fff;
+  position: fixed;
+  top: 0px;
+}
+
 .components-logo{
  width: 90px;
  margin-bottom: 5px;
  margin-left: 10px;
+ position: fixed;
 }
 
 .components-logo-img{
@@ -202,3 +212,16 @@ width: 100vw;
 height: 100vh;
 }
 
+/*PAGE PROJECT DETAIL*/
+.page-projectDetail-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  }
+
+  /*PAGE HOME */
+  .page-home-container{
+  }
