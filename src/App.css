@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Saira+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+1p&display=swap');
 
 *{
   margin: 0px;
@@ -48,19 +49,20 @@
 
 .components-button {
   border: 0.5px solid #75aeeb;
+  box-shadow: 0 0 20px 20px #75aeeb inset, 0 0 0 0 #75aeeb;
+  transition: all 150ms ease-in-out;
   border-radius: 10px;
   background-color: #75aeeb;
   min-width: 220px;
   height: 40px;
   font-size: 18px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 10px 0;
   color: white;
   font-family: 'Roboto', sans-serif;
 }
 
 .components-button:hover{
-  box-shadow: 0 0 5px 0 #338ceb inset, 0 0 5px 4px #338ceb;
+  box-shadow: 0 0 8px 0 #338ceb inset, 0 0 5px 4px #338ceb;
 }
 
 .components-cardproject-container{
@@ -90,7 +92,7 @@
 .components-cardProject-text{
   margin-left: 20px;
   margin-top: 5px;
-  color: #338ceb;
+  color: #FF7578;
 }
 
 .components-cardProject-title{
@@ -172,11 +174,11 @@
 }
 
 .component-title{
-  color:#338ceb;
+  color:#5D7A99;
   font-size: 20px;
   margin-top: 0px;
   text-align: center;
-  font-family: 'Assistant', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin-right: 20px;
   font-weight: 100;
 }
@@ -272,4 +274,21 @@ font-family: 'Roboto', sans-serif;
   /*PAGE HOME */
   .page-home-container{
     padding-top: 100px;
+  }
+
+  /*PAGE SUCESS*/
+  .page-sucess-figure{
+    width: 190px;
+  }
+
+  .page-sucess-img{
+    width: 100%;
+  }
+
+  .page-sucess-title{
+    color:#FF7578;
+    font-family: 'M PLUS 1p', sans-serif;
+    text-align: center;
+    font-size: 35px;
+    padding: 0 10px;
   }
