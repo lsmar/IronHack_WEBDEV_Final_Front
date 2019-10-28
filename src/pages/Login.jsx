@@ -30,7 +30,7 @@ class Login extends Component {
       try {
         const LoginResponse = await apiAxios.post("/auth/login", { email, password });
         login(LoginResponse.data.token);
-        this.props.history.push("/home");
+        this.props.history.push("/project");
       } catch (err) {
         this.setState({ error: "Ocorreu um erro ao fazer o login" });
       }
