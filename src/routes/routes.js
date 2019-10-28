@@ -9,6 +9,7 @@ import Home from '../pages/Home'
 
 
 import { isAuthenticated } from "../services/auth";
+import ProjectDetail from "../pages/projectDetail";
 
 const PrivateRoute = ({ component: Component, role, ...rest }) => (
   <Route
@@ -28,6 +29,7 @@ const Routes = () => (
       <Route path="/newUser/:token" role="" component={CreatePassword} />
       <Route path="/newUser" role="COORDINATOR" component={AddNewProfessor} />
       <Route path="/newProject" role="" component={AddNewProject} />
+      <Route path="/project/:id" role="" component={ProjectDetail} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
   </BrowserRouter>
