@@ -27,11 +27,12 @@ class Home extends Component {
     const projects = [...this.state.project].filter(el=>el.name.toLocaleLowerCase().indexOf(this.state.input)>-1);
     return(
       <Fragment>
-        <Logo />
-        <Title>Home</Title>
+        <Logo title={'Home'}/>
+        <div className='page-home-container'>
         <Search placeholder='🔎 Buscar...' method={this.onChangeHandler}/>
         <Card projects={projects}/>
         <Nav />
+        </div>
       </Fragment>
     );
   }
