@@ -65,12 +65,13 @@ class AddNewProject extends Component {
   handleAddproject = (e) => {
     e.preventDefault();
     const {name, teachers, grade, classRoom, description, subjects, image} = this.state
-    apiAxios.post("/project", { name, teachers, grade, classRoom, description, subjects, image })
-      .then(
-        response => {
-          this.setState({ name: '', teachers: [], grade: '', classRoom: '', description: '', subjects: [], image: '' });
-        }
-      ).catch(e => console.log(e))
+    console.log("vou postar")
+    apiAxios
+    .post("/project", { name, teachers, grade, classRoom, description, subjects, image })
+    .then(() => {
+          this.setState({ name: '', teachers: [], grade: '', classRoom: '', description: '', subjects: [], image: '' })
+        })
+    .catch(e => console.log(e))
   };
 
   render() {
@@ -84,6 +85,7 @@ class AddNewProject extends Component {
             placeholder="Nome do projeto"
             name="name"
             handleChange={this.handleFormEdit}
+            value={this.state.name}
           />
           {this.state.teacherList.length>0?<DropdownHabilidades name='teachers' onChange={this.handleTeacherDropDown} values={this.state.teacherList} placeholder='Professores'/>:null} 
           <Select handleChange={this.handleFormEdit} name="grade" value={this.state.grade} options={['1', '2', '3']} />
@@ -95,6 +97,7 @@ class AddNewProject extends Component {
             placeholder="imagem"
             name="image"
             handleChange={this.handleFormEdit}
+            value={this.state.image}
           />
           <Button type="submit" label={'Cadastrar'} />
           <Navbar />
