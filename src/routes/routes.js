@@ -7,6 +7,9 @@ import AddNewProject from "../pages/addNewProject";
 import CreatePassword from "../pages/createPassword";
 import ProjectCreated from "../pages/projectCreated";
 import ProfessorCreated from "../pages/professorCreated";
+import RecordBookMainPage from "../pages/RecordBookMainPage";
+import RecordBookPerDate from "../pages/RecordBookPerDate";
+import RecordBookPerStudent from "../pages/RecordBookPerStudent";
 import Home from '../pages/Home'
 
 
@@ -33,7 +36,10 @@ const Routes = () => (
       <Route path="/newProject" role="" component={AddNewProject} />
       <Route path="/projectCreated" role="" component={ProjectCreated} />
       <Route path="/professorCreated" role="" component={ProfessorCreated} />
-      <Route path="/project/:id" role="" component={ProjectDetail} />
+      <Route exact path="/project/:id/recordBook" role="" component={RecordBookMainPage} />
+      <Route exact path="/project/:id/recordBook/:date" role="" component={RecordBookPerDate} />
+      <Route exact path="/project/:id/recordBook/:date/:idStudent" role="" component={RecordBookPerStudent} />
+      <Route exact path="/project/:id" role="" component={ProjectDetail} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
   </BrowserRouter>
