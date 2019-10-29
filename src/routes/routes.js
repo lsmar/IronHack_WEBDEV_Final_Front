@@ -12,7 +12,8 @@ import RecordBookPerDate from "../pages/RecordBookPerDate";
 import RecordBookPerStudent from "../pages/RecordBookPerStudent";
 import EditProject from "../pages/editProject";
 import DeleteProject from "../pages/deleteProject";
-import Home from '../pages/Home'
+import Home from '../pages/Home';
+import MyProjects from '../pages/meusProjetos';
 
 
 import { isAuthenticated } from "../services/auth";
@@ -31,6 +32,7 @@ const Routes = () => (
       <Route exact path="/" component={Login} />
       <Route path="/signup" component={SignUp} />
       <PrivateRoute role='' exact path="/project" component={Home} />
+      <PrivateRoute role='TEACHER' path='/project/my' component={MyProjects} />
       <PrivateRoute path="/app" role="TEACHER" component={() => <h1>App</h1>} />
       <Route path="/newTeacher" role="COORDINATOR" component={AddNewProfessor} />
       <Route path="/newUser/:token" role="" component={CreatePassword} />
