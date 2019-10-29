@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import Button from "../components/Botao";
 import Title from "../components/Title";
 import InputDate from "../components/inputDate";
-import StudentsList from "../components/StudentsList";
 import apiAxios from "../services/api";
-import ProjectCreated from "./projectCreated";
 
 class RecordBookMainPage extends Component {
   constructor(props) {
@@ -22,6 +20,10 @@ class RecordBookMainPage extends Component {
   }
 
   componentDidMount = () => {
+    this.getPreviousRecords();
+  };
+
+  componentDidUpdate = () => {
     this.getPreviousRecords();
   };
 
@@ -68,9 +70,8 @@ class RecordBookMainPage extends Component {
           label={"Iniciar diário"}
           method={this.createRecord}
         />
-        <Title>Diários já criados</Title>
-        {/* {this.state.allRecords.map(e => <Link to=`project/${this.props.match.params.id}/RecordBook/${e}`/>) : null } */}
-        {/* this.state.diaries.map(diary => <Link to="/record/${this.state.id}/${}") */}
+        <Title>Diários existentes</Title>
+        {this.state.allRecords.map((e,idx)=> <Link  key = {idx} to={`/project/${this.props.match.params.id}/RecordBook/${e.date}`}> <Button label={e.date} /> </Link> )}
       </div>
     );
   }
