@@ -1,7 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Saira+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+1p&display=swap');
+
 *{
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
+}
+
+.error{
+  text-align: center;
+  margin-top: 50px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /*COMPONENT*/
@@ -11,7 +22,7 @@
   bottom: 0px;
   left: 0px;
   width: 100vw;
-  height: 45px;
+  height: 50px;
 }
 
 .component-navbar-ul{
@@ -29,11 +40,11 @@
 
 
 .component-student-green{
-  color: green;
+  color: #A3B816;
 }
 
 .component-student-red{
-  color: red;
+  color: #EE584C;
 }
 
 .components-button-vertical {
@@ -44,14 +55,21 @@
 }
 
 .components-button {
-  border: 1px solid black;
+  border: 0.5px solid #75aeeb;
+  box-shadow: 0 0 20px 20px #75aeeb inset, 0 0 0 0 #75aeeb;
+  transition: all 150ms ease-in-out;
   border-radius: 10px;
-  background-color: #fff;
-  min-width: 220px;
+  background-color: #75aeeb;
+  min-width: 250px;
   height: 40px;
   font-size: 18px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 10px 0;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.components-button:hover{
+  box-shadow: 0 0 8px 0 #75aeeb inset, 0 0 5px 4px #75aeeb;
 }
 
 .components-cardproject-container{
@@ -70,6 +88,7 @@
   height: 230px ;
   margin: 20px 0;
   display: flex;
+  margin: 30px;
   flex-direction: column;
 }
 
@@ -81,7 +100,7 @@
 .components-cardProject-text{
   margin-left: 20px;
   margin-top: 5px;
-  color: #338ceb;
+  color: #EE584C;
 }
 
 .components-cardProject-title{
@@ -103,46 +122,71 @@
 
 .components-searchBar{
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 0.5px solid lightgray;
+  width: 300px;
+  height: 30px;
 }
+
 
 .components-TextArea{
   border: 1px solid black;
   border-radius: 10px;
-  padding: 0px 5px;
-  width: 220px;
-  height: 80px;
+  padding: 0px 10px;
+  width: 250px;
+  height: 100px;
   font-size: 14px;
   margin-bottom: 20px;
-  color: #d5d5d5;
+  color: black;
 }
 
 .components-input{
   border: 1px solid black;
   border-radius: 10px;
   background-color: #fff;
-  min-width: 220px;
+  min-width: 250px;
   height: 40px;
   font-size: 14px;
   margin-bottom: 20px;
-  padding: 0 5px;
-  color: #d5d5d5;
+  padding: 0 10px;
+  color: black;
+}
+
+.components-inputFile{
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #fff;
+  width: 250px;
+  height: 40px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  color: black;
 }
 
 .components-logo-container{
-  width: 100vw;
-  height: 10vh;
+  min-width: 100vw;
+  min-height: 10vh;
   border-bottom: 1px solid lightgray;
-  background-color: #fff;
+  background-color: white;
   position: fixed;
   top: 0px;
+  z-index: 4;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.component-logoSL{
+  height: 60px;
+  margin-bottom: 50px;
 }
 
 .components-logo{
  width: 90px;
  margin-bottom: 5px;
- margin-left: 10px;
- position: fixed;
+margin-left: 0px;
 }
 
 .components-logo-img{
@@ -150,22 +194,35 @@
 }
 
 .component-title{
-  color:#338ceb;
-  font-size: 30px;
-  margin-bottom: 15px;
+  color: #EE584C;
+  font-size: 25px;
+  margin-top: 0px;
   text-align: center;
-  font-family: 'Assistant', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+
+.component-titleAndText{
+  color: #EE584C;
+  font-size: 30px;
+  
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
 }
 
 ::placeholder{
-  padding-left: 10px;
+  padding-left: 3px;
   font-family: 'Assistant', sans-serif;
   font-size: 15px;
+  color: gray;
 }
+
+
 
 /*component dropdown*/
 .ui.fluid.dropdown{
-  width: 220px !important;
+  width: 250px !important;
   border: 1px solid black  !important;
   border-radius: 10px !important;
   min-height: 40px !important;
@@ -203,13 +260,28 @@
 }
 
 /*PAGE ADD TEACHER AND PROJECT*/
-.page-add-container{
+.page-add-container-user{
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-width: 100vw;
-height: 100vh;
+min-width: 100vw;
+min-height: 100vh;
+}
+
+.page-add-container-pj{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 80px 0px;
+  }
+
+.page-add-span {
+margin: 0px 0px 50px 0px;
+width: 300px;
 }
 
 /*PAGE PROJECT DETAIL*/
@@ -218,10 +290,63 @@ height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
   }
+
+.page-projectDetail-title{
+  font-size: 32px;
+  color: 
+  #EE584C;
+  margin: 0 50px;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+.page-projectDetail-text{
+margin: 10px;
+font-size: 20px;
+font-family: 'Roboto', sans-serif;
+}
+
+.page-projectDetail-text-span{
+  margin: 25px 25px;
+}
+
+.page-projectDetail-text-value {
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.page-projectDetail-text-value-class {
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.page-projectDetail-text-value:not(:last-child):after {
+content: ', '
+}
 
   /*PAGE HOME */
   .page-home-container{
+    padding-top: 100px;
+  }
+
+  /*PAGE SUCESS*/
+  .page-sucess-figure{
+    width: 190px;
+  }
+
+  .page-sucess-img{
+    width: 100%;
+  }
+
+  .page-sucess-title{
+    color:#EE584C;
+    font-family: 'M PLUS 1p', sans-serif;
+    text-align: center;
+    font-size: 35px;
+    padding: 0 10px;
   }

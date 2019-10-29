@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import Input from "../components/input";
+import InputFile from "../components/InputFile";
 import Button from "../components/Botao";
-import Title from "../components/Title";
 import TextArea from "../components/TextArea";
 import DropdownHabilidades from "../components/DropDowMultiSelect"
 import apiAxios from "../services/api";
 import Select from "../components/Select";
 import Navbar from "../components/navbar"
+import Logo from "../components/Logo";
+import TitleAndText from "../components/TitleAndText";
 
 class AddNewProject extends Component {
   constructor(props) {
@@ -91,8 +93,11 @@ debugger
   render() {
     return (
       <div>
-        <form className='page-add-container' onSubmit={this.handleAddproject} >
-          <Title>CADASTRAR NOVO PROJETO</Title>
+        <Logo />
+        <form className='page-add-container-pj' onSubmit={this.handleAddproject}>
+        <span className='page-add-span'>
+          <TitleAndText>CADASTRAR NOVO PROJETO</TitleAndText>
+          </span>
           {this.state.error && <p>{this.state.error}</p>}
           <Input
             type="text"
@@ -106,7 +111,7 @@ debugger
           <Select handleChange={this.handleFormEdit} name="classRoom" value={this.state.classRoom} options={['A', 'B']} />
           <DropdownHabilidades  name='subjects' onChange={this.handleDropDown} values={this.state.dropDownOptions} placeholder='Habilidades'/>
           <TextArea handleChange={this.handleFormEdit} name='description' placeholder="Descrição" />
-          <Input
+          <InputFile  
             type="file"
             placeholder="imagem"
             name="image"

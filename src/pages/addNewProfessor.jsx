@@ -4,13 +4,16 @@ import Button from "../components/Botao";
 import Title from "../components/Title";
 import apiAxios from "../services/api";
 import  Navbar  from "../components/navbar";
+import Logo from "../components/Logo";
+import TitleAndText from "../components/TitleAndText";
 
 class AddNewProfessor extends Component {
   constructor(props){
     super(props)
     this.state = {
     name: "",
-    email: ""
+    email: "",
+    error: ''
     }
     this.handleAddprof = this.handleAddprof.bind(this)
   }
@@ -18,13 +21,18 @@ class AddNewProfessor extends Component {
   handleAddprof = (e) => {
     e.preventDefault(); 
     const { name, email } = this.state
-    apiAxios.post("/user",{ name, email })
+    if(name === '' || email === ''){
+      this.setState({ error: "Preencha nome e email" });
+    } else{
+      apiAxios.post("/user",{ name, email })
     .then(
       response => {
         this.setState({ name: "", email: "" });
         this.props.history.push("/professorCreated");
       }
     ).catch(e => console.log(e))
+    }
+    
   };
 
   handleFormEdit = e => {
@@ -34,8 +42,11 @@ class AddNewProfessor extends Component {
   render(){
     return(
       <div>
-        <form className='page-add-container'  onSubmit={this.handleAddprof}>
-        <Title>CADASTRAR NOVO PROFESSOR</Title>
+        <Logo />
+        <form className='page-add-container-user'  onSubmit={this.handleAddprof}>
+          <span className='page-add-span'>
+        <TitleAndText>CADASTRAR NOVO PROFESSOR</TitleAndText>
+        </span>
           {this.state.error && <p>{this.state.error}</p>}
           <Input
             type="text"

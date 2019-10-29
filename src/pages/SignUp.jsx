@@ -4,7 +4,7 @@ import apiAxios from "../services/api"
 import { login } from "../services/auth";
 import Input from "../components/input";
 import Button from "../components/Botao";
-import Logo from "../components/Logo";
+import LogoSL from '../components/LogoSL'
 
 
 class SignUp extends Component {
@@ -51,7 +51,7 @@ class SignUp extends Component {
     return (
       <div className='page-loginSignup-bcg'>
         <form className='page-loginSignup-container' onSubmit={this.handleSignUp}>
-        <Logo />
+        <LogoSL />
           {this.state.error && <p>{this.state.error}</p>}
           <Input
             type="text"

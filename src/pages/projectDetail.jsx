@@ -26,7 +26,6 @@ class ProjectDetail extends Component {
     apiAxios.get(`/project/${params.id}`)
       .then(response => {
         const { name, teachers, students, subjects, description } = response.data;
-        console.log('====>', response.data)
         this.setState({ name, teachers, students, subjects, description })
       })
       .catch(e => console.log(e));
@@ -36,20 +35,23 @@ class ProjectDetail extends Component {
     return (
       <Fragment>
         <Logo />
-      <div className='page-add-container'>
-        <h1>{this.state.name}</h1>
-        <h5>Professor: {this.state.teachers.length > 0 ? this.state.teachers.map(e => e.name) : null}</h5>
-        <h5>Habilidades: {this.state.subjects.length > 0 ? this.state.subjects.map(e=>(<span>{e +';'+' '}</span>)): null}</h5>
-        <h5> Turma: {this.state.students.length > 0 ? this.state.students[0].grade : null}  {this.state.students.length > 0 ? this.state.students[0].classRoom : null} </h5>
-        <h5>Descrição: {this.state.description}</h5>
-        <Button type="submit" label={'Avaliação'} />
-        <Button type="submit" label={'Resultados'} />
-      </div>
-      <Navbar/>
+        <div className='page-projectDetail-container'>
+          <h1 className='page-projectDetail-title'>"{this.state.name}"</h1>
+          <span className='page-projectDetail-text-span'>
+            <h5 className='page-projectDetail-text'>Professor: {this.state.teachers.map(e =><span className='page-projectDetail-text-value'>{e.name}</span>)}</h5>
+            <h5 className='page-projectDetail-text'>Habilidades: {this.state.subjects.map(e => (<span className='page-projectDetail-text-value'>{e }</span>))}</h5>
+             <h5 className='page-projectDetail-text'>Turma: {this.state.students.length > 0 ? <span className='page-projectDetail-text-value-class'>{this.state.students[0].grade}</span> : null}  {this.state.students.length > 0 ? <span className='page-projectDetail-text-value-class'>{this.state.students[0].classRoom}</span> : null} </h5>
+            <h5 className='page-projectDetail-text'>Descrição: <span className='page-projectDetail-text-value'> {this.state.description}</span></h5>
+          </span>
+
+          <Button type="submit" label={'Avaliação'} />
+          <Button type="submit" label={'Resultados'} />
+
+        </div>
+        <Navbar />
       </Fragment>
     )
   }
 }
-
 
 export default ProjectDetail;

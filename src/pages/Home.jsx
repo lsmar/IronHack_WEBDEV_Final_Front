@@ -5,15 +5,27 @@ import Title from '../components/Title';
 import Search from '../components/searchBar'
 import Card from '../components/CardProject'
 import Nav from '../components/navbar'
+import apiAxios from '../services/api'
 
 class Home extends Component {
   constructor(props){
     super(props)
     this.state = {
-      project: [{name: 'Projeto incrivel', image: 'https://www.ledr.com/colours/grey.jpg'}, {name: 'monicat', image: 'https://www.ledr.com/colours/grey.jpg'}, {name: 'Lucas', image: 'https://www.ledr.com/colours/grey.jpg'}, {name: 'Grazy linda', image: 'https://www.ledr.com/colours/grey.jpg'}],
-      input:''
+      project: [],
+      input:'',
+      error: ''
     }
     this.onChangeHandler = this.onChangeHandler.bind(this)
+  }
+
+  componentDidMount(){
+    apiAxios.get('/project')
+    .then(response => this.setState({project: response.data}, () => {
+      this.state.project.length === 0 ? this.setState({error: 'Ainda não há projetos'}) : this.setState({error: ''})
+    })
+    )
+    .catch(err => console.log(err)
+    )
   }
 
   onChangeHandler(e){
@@ -27,11 +39,13 @@ class Home extends Component {
     const projects = [...this.state.project].filter(el=>el.name.toLocaleLowerCase().indexOf(this.state.input)>-1);
     return(
       <Fragment>
-        <Logo />
-        <Title>Home</Title>
+        <Logo title={'Home'}/>
+        <div className='page-home-container'>
         <Search placeholder='🔎 Buscar...' method={this.onChangeHandler}/>
+        <p className="error">{this.state.error}</p>
         <Card projects={projects}/>
         <Nav />
+        </div>
       </Fragment>
     );
   }
