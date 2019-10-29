@@ -7,7 +7,7 @@ const ProfessorCreated = () => {
   return (
     <div className='page-loginSignup-bcg'>
       <div className='page-loginSignup-container'>
-        <Sucess text={'Professor adicionado com sucesso!'}  img={'/images/tags/sucess.png'}/>
+        <Sucess text={'Professor adicionado com sucesso!'}  img={'/images/imagensAndBcg/sucess.png'}/>
         < Link to="/newUser" > <Button type="submit" label={'Adicionar novo professor'} /></Link >
         <Link to="/project"><Button type="submit" label={'Ir para home'} /></Link>
       </div>
