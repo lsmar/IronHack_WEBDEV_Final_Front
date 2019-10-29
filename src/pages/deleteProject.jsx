@@ -38,7 +38,7 @@ class ProjectDeleted extends Component{
         <Link to="/newProject">
           <Button type="submit" label={"Criar novo projeto"} />
         </Link>
-        <Link to="/home">
+        <Link to="/project">
           <Button type="submit" label={"Ir para home"} />
         </Link>
         </span>

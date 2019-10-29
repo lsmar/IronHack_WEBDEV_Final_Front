@@ -21,7 +21,7 @@ class Home extends Component {
 
   componentDidMount(){
     this.setState({tolken: getUser()});
-    apiAxios.get('/project')
+    apiAxios.get('/project/my')
     .then(response => this.setState({project: response.data}, () => {
       this.state.project.length === 0 ? this.setState({error: 'Ainda não há projetos'}) : this.setState({error: ''})
     })
@@ -41,11 +41,11 @@ class Home extends Component {
     const projects = [...this.state.project].filter(el=>el.name.toLocaleLowerCase().indexOf(this.state.input)>-1);
     return(
       <Fragment>
-        <Logo />
+        <Logo title={'Meus projetos'}/>
         <div className='page-home-container'>
         <Search placeholder='🔎 Buscar...' method={this.onChangeHandler}/>
         <p className="error">{this.state.error}</p>
-        <Card projects={projects} role={this.state.tolken.role}/>
+        <Card projects={projects}/>
         <Nav role={this.state.tolken.role} />
         </div>
       </Fragment>
@@ -54,6 +54,7 @@ class Home extends Component {
 }
 
 export default Home;
+
 
 
 

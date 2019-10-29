@@ -6,6 +6,7 @@ import Title from "../components/Title";
 import InputDate from "../components/inputDate";
 import StudentsList from "../components/StudentsList";
 import apiAxios from "../services/api";
+import {getUser} from "../services/auth";
 
 
 class RecordBookPerStudent extends Component {
@@ -16,27 +17,31 @@ class RecordBookPerStudent extends Component {
       tags:[],
     };
     // this.handleDateChange = this.handleDateChange.bind(this);
-    // this.getStudents = this.getStudents.bind(this);
+    this.getTags = this.getTags.bind(this);
   }
 
   componentDidMount = () => {
-    this.getStudent();
+    this.getStudentInfo();
+    const a = getUser();
   }
 
-  // handleDateChange (e) {
-  //   this.setState({ dateValue: e.target.value });
-  // }
+  getStudentInfo(){
+    apiAxios.get(`/record/${this.props.match.params.idRecord}`)
+    .then(record => this.setState({studentName:record.data.student.name}))
+    .catch(e => console.log(e))
+    }
 
-  getStudent(){  
-    apiAxios.get(`/student/${this.props.match.params.idStudent}`)
+  getTags(){  
+    apiAxios.post(`/record/${this.props.match.params.idRecord}`)
     .then(student => {
-        this.setState({ studentName: student.data.name })
+      console.log(student);
+        // this.setState({ studentName: student.data.name })
       })
     .catch(e => console.log(e))
   }
 
   render() {
-    // this.getStudents();
+    console.log(this.props)
     return (
       <div>
         <Title>{this.state.studentName}</Title>
