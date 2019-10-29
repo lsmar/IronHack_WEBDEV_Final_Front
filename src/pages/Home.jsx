@@ -2,7 +2,6 @@ import React, {Component, Fragment} from 'react';
 import {getUser} from "../services/auth";
 // COMPONENTS IMPORT
 import Logo from '../components/Logo'
-import Title from '../components/Title';
 import Search from '../components/searchBar'
 import Card from '../components/CardProject'
 import Nav from '../components/navbar'
@@ -42,7 +41,7 @@ class Home extends Component {
     const projects = [...this.state.project].filter(el=>el.name.toLocaleLowerCase().indexOf(this.state.input)>-1);
     return(
       <Fragment>
-        <Logo title={'Home'}/>
+        <Logo />
         <div className='page-home-container'>
         <Search placeholder='🔎 Buscar...' method={this.onChangeHandler}/>
         <p className="error">{this.state.error}</p>

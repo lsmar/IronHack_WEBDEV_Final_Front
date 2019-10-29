@@ -3,9 +3,7 @@ import Input from "../components/input";
 import Button from "../components/Botao";
 import Title from "../components/Title";
 import TextArea from "../components/TextArea";
-import DropdownHabilidades from "../components/DropDowMultiSelect"
 import apiAxios from "../services/api";
-import Select from "../components/Select";
 import Navbar from "../components/navbar"
 
 class EditProject extends Component {
@@ -30,9 +28,7 @@ class EditProject extends Component {
     this.getProjectInfo = this.getProjectInfo.bind(this)
     this.handleFormEdit = this.handleFormEdit.bind(this)
     this.handleAddproject = this.handleAddproject.bind(this)
-    // this.handleDropDown = this.handleDropDown.bind(this)
-    // this.handleTeacherDropDown = this.handleTeacherDropDown.bind(this)
-    // this.handleFileUpload = this.handleFileUpload.bind(this);
+   
   }
 
   componentDidMount = () => {
@@ -52,39 +48,20 @@ class EditProject extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // handleDropDown = value => {
-  //   this.setState({ subjects: value });
-  // };
-
-  // handleTeacherDropDown = value => {
-  //   this.setState({ teachers: value });
-  // };
 
   handleAddproject = (e) => {
     e.preventDefault();
-    // let uploadData = new FormData();
-    // const {name, description, image} = this.state
-    // uploadData.append("image", image);
-    // uploadData.set("name", name);
-    // uploadData.set("description", description);
     const {name, description} = this.state
     console.log(this.props.match.params.id)
 debugger
     apiAxios
-    // ({method:"patch", url:`/project/${this.props.match.params.id}`, data:uploadData, config:{header: {"Content-Type": "multipart/form-data"}}})
     .patch(`/project/${this.props.match.params.id}`, {name, description})
     .then(() => {
           this.setState({ name: '', description: '', image: '' })
           this.props.history.push("/projectCreated");
-          //* Melhor seria ter uma de projeto atualizado
         })
     .catch(e => console.log(e))
   };
-
-  // handleFileUpload(event) {
-  //   console.log("The file to be uploaded is: ", event.target.files[0]);
-  //   this.setState({ image: event.target.files[0]})
-  // }
 
   render() {
     return (
@@ -100,12 +77,6 @@ debugger
             value={this.state.name}
           />
           <TextArea handleChange={this.handleFormEdit} name='description' placeholder="Descrição" value={this.state.description}/>
-          {/* <Input
-            type="file"
-            placeholder="imagem"
-            name="image"
-            handleChange={this.handleFileUpload}
-          /> */}
             <Button type="submit" label={'Atualizar'} />
           <Navbar />
         </form>

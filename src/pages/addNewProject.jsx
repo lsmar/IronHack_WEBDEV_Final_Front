@@ -3,9 +3,9 @@ import Input from "../components/input";
 import InputFile from "../components/InputFile";
 import Button from "../components/Botao";
 import TextArea from "../components/TextArea";
-import DropdownHabilidades from "../components/DropDowMultiSelect"
+import DropdownHabilidades from "../components/DropDowMultiSelect";
+import DropdownSelection from "../components/DropDown"
 import apiAxios from "../services/api";
-import Select from "../components/Select";
 import Navbar from "../components/navbar"
 import Logo from "../components/Logo";
 import TitleAndText from "../components/TitleAndText";
@@ -27,7 +27,18 @@ class AddNewProject extends Component {
         { text: "Matemática", value: "math", name: "subjects"  },
         { text: "Ciências da natureza", value: "natureza", name: "subjects" },
         { text: "Ciências humanas", value: "humanas", name: "subjects" },
-      ]
+      ],
+      dropDownGrade:[
+        { text: "1º", value: "1" },
+        { text: "2º", value: "2"  },
+        { text: "3º", value: "3" },
+      ],
+      dropDownClass:[
+        { text: "A", value: "A" },
+        { text: "B", value: "B" },
+        { text: "C", value: "C" },
+      ],
+
     }
     this.getTeacher = this.getTeacher.bind(this)
     this.handleFormEdit = this.handleFormEdit.bind(this)
@@ -64,6 +75,14 @@ class AddNewProject extends Component {
     this.setState({ teachers: value });
   };
 
+  handleGradeDropDown = value => {
+    this.setState({ grade: value });
+  };
+
+  handleClassRoomDropDown = value => {
+    this.setState({ classRoom: value });
+  };
+
   handleAddproject = (e) => {
     e.preventDefault();
     let uploadData = new FormData();
@@ -75,7 +94,6 @@ class AddNewProject extends Component {
     uploadData.set("classRoom", classRoom);
     uploadData.set("description", description);
     uploadData.set("subjects", subjects);
-debugger
     apiAxios
     ({method:"post", url:"/project", data:uploadData, config:{header: {"Content-Type": "multipart/form-data"}}})
     .then(() => {
@@ -107,8 +125,8 @@ debugger
             value={this.state.name}
           />
           {this.state.teacherList.length>0?<DropdownHabilidades name='teachers' onChange={this.handleTeacherDropDown} values={this.state.teacherList} placeholder='Professores'/>:null} 
-          <Select handleChange={this.handleFormEdit} name="grade" value={this.state.grade} options={['1', '2', '3']} />
-          <Select handleChange={this.handleFormEdit} name="classRoom" value={this.state.classRoom} options={['A', 'B']} />
+          <DropdownSelection  name='grade' onChange={this.handleGradeDropDown} values={this.state.dropDownGrade} placeholder='Série'/>
+          <DropdownSelection  name='classRoom' onChange={this.handleClassRoomDropDown} values={this.state.dropDownClass} placeholder='Turma'/>
           <DropdownHabilidades  name='subjects' onChange={this.handleDropDown} values={this.state.dropDownOptions} placeholder='Habilidades'/>
           <TextArea handleChange={this.handleFormEdit} name='description' placeholder="Descrição" />
           <InputFile  

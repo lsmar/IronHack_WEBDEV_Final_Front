@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Saira+Condensed&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+1p&display=swap');
 
 *{
@@ -109,7 +109,8 @@
 .components-cardProject-text{
   margin-left: 20px;
   margin-top: 5px;
-  color: #EE584C;
+  color: 
+#f79f1c;
 }
 
 .components-cardProject-title{
@@ -154,7 +155,7 @@
   background-color: #fff;
   min-width: 250px;
   height: 40px;
-  font-size: 14px;
+  font-weight: normal;
   margin-bottom: 20px;
   padding: 0 10px;
   color: black;
@@ -203,7 +204,8 @@ margin-left: 0px;
 }
 
 .component-title{
-  color: #EE584C;
+  color: 
+#f79f1c;
   font-size: 25px;
   margin-top: 0px;
   text-align: center;
@@ -212,29 +214,48 @@ margin-left: 0px;
 }
 
 .component-titleAndText{
-  color: #EE584C;
-  font-size: 30px;
-  
+  color: #f79f1c;
+  font-size: 28px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
+  margin-bottom: 30px;
 }
 
 ::placeholder{
   padding-left: 3px;
   font-family: 'Assistant', sans-serif;
   font-size: 15px;
-  color: gray;
+  color: black;
 }
 
+/* .seta-baixo:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 0; 
+  height: 0; 
 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #f00; */
 
-/*component dropdown*/
+/*component dropdown - biblioteca*/
+
 .ui.fluid.dropdown{
   width: 250px !important;
   border: 1px solid black  !important;
   border-radius: 10px !important;
   min-height: 40px !important;
+}
+
+.ui.multiple.dropdown>.text{
+  color: black !important;
+}
+
+.ui.dropdown>.text{
+  color: black !important;
 }
 
  .components-dropDown{
@@ -243,7 +264,10 @@ margin-left: 0px;
 
 /*pages login and signup*/
 .page-loginSignup-bcg{
-  background-color: #338ceb;
+  /* background-color: #338ceb; */
+  background-image: url('/images/imagensAndBcg/bcg1.jpg');
+  background-size: 350%;
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -253,7 +277,7 @@ margin-left: 0px;
 
 .page-loginSignup-container{
   background-color: #fff;
-  width: 80vw;
+  width: 85vw;
   height: 85vh;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -285,7 +309,7 @@ min-height: 100vh;
   align-items: center;
   min-width: 100vw;
   min-height: 100vh;
-  margin: 80px 0px;
+  margin: 60px 0px;
   }
 
 .page-add-span {
@@ -307,7 +331,8 @@ width: 300px;
 .page-projectDetail-title{
   font-size: 32px;
   color: 
-  #EE584C;
+  
+#f79f1c;
   margin: 0 50px;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -353,9 +378,19 @@ content: ', '
   }
 
   .page-sucess-title{
-    color:#EE584C;
+    color:
+#f79f1c;
     font-family: 'M PLUS 1p', sans-serif;
     text-align: center;
     font-size: 35px;
     padding: 0 10px;
+  }
+
+  /*DELETE AND EDIT */
+  .page-delAndEdit-container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
