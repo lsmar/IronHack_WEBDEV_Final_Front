@@ -93,16 +93,11 @@ debugger
   render() {
     return (
       <div>
-<<<<<<< HEAD
         <Logo />
         <form className='page-add-container-pj' onSubmit={this.handleAddproject}>
         <span className='page-add-span'>
           <TitleAndText>CADASTRAR NOVO PROJETO</TitleAndText>
           </span>
-=======
-        <form className='page-add-container' onSubmit={this.handleAddproject} >
-          <Title>CADASTRAR NOVO PROJETO</Title>
->>>>>>> 192aca2690c84bcc2c339dd45726cdcf346fddd6
           {this.state.error && <p>{this.state.error}</p>}
           <Input
             type="text"
