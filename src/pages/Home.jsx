@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import {getUser} from "../services/auth";
 // COMPONENTS IMPORT
 import Logo from '../components/Logo'
 import Title from '../components/Title';
@@ -13,19 +14,21 @@ class Home extends Component {
     this.state = {
       project: [],
       input:'',
-      error: ''
+      error: '',
+      tolken: []
     }
     this.onChangeHandler = this.onChangeHandler.bind(this)
   }
 
   componentDidMount(){
+    this.setState({tolken: getUser()});
     apiAxios.get('/project')
     .then(response => this.setState({project: response.data}, () => {
       this.state.project.length === 0 ? this.setState({error: 'Ainda não há projetos'}) : this.setState({error: ''})
     })
     )
     .catch(err => console.log(err)
-    )
+    );
   }
 
   onChangeHandler(e){
@@ -44,7 +47,7 @@ class Home extends Component {
         <Search placeholder='🔎 Buscar...' method={this.onChangeHandler}/>
         <p className="error">{this.state.error}</p>
         <Card projects={projects}/>
-        <Nav />
+        <Nav role={this.state.tolken.role} />
         </div>
       </Fragment>
     );
