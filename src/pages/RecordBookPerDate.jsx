@@ -3,7 +3,6 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import Button from "../components/Botao";
 import Title from "../components/Title";
-import InputDate from "../components/inputDate";
 import StudentsList from "../components/StudentsList";
 import apiAxios from "../services/api";
 
@@ -13,9 +12,8 @@ class RecordBookMainPage extends Component {
     super(props)
     this.state = {
       dateValue: moment(new Date()).format('YYYY-MM-DD'),
-      students:[],
-    };
-    this.handleDateChange = this.handleDateChange.bind(this);
+      allRecords:[],
+    }
     this.getStudents = this.getStudents.bind(this);
   }
 
@@ -23,15 +21,12 @@ class RecordBookMainPage extends Component {
     this.getStudents();
   }
 
-  handleDateChange (e) {
-    this.setState({ dateValue: e.target.value });
-  }
 
   getStudents(){  
     apiAxios.get(`/record/project/${this.props.match.params.id}/${this.props.match.params.date}`)
     .then(projectDetails => {
         console.log(projectDetails)
-        this.setState({ students: projectDetails.data.students })
+        this.setState({ allRecords: projectDetails.data })
       })
     .catch(e => console.log(e))
   }
@@ -39,8 +34,8 @@ class RecordBookMainPage extends Component {
   render() {
     return (
       <Fragment>
-        <Title>Diario de classe</Title>
-        {/* {this.state.students.length>0? <StudentsList students={this.state.students} date ={this.state.dateValue} project={this.props.match.params.id}/> :null}  */}
+        <Title>{this.props.match.params.date}</Title>
+        <StudentsList students={this.state.allRecords} date ={this.state.dateValue} project={this.props.match.params.id}/>
         {/* {this.getStudents} */}
         <Link to={`/project/${this.props.match.params.id}/RecordBook/`}>
         <Button type="submit" label={'Voltar'} /> </Link>
