@@ -9,7 +9,7 @@ const ProjectCreated = () => {
       <div className='page-loginSignup-container'>
         <Sucess text={'Projeto criado com sucesso!'} img={'/images/tags/sucess.png'}/>
           <Link to="/newProject"><Button type="submit" label={'Criar novo projeto'}/></Link>
-          <Link to="/home"><Button type="submit" label={'Ir para home'}/></Link>
+          <Link to="/project"><Button type="submit" label={'Ir para home'}/></Link>
           </div>
     </div>
   )
