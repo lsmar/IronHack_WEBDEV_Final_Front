@@ -38,7 +38,7 @@ const Routes = () => (
       <Route path="/professorCreated" role="" component={ProfessorCreated} />
       <Route exact path="/project/:id/recordBook" role="" component={RecordBookMainPage} />
       <Route exact path="/project/:id/recordBook/:date" role="" component={RecordBookPerDate} />
-      <Route exact path="/project/:id/recordBook/:date/:idStudent" role="" component={RecordBookPerStudent} />
+      <Route exact path="/project/:id/recordBook/:date/:idRecord" role="" component={RecordBookPerStudent} />
       <Route exact path="/project/:id" role="" component={ProjectDetail} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>

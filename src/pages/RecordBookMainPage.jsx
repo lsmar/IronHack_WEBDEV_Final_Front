@@ -15,17 +15,29 @@ class RecordBookMainPage extends Component {
     this.state = {
       dateValue: moment(new Date()).format('YYYY-MM-DD'),
       students:[],
+      allRecords : [],
     };
     this.handleDateChange = this.handleDateChange.bind(this);
     this.createRecord = this.createRecord.bind(this);
+    this.getPreviousRecords = this.getPreviousRecords.bind(this);
   }
 
-  // componentDidMount = () => {
-  //   this.getStudents();
-  // }
+  componentDidMount = () => {
+    this.getPreviousRecords();
+  }
 
   handleDateChange (e) {
     this.setState({ dateValue: e.target.value });
+  }
+
+  getPreviousRecords = () => {
+    apiAxios
+    .get(`/record/${this.props.match.params.id}`)
+    .then((diary) => {
+      console.log(diary)
+      //* Pegar os ids dos diarios, dos projetos para montar os links
+    })
+    .catch(e => console.log(e))
   }
 
   createRecord = (e) => {
@@ -37,20 +49,21 @@ class RecordBookMainPage extends Component {
     apiAxios
     .post("/record/all", {project, date })
     .then((diary) => {
-          // this.setState({ name: '', teachers: [], grade: '', classRoom: '', description: '', subjects: [], image: '' })
           console.log(diary);
         })
     .catch(e => console.log(e))
   };
 
   render() {
-    // this.getStudents();
     return (
       <div>
         <Title>Diario de classe</Title>
         <Title>Escolha uma data</Title>
         <InputDate value={this.state.dateValue} name="date" method={this.handleDateChange}/>
         <Button type="submit" label={'Iniciar diário'} method={this.createRecord}/>
+        <Title>Diários já criados</Title>
+        {/* this.state.diaries.map(diary => <Link to="/record/${this.state.id}/${}") */}
+
       </div>
     );
   }

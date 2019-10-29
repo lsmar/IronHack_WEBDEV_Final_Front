@@ -28,13 +28,11 @@ class RecordBookMainPage extends Component {
   }
 
   getStudents(){  
-    apiAxios.get(`/project/${this.props.match.params.id}`)
+    apiAxios.get(`/record/project/${this.props.match.params.id}/${this.props.match.params.date}`)
     .then(projectDetails => {
         console.log(projectDetails)
         this.setState({ students: projectDetails.data.students })
       })
-     
-    // })
     .catch(e => console.log(e))
   }
 
@@ -42,7 +40,7 @@ class RecordBookMainPage extends Component {
     return (
       <Fragment>
         <Title>Diario de classe</Title>
-        {this.state.students.length>0? <StudentsList students={this.state.students} date ={this.state.dateValue} project={this.props.match.params.id}/> :null} 
+        {/* {this.state.students.length>0? <StudentsList students={this.state.students} date ={this.state.dateValue} project={this.props.match.params.id}/> :null}  */}
         {/* {this.getStudents} */}
         <Link to={`/project/${this.props.match.params.id}/RecordBook/`}>
         <Button type="submit" label={'Voltar'} /> </Link>
