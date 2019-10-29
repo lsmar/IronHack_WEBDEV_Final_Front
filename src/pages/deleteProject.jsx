@@ -32,6 +32,9 @@ class ProjectDeleted extends Component{
         <Logo />
         <span className='page-delAndEdit-container'>
         {this.state.projectName!==''?<TitleAndText>Projeto foi deletado com sucesso!</TitleAndText>:<TitleAndText>Nenhum projeto foi encontrado</TitleAndText>}
+        <figure className='page-sucess-figure'>
+         <img  className='page-sucess-img' src='/images/ImagensAndBcg/delete-icon.png'alt='sucess'/> 
+        </figure>
         <Link to="/newProject">
           <Button type="submit" label={"Criar novo projeto"} />
         </Link>
