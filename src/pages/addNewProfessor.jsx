@@ -12,7 +12,8 @@ class AddNewProfessor extends Component {
     super(props)
     this.state = {
     name: "",
-    email: ""
+    email: "",
+    error: ''
     }
     this.handleAddprof = this.handleAddprof.bind(this)
   }
@@ -20,13 +21,18 @@ class AddNewProfessor extends Component {
   handleAddprof = (e) => {
     e.preventDefault(); 
     const { name, email } = this.state
-    apiAxios.post("/user",{ name, email })
+    if(name === '' || email === ''){
+      this.setState({ error: "Preencha nome e email" });
+    } else{
+      apiAxios.post("/user",{ name, email })
     .then(
       response => {
         this.setState({ name: "", email: "" });
         this.props.history.push("/professorCreated");
       }
     ).catch(e => console.log(e))
+    }
+    
   };
 
   handleFormEdit = e => {

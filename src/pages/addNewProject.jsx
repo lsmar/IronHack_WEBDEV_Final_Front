@@ -34,6 +34,7 @@ class AddNewProject extends Component {
     this.handleAddproject = this.handleAddproject.bind(this)
     this.handleDropDown = this.handleDropDown.bind(this)
     this.handleTeacherDropDown = this.handleTeacherDropDown.bind(this)
+    this.handleFileUpload = this.handleFileUpload.bind(this);
   }
 
   componentDidMount = () => {
@@ -46,7 +47,6 @@ class AddNewProject extends Component {
         users = users.data.filter(e => e.role === 'TEACHER').map((e, idx) => {
           return {text: e.name, value: e._id, name: 'teachers' }
         })
-       
         this.setState({ teacherList: users })
       })
       .catch(e => console.log(e))
@@ -66,15 +66,29 @@ class AddNewProject extends Component {
 
   handleAddproject = (e) => {
     e.preventDefault();
+    let uploadData = new FormData();
     const {name, teachers, grade, classRoom, description, subjects, image} = this.state
+    uploadData.append("image", image);
+    uploadData.set("name", name);
+    uploadData.set("teachers", teachers);
+    uploadData.set("grade", grade);
+    uploadData.set("classRoom", classRoom);
+    uploadData.set("description", description);
+    uploadData.set("subjects", subjects);
+debugger
     apiAxios
-    .post("/project", { name, teachers, grade, classRoom, description, subjects, image })
+    ({method:"post", url:"/project", data:uploadData, config:{header: {"Content-Type": "multipart/form-data"}}})
     .then(() => {
           this.setState({ name: '', teachers: [], grade: '', classRoom: '', description: '', subjects: [], image: '' })
           this.props.history.push("/projectCreated");
         })
     .catch(e => console.log(e))
   };
+
+  handleFileUpload(event) {
+    console.log("The file to be uploaded is: ", event.target.files[0]);
+    this.setState({ image: event.target.files[0]})
+  }
 
   render() {
     return (
@@ -101,10 +115,10 @@ class AddNewProject extends Component {
             type="file"
             placeholder="imagem"
             name="image"
-            handleChange={this.handleFormEdit}
-            value={this.state.image}
+            handleChange={this.handleFileUpload}
+            // value={this.state.image}
           />
-          <Button type="submit" label={'Cadastrar'} />
+            <Button type="submit" label={'Cadastrar'} />
           <Navbar />
         </form>
       </div>
