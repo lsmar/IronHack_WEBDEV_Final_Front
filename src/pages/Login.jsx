@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import apiAxios from "../services/api";
 import { login, logout } from "../services/auth";
@@ -43,18 +43,16 @@ class Login extends Component {
 
   render() {
     return (
-      <Fragment>
-        <div className='page-loginSignup-bcg'>
-          <form className='page-loginSignup-container' onSubmit={this.handleLogin}>
-          <LogoSL />
-            {this.state.error && <p>{this.state.error}</p>}
-            <Input type="email" placeholder="E-mail" name="email" handleChange={this.handleFormEdit} />
-            <Input type="password" placeholder="Senha" name="password" handleChange={this.handleFormEdit} />
-            <Button type="submit" label={'Logar'}/>
-          </form>
-        </div>
-        <Link className='page-loginSignup-link' to="/signup">Cadastrar Instituição</Link>
-      </Fragment>
+      <div className='page-loginSignup-bcg'>
+        <form className='page-loginSignup-container' onSubmit={this.handleLogin}>
+        <LogoSL />
+          {this.state.error && <p>{this.state.error}</p>}
+          <Input type="email" placeholder="E-mail" name="email" handleChange={this.handleFormEdit} />
+          <Input type="password" placeholder="Senha" name="password" handleChange={this.handleFormEdit} />
+          <Button type="submit" label={'Logar'}/>
+          <Link className='page-loginSignup-link' to="/signup">Cadastrar Instituição</Link>
+        </form>
+      </div>
     );
   }
 }

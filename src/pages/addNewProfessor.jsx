@@ -15,7 +15,7 @@ class AddNewProfessor extends Component {
     name: "",
     email: "",
     error: '',
-    tolken: [],
+    tolken: ''
     }
     this.handleAddprof = this.handleAddprof.bind(this)
   }
