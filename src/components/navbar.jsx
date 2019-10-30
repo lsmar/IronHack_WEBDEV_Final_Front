@@ -13,7 +13,7 @@ const Navbar = ({role}) => {
         {
           role === 'COORDINATOR' ?
           <li> <Link  to="/newUser"><img className='component-navbar-img' src="/images/Icons/Professor.png" alt="+professor"/></Link></li>:
-          <li> <Link  to="/project/my"><img className='component-navbar-img' src="/images/Icons/Home.png" alt="Meus projetos"/></Link></li>
+          <li> <Link  to="/project/my"><img className='component-navbar-img' src="/images/Icons/meus_projetos.png" alt="Meus projetos"/></Link></li>
 
         }
         <li> <Link  to="/newProject"><img className='component-navbar-img' src="/images/Icons/Projetos.png" alt="+projetos"/></Link></li>

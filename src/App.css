@@ -92,6 +92,7 @@
 
 .components-cardProject-card {
   border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
   box-shadow: 5px 3px rgba(0, 0, 0, 0.1);
   width: 300px;
   height: 230px;
@@ -104,6 +105,7 @@
 .components-cardProject-img {
   height: 140px;
   width: 100%;
+  border-radius: 10px;
 }
 
 .components-cardProject-text {

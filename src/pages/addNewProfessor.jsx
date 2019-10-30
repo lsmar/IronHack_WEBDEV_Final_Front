@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {getUser} from "../services/auth";
 import Input from "../components/input";
 import Button from "../components/Botao";
 import Title from "../components/Title";
@@ -13,9 +14,14 @@ class AddNewProfessor extends Component {
     this.state = {
     name: "",
     email: "",
-    error: ''
+    error: '',
+    tolken: ''
     }
     this.handleAddprof = this.handleAddprof.bind(this)
+  }
+
+  componentDidMount(){
+    this.setState({tolken: getUser()});
   }
 
   handleAddprof = (e) => {
@@ -63,7 +69,7 @@ class AddNewProfessor extends Component {
             value= {this.state.email}
           />
           <Button type="submit" label={'Cadastrar'}/>
-          <Navbar />
+          <Navbar role={this.state.tolken.role} />
         </form>
       </div>
     )

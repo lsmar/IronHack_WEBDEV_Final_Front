@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {getUser} from "../services/auth";
 import Input from "../components/input";
 import InputFile from "../components/InputFile";
 import Button from "../components/Botao";
@@ -38,6 +39,7 @@ class AddNewProject extends Component {
         { text: "B", value: "B" },
         { text: "C", value: "C" },
       ],
+      tolken: '',
 
     }
     this.getTeacher = this.getTeacher.bind(this)
@@ -49,6 +51,7 @@ class AddNewProject extends Component {
   }
 
   componentDidMount = () => {
+    this.setState({tolken: getUser()});
     this.getTeacher();
   }
 
@@ -137,7 +140,7 @@ class AddNewProject extends Component {
             // value={this.state.image}
           />
             <Button type="submit" label={'Cadastrar'} />
-          <Navbar />
+          <Navbar role={this.state.tolken.role} />
         </form>
       </div>
     )
