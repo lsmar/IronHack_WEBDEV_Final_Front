@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {getUser} from "../services/auth";
 import Input from "../components/input";
 import Button from "../components/Botao";
-import Title from "../components/Title";
 import apiAxios from "../services/api";
 import  Navbar  from "../components/navbar";
 import Logo from "../components/Logo";

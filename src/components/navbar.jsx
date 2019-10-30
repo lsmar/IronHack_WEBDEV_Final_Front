@@ -8,8 +8,8 @@ const Navbar = ({role, url}) => {
   return(
     <nav className='component-navbar-nav'>
       <ul className='component-navbar-ul'>
-        {url == '/project' ? null : <li> <Link  to="/project"><img className='component-navbar-img' src="/images/Icons/Home.png" alt="home"/></Link></li> }
-        {url == '/conta' ? null : <li> <Link  to="/conta"><img className='component-navbar-img' src="/images/Icons/Conta.png" alt="Conta"/></Link></li>}
+        {url === '/project' ? null : <li> <Link  to="/project"><img className='component-navbar-img' src="/images/Icons/Home.png" alt="home"/></Link></li> }
+        {url === '/conta' ? null : <li> <Link  to="/conta"><img className='component-navbar-img' src="/images/Icons/Conta.png" alt="Conta"/></Link></li>}
         {
           url === '/project/my' || url === '/newUser' ? null :
           (role === 'COORDINATOR' ?

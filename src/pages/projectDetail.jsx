@@ -50,8 +50,7 @@ class ProjectDetail extends Component {
       if (subject === "math") return "Matemática";
       else if (subject === "linguagens") return "Linguagens";
       else if (subject === "natureza") return "Ciências da Natureza";
-      else if (subject === "humanas")
-        return "Ciências Humanas e Sociais Aplicadas";
+      else return "Ciências Humanas e Sociais Aplicadas";
     });
     this.setState({ formattedSkills: newArr });
   };
