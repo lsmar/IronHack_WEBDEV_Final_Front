@@ -7,7 +7,7 @@ const ProjectCreated = () => {
   return(
     <div className='page-loginSignup-bcg'>
       <div className='page-loginSignup-container'>
-        <Sucess text={'Projeto criado com sucesso!'} img={'/images/imagensAndBcg/sucess-pj.png'}/>
+        <Sucess text={'Projeto criado com sucesso!'} img={'/images/imagensAndBcg/book.png'}/>
           <Link to="/newProject"><Button type="submit" label={'Criar novo projeto'}/></Link>
           <Link to="/project"><Button type="submit" label={'Ir para home'}/></Link>
           </div>
