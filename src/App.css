@@ -12,7 +12,7 @@
 .error {
   text-align: center;
   margin-top: 10px;
-  font-size: 15px;
+  font-size: 14px;
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -69,7 +69,21 @@
 
 .components-button {
   border: 0.5px solid #f77e0c;
-  background-image: linear-gradient(to bottom, #f79f1c, #f77e0c);
+  background-image: linear-gradient(to bottom, #fccf8d, #f77e0c);
+  border-radius: 5px;
+  min-width: 250px;
+  height: 40px;
+  font-size: 18px;
+  margin: 10px 0;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+}
+
+.components-buttonBlue {
+  border: 0.5px solid #0b6acc;
+  background-image: linear-gradient(to bottom,
+  #94c2f1, #0b6acc);
   border-radius: 5px;
   min-width: 250px;
   height: 40px;
@@ -505,7 +519,7 @@
 .page-recordBook-perStudent {
   min-height: 80vh;
   width: 100vw;
-  margin-top: 90px;
+  margin-top: 80px;
   margin-bottom: 90px;
   display: flex;
   flex-direction: column;
@@ -528,6 +542,15 @@
 .page-recordBook-perStudent-button-span {
   display: flex;
   justify-content: center;
+}
+.component-recordBook-img{
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.component-recordBook-img>img {
+  height: 150px;
 }
 
 /* PAGE CONTA */

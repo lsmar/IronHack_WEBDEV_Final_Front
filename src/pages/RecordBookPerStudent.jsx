@@ -4,9 +4,9 @@ import Button from "../components/Botao";
 import Title from "../components/Title";
 import apiAxios from "../services/api";
 import IconsTags from "../components/IconsTags";
-import ArrowButton from "../components/ButtonArrow";
 import Navbar from "../components/navbar";
 import Logo from "../components/Logo";
+import ButtonBlue from "../components/ButtonBlue";
 
 class RecordBookPerStudent extends Component {
   constructor(props) {
@@ -20,7 +20,9 @@ class RecordBookPerStudent extends Component {
       comprehension: false,
       teamWork: false,
       ideasConnection: false,
-      noEngagement: false
+      noEngagement: false,
+      buttonLabel: "Salvar",
+      error: ''
     };
     this.sendTags = this.sendTags.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -42,6 +44,7 @@ class RecordBookPerStudent extends Component {
   };
 
   sendTags() {
+    this.setState({buttonLabel:"Salvando..." });
     const tags = [
       {
         tagName: "conversation",
@@ -76,17 +79,20 @@ class RecordBookPerStudent extends Component {
     apiAxios
       .patch(`/record/${this.props.match.params.idRecord}`, {tags,presence})
       .then(student => {
-        this.setState({ tags: [] });
+        this.setState({ tags: [],buttonLabel:"Salvo!" },()=>setTimeout(()=>this.setState({buttonLabel:"Salvar"}),2000));
       })
-      .catch(e => console.log(e));
+      .catch (err => {
+        this.setState({ error: "Ocorreu um erro, tente novamente!" })});
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <Logo />
       <div className='page-recordBook-perStudent'>
+      <figure className='component-recordBook-img'>
+      <img  src="/images/Icons/perfil-icon.png" alt="icone de usuário"/>
+      </figure>
         <Title>{this.state.studentName}</Title>
         <div className="page-recordBook-perStudent-tags">
           <IconsTags
@@ -157,13 +163,14 @@ class RecordBookPerStudent extends Component {
           />
         </div>
         <div className='page-recordBook-perStudent-button'>
+          {this.state.error && <p  className="error">{this.state.error}</p>}
           <span className='page-recordBook-perStudent-button-span'>
-        <Button label={"Salvar"} method={this.sendTags}/>
+        <Button label={this.state.buttonLabel} method={this.sendTags}/>
         </span>
           <Link  className='page-recordBook-perStudent-button-span'
             to={`/project/${this.props.match.params.id}/RecordBook/${this.props.match.params.date}`}
           >
-            <Button label={"Voltar a lista de estudantes"} />
+            <ButtonBlue label={"Voltar a lista de estudantes"} />
           </Link>
           </div>
       </div>
