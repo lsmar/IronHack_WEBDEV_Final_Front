@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import apiAxios from "../services/api";
 import Button from '../components/Botao';
 import Input from "../components/input";
@@ -23,7 +22,7 @@ class CreatePassword extends Component {
   }
 
   componentDidMount=()=>{
-    const {name, email,token } = JSON.parse(base64.decode(this.state.token))
+    const {name, email} = JSON.parse(base64.decode(this.state.token))
     this.setState({name, email})
   }
   //* Form submit

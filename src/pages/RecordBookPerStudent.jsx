@@ -4,7 +4,9 @@ import Button from "../components/Botao";
 import Title from "../components/Title";
 import apiAxios from "../services/api";
 import IconsTags from "../components/IconsTags";
-import ArrowButton from "../components/ButtonArrow";
+import Navbar from "../components/navbar";
+import Logo from "../components/Logo";
+import ButtonBlue from "../components/ButtonBlue";
 
 class RecordBookPerStudent extends Component {
   constructor(props) {
@@ -18,7 +20,9 @@ class RecordBookPerStudent extends Component {
       comprehension: false,
       teamWork: false,
       ideasConnection: false,
-      noEngagement: false
+      noEngagement: false,
+      buttonLabel: "Salvar",
+      error: ''
     };
     this.sendTags = this.sendTags.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -40,6 +44,7 @@ class RecordBookPerStudent extends Component {
   };
 
   sendTags() {
+    this.setState({buttonLabel:"Salvando..." });
     const tags = [
       {
         tagName: "conversation",
@@ -74,18 +79,22 @@ class RecordBookPerStudent extends Component {
     apiAxios
       .patch(`/record/${this.props.match.params.idRecord}`, {tags,presence})
       .then(student => {
-        console.log(student);
-        this.setState({ tags: [] });
+        this.setState({ tags: [],buttonLabel:"Salvo!" },()=>setTimeout(()=>this.setState({buttonLabel:"Salvar"}),2000));
       })
-      .catch(e => console.log(e));
+      .catch (err => {
+        this.setState({ error: "Ocorreu um erro, tente novamente!" })});
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
+        <Logo />
+      <div className='page-recordBook-perStudent'>
+      <figure className='component-recordBook-img'>
+      <img  src="/images/Icons/perfil-icon.png" alt="icone de usuário"/>
+      </figure>
         <Title>{this.state.studentName}</Title>
-        <div className="tags">
+        <div className="page-recordBook-perStudent-tags">
           <IconsTags
             method={this.handleClick}
             text="Ausente"
@@ -95,19 +104,19 @@ class RecordBookPerStudent extends Component {
           />
           <IconsTags
             method={this.handleClick}
+            text="Criatividade"
+            image_src="/images/tags/criatividade.png"
+            tag="creativity"
+            active={this.state.creativity ? "img-tag " : "img-tag filter-gray"}
+          />
+          <IconsTags
+            method={this.handleClick}
             text="Conversa Paralela"
             image_src="/images/tags/conversa_paralela.png"
             tag="conversation"
             active={
               this.state.conversation ? "img-tag " : "img-tag filter-gray"
             }
-          />
-          <IconsTags
-            method={this.handleClick}
-            text="Criatividade"
-            image_src="/images/tags/criatividade.png"
-            tag="creativity"
-            active={this.state.creativity ? "img-tag " : "img-tag filter-gray"}
           />
           <IconsTags
             method={this.handleClick}
@@ -153,19 +162,19 @@ class RecordBookPerStudent extends Component {
             }
           />
         </div>
-        <>
-        <Button label={"Salvar"} method={this.sendTags}/>
-<br />
-<br />
-
-          <ArrowButton method={this.previousStudent} classStyle="arrow-left"/>
-          <Link
+        <div className='page-recordBook-perStudent-button'>
+          {this.state.error && <p  className="error">{this.state.error}</p>}
+          <span className='page-recordBook-perStudent-button-span'>
+        <Button label={this.state.buttonLabel} method={this.sendTags}/>
+        </span>
+          <Link  className='page-recordBook-perStudent-button-span'
             to={`/project/${this.props.match.params.id}/RecordBook/${this.props.match.params.date}`}
           >
-            <Button label={"Voltar a lista de estudantes"} />
+            <ButtonBlue label={"Voltar a lista de estudantes"} />
           </Link>
-          <ArrowButton method={this.nextStudent} />
-        </>
+          </div>
+      </div>
+      <Navbar />
       </div>
     );
   }
