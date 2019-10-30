@@ -8,11 +8,9 @@ AOS.init();
 
 
 const CardProject = (props) => {
-  // debugger;
   return (
     <div className='components-cardproject-container'>
     {props.projects.map((elem, idx) => {
-        // {debugger;}
         return <a key={idx} href={`/project/${elem._id}`}>
           <div data-aos='fade-right' className='components-cardProject-card'> 
           <img className='components-cardProject-img' src={elem.image} alt={elem.name}/>
@@ -23,10 +21,8 @@ const CardProject = (props) => {
               {props.role === 'COORDINATOR' ? <Link to={`/project/delete/${elem._id}`}><img className='components-cardProject-icon'src="/images/Icons/delete-icon.png" alt="delete"/></Link> : null}
               
             </div>
-            <p className='components-cardProject-p'>Professores: {elem.teachers.map((e) => e.name)}</p>
-            <p className='components-cardProject-p'>Turma: {elem.students[0].classRoom}</p>
-            {/* <p>{elem.teachers.name}</p>
-            <p>{elem.students.class} {elem.students.subClass}</p> */}
+            <p className='components-cardProject-p'>Professores: {elem.teachers.map((e,idx) =><span className='page-projectDetail-text-value' key={idx} > {e.name} </span>)}</p>
+            <p className='components-cardProject-p'>Turma: {elem.students[0].grade} {elem.students[0].classRoom}</p>
           </div>
           </div>
           </a>
