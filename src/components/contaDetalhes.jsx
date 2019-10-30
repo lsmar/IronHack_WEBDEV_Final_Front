@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
-import Title from './Title'
-import Button from './Botao'
+import {Link} from 'react-router-dom';
+import Title from './Title';
+import Button from './Botao';
 
 const ContaDetalhes = ({name, role}) => {
   return(
@@ -14,7 +15,9 @@ const ContaDetalhes = ({name, role}) => {
       <p>Instituição: {'instituição no Tolken'}</p>
       <p>Cargo: {role}</p>
       </div>
-      <Button label={'Sair'}/>
+      <Link to='/'>
+      <Button label={'Sair'} onClick={() => console.log('ooi gragra')}/>
+      </Link>
       </div>
 
     </Fragment>
