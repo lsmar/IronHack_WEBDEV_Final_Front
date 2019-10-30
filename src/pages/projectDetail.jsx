@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
 import apiAxios from "../services/api";
-import Button from "../components/Botao";
-import Navbar from "../components/navbar";
-import Logo from "../components/Logo";
+import Button from "../components/Botao"
+import Navbar from '../components/navbar';
+import Logo from '../components/Logo';
+import Loader from '../components/loader';
 
 class ProjectDetail extends Component {
   constructor(props) {
@@ -13,8 +14,9 @@ class ProjectDetail extends Component {
       students: [],
       subjects: [],
       description: "",
-      formattedSkills: []
-    };
+      formattedSkills: [],
+      loader: true,
+    }
     this.getSingleProject = this.getSingleProject.bind(this);
     this.formatSkills = this.formatSkills.bind(this);
   }
@@ -35,7 +37,7 @@ class ProjectDetail extends Component {
           subjects,
           description
         } = response.data;
-        this.setState({ name, teachers, students, subjects, description }, () =>
+        this.setState({ name, teachers, students, subjects, description, loader:false }, () =>
           this.formatSkills()
         );
       })
@@ -58,11 +60,11 @@ class ProjectDetail extends Component {
     return (
       <Fragment>
         <Logo />
-        {/* //Linguagens Matemática Ciências da Natureza Ciências Humanas e Sociais Aplicadas */}
+        {/* Linguagens Matemática Ciências da Natureza Ciências Humanas e Sociais Aplicadas */}
 
         <div className="page-projectDetail-container">
           <h1 className="page-projectDetail-title">{this.state.name}</h1>
-          <span className="page-projectDetail-text-span">
+          {!this.state.loader? <span className="page-projectDetail-text-span">
             <h5 className="page-projectDetail-text">
               Professor:
               {this.state.teachers.map((e, idx) => (
@@ -98,10 +100,12 @@ class ProjectDetail extends Component {
                 {this.state.description}
               </span>
             </h5>
-          </span>
+          </span> : null}
 
-          <Button type="submit" label={"Avaliação"} />
-          <Button type="submit" label={"Resultados"} />
+          {!this.state.loader?<Button type="submit" label={'Avaliação'} />:null}
+          {!this.state.loader?<Button type="submit" label={'Resultados'} />:null}
+          {this.state.loader?<Loader />:null}
+
         </div>
         <Navbar />
       </Fragment>
