@@ -25,10 +25,6 @@ class RecordBookMainPage extends Component {
     this.getPreviousRecords();
   };
 
-  componentDidUpdate = () => {
-  this.getPreviousRecords();
-  }
-
   handleDateChange(e) {
     this.setState({ dateValue: e.target.value });
   }
@@ -50,7 +46,7 @@ class RecordBookMainPage extends Component {
     apiAxios
       .post("/record/all", { project, date })
       .then(diary => {
-        console.log(diary);
+        this.getPreviousRecords();
       })
       .catch(e => console.log(e));
   };
