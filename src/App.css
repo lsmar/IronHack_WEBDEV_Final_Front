@@ -50,11 +50,11 @@
   color: #EE584C;
 }
 
-.components-studentsList{
+.components-studentsList {
   list-style-type: none;
 }
 
-.components-studentsList-students{
+.components-studentsList-students {
   font-size: 24px;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -77,16 +77,30 @@
   margin: 10px 0;
   color: white;
   font-family: 'Roboto', sans-serif;
+  outline: none;
 }
 
-.component-iconTag{
-  background-color: white ;
+.component-iconTag {
+  background-color: white;
   border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  margin-bottom: 20px;
+  outline: none;
 }
-.components-buttonRecord{
+
+.component-iconTag-text {
+  font-size: 14px;
+  width: 100%;
+}
+
+.components-buttonRecord {
   border: 0.5px solid #0b6acc;
   background-image: linear-gradient(to bottom,
-  #5eaaf8, #0b6acc);
+      #5eaaf8, #0b6acc);
   border-radius: 5px;
   min-width: 150px;
   height: 35px;
@@ -94,6 +108,7 @@
   margin: 10px 0;
   color: white;
   font-family: 'Roboto', sans-serif;
+  outline: none;
 }
 
 .components-cardproject-container {
@@ -161,6 +176,7 @@
   border-radius: 5px;
   height: 40px;
   width: 300px;
+  outline: none;
 }
 
 
@@ -173,6 +189,7 @@
   font-size: 14px;
   margin-bottom: 20px;
   color: black;
+  outline: none;
 }
 
 .components-input {
@@ -245,7 +262,7 @@
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 ::placeholder {
@@ -255,7 +272,7 @@
   color: black;
 }
 
-.components-inputData{
+.components-inputData {
   border: 1px solid black;
   border-radius: 5px;
   background-color: #fff;
@@ -323,6 +340,7 @@
   align-items: center;
   min-width: 100vw;
   min-height: 100vh;
+  margin-top: 10px;
 }
 
 .page-add-container-pj {
@@ -394,7 +412,8 @@
 
 /*PAGE SUCESS*/
 .page-sucess-figure {
-  width: 190px;
+  width: 150px;
+  margin: 0px;
 }
 
 .page-sucess-img {
@@ -441,6 +460,7 @@
   /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
+
 /*DELETE AND EDIT */
 
 .page-delAndEdit-container {
@@ -458,21 +478,22 @@
   justify-content: flex-start;
   align-items: center;
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: 80vh;
   padding-top: 120px;
+  padding-bottom: 80PX;
 }
 
-.page-recordBook-data{
+.page-recordBook-data {
   display: flex;
   flex-direction: row;
 }
 
-.page-recordBook-text{
-padding: 10px 5px 0px 0px;
-margin: 0;
+.page-recordBook-text {
+  padding: 10px 5px 0px 0px;
+  margin: 0;
 }
 
-.page-recordBook-title{
+.page-recordBook-title {
   color: #338ceb;
   margin: 30px 0px;
   padding: 0;
@@ -481,9 +502,37 @@ margin: 0;
   font-weight: 700;
 }
 
+.page-recordBook-perStudent {
+  min-height: 80vh;
+  width: 100vw;
+  margin-top: 90px;
+  margin-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-recordBook-perStudent-tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  padding: 0 20px;
+}
+
+.page-recordBook-perStudent-button {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-recordBook-perStudent-button-span {
+  display: flex;
+  justify-content: center;
+}
+
 /* PAGE CONTA */
 
-.component-conta-container{
+.component-conta-container {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -495,15 +544,16 @@ margin: 0;
   justify-content: center;
 }
 
-.component-conta-img > img{
+.component-conta-img>img {
   height: 150px;
 }
 
-.component-conta-p{
-  margin: 40px 0px 70px 0px;
-  font-size: 16jpx;
+.component-conta-p {
+  margin: 40px 0px 50px 0px;
+  font-size: 16px;
 }
-.page-recordBook-bottom{
+
+.page-recordBook-bottom {
   border-bottom: 1px solid lightgray;
   min-width: 280px;
   margin-bottom: 30px;
@@ -516,7 +566,7 @@ margin: 0;
     width: 70vw;
   }
 
-  .page-recordBook-bottom{
+  .page-recordBook-bottom {
     border-bottom: 1px solid lightgray;
     min-width: 400px;
     margin-bottom: 30px;
@@ -528,7 +578,7 @@ margin: 0;
     width: 60vw;
   }
 
-  .page-recordBook-bottom{
+  .page-recordBook-bottom {
     border-bottom: 1px solid lightgray;
     min-width: 500px;
     margin-bottom: 30px;

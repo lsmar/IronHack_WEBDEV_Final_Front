@@ -5,6 +5,8 @@ import Title from "../components/Title";
 import apiAxios from "../services/api";
 import IconsTags from "../components/IconsTags";
 import ArrowButton from "../components/ButtonArrow";
+import Navbar from "../components/navbar";
+import Logo from "../components/Logo";
 
 class RecordBookPerStudent extends Component {
   constructor(props) {
@@ -74,7 +76,6 @@ class RecordBookPerStudent extends Component {
     apiAxios
       .patch(`/record/${this.props.match.params.idRecord}`, {tags,presence})
       .then(student => {
-        console.log(student);
         this.setState({ tags: [] });
       })
       .catch(e => console.log(e));
@@ -84,8 +85,10 @@ class RecordBookPerStudent extends Component {
     console.log(this.state);
     return (
       <div>
+        <Logo />
+      <div className='page-recordBook-perStudent'>
         <Title>{this.state.studentName}</Title>
-        <div className="tags">
+        <div className="page-recordBook-perStudent-tags">
           <IconsTags
             method={this.handleClick}
             text="Ausente"
@@ -95,19 +98,19 @@ class RecordBookPerStudent extends Component {
           />
           <IconsTags
             method={this.handleClick}
+            text="Criatividade"
+            image_src="/images/tags/criatividade.png"
+            tag="creativity"
+            active={this.state.creativity ? "img-tag " : "img-tag filter-gray"}
+          />
+          <IconsTags
+            method={this.handleClick}
             text="Conversa Paralela"
             image_src="/images/tags/conversa_paralela.png"
             tag="conversation"
             active={
               this.state.conversation ? "img-tag " : "img-tag filter-gray"
             }
-          />
-          <IconsTags
-            method={this.handleClick}
-            text="Criatividade"
-            image_src="/images/tags/criatividade.png"
-            tag="creativity"
-            active={this.state.creativity ? "img-tag " : "img-tag filter-gray"}
           />
           <IconsTags
             method={this.handleClick}
@@ -153,19 +156,18 @@ class RecordBookPerStudent extends Component {
             }
           />
         </div>
-        <>
+        <div className='page-recordBook-perStudent-button'>
+          <span className='page-recordBook-perStudent-button-span'>
         <Button label={"Salvar"} method={this.sendTags}/>
-<br />
-<br />
-
-          <ArrowButton method={this.previousStudent} classStyle="arrow-left"/>
-          <Link
+        </span>
+          <Link  className='page-recordBook-perStudent-button-span'
             to={`/project/${this.props.match.params.id}/RecordBook/${this.props.match.params.date}`}
           >
             <Button label={"Voltar a lista de estudantes"} />
           </Link>
-          <ArrowButton method={this.nextStudent} />
-        </>
+          </div>
+      </div>
+      <Navbar />
       </div>
     );
   }

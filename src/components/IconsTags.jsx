@@ -6,7 +6,7 @@ const IconsTags = (props) => {
     return (
       <button toggle onClick={(e)=>method(e,tag)} className="component-iconTag">
           <img src={image_src} className={active} alt={text}/>
-          <p>{text}</p>
+          <p className='component-iconTag-text'>{text}</p>
       </button>
     )
 }
