@@ -350,3 +350,29 @@ content: ', '
     font-size: 35px;
     padding: 0 10px;
   }
+
+  .img-tags{
+    width: 30vw;
+  }
+
+  .tags{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .each-tag{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .arrow-left {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+} 
+
+#arrow-img{
+  width: 120px;
+}

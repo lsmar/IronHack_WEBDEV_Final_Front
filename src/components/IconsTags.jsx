@@ -1,27 +1,15 @@
-import React from 'react'
+import React from "react";
 
-const IconsTags = ({ typeOf, tags, method }) => {
+const IconsTags = ({ method, text, image_src, value }) => {
   return (
-    typeOf === 'result' ?
-      <div>
-        {tags.map((elem, idx) => {
-          return <div>
-            <img src={elem.image} alt={elem.name} />
-            <p>`${elem.result} %`</p>
-          </div>
-        })}
-      </div> :
-      <div>
-        {tags.map((elem, idx) => {
-          return <div>
-            <img src={elem.image} alt={elem.name} />
-            <input type="checkbox" name={elem.name} onChange={method}/>
-            <label >{elem.name}</label>
-          </div>
-        })}
-      </div>
+    <div className="each-tag">
+    <button onClick={method(value)} className="" name='tags'>
+      <img src={image_src} className="img-tags" />
+    <p>{text}</p>
+    </button>
+    </div>
   );
-}
+  
+};
 
 export default IconsTags;
-
