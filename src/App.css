@@ -55,11 +55,9 @@
 }
 
 .components-button {
-  border: 0.5px solid #75aeeb;
-  box-shadow: 0 0 20px 20px #75aeeb inset, 0 0 0 0 #75aeeb;
-  transition: all 150ms ease-in-out;
+  border: 0.5px solid #f77e0c;
+  background-image: linear-gradient(to bottom,  #f79f1c, #f77e0c);
   border-radius: 10px;
-  background-color: #75aeeb;
   min-width: 250px;
   height: 40px;
   font-size: 18px;
@@ -68,9 +66,6 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.components-button:hover{
-  box-shadow: 0 0 8px 0 #75aeeb inset, 0 0 5px 4px #75aeeb;
-}
 
 .components-cardproject-container{
   /* border: 1px solid black;   */
@@ -131,10 +126,10 @@
 }
 
 .components-searchBar{
-  border: none;
-  border-bottom: 0.5px solid lightgray;
+  border: 1px solid #f79f1c;
+  border-radius: 10px;
+  height: 40px;
   width: 300px;
-  height: 30px;
 }
 
 
@@ -177,7 +172,7 @@
   min-width: 100vw;
   min-height: 10vh;
   border-bottom: 1px solid lightgray;
-  background-color: white;
+  background-color: #338ceb;
   position: fixed;
   top: 0px;
   z-index: 4;
@@ -229,17 +224,6 @@ margin-left: 0px;
   color: black;
 }
 
-/* .seta-baixo:before {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px;
-  width: 0; 
-  height: 0; 
-
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #f00; */
 
 /*component dropdown - biblioteca*/
 
@@ -264,10 +248,8 @@ margin-left: 0px;
 
 /*pages login and signup*/
 .page-loginSignup-bcg{
-  /* background-color: #338ceb; */
-  background-image: url('/images/imagensAndBcg/bcg1.jpg');
-  background-size: 350%;
-  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom,  
+  #5eaaf8, #0b6acc);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -309,7 +291,7 @@ min-height: 100vh;
   align-items: center;
   min-width: 100vw;
   min-height: 100vh;
-  margin: 60px 0px;
+  margin: 80px 0px;
   }
 
 .page-add-span {
@@ -329,10 +311,8 @@ width: 300px;
   }
 
 .page-projectDetail-title{
-  font-size: 32px;
-  color: 
-  
-#f79f1c;
+  font-size: 30px;
+  color: #338ceb;
   margin: 0 50px;
   padding: 0;
   font-family: 'Roboto', sans-serif;
