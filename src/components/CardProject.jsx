@@ -20,7 +20,8 @@ const CardProject = (props) => {
             <div className="components-cardProject-title-edit-delete">
             <h5 className='components-cardProject-title'>{elem.name}</h5>
               <Link to={`/project/edit/${elem._id}`}><img className='components-cardProject-icon'src="/images/Icons/edit-icon.png" alt="edit"/></Link>
-              <Link to={`/project/delete/${elem._id}`}><img className='components-cardProject-icon'src="/images/Icons/delete-icon.png" alt="delete"/></Link>
+              {props.role === 'COORDINATOR' ? <Link to={`/project/delete/${elem._id}`}><img className='components-cardProject-icon'src="/images/Icons/delete-icon.png" alt="delete"/></Link> : null}
+              
             </div>
             <p className='components-cardProject-p'>Professores: {elem.teachers.map((e) => e.name)}</p>
             <p className='components-cardProject-p'>Turma: {elem.students[0].classRoom}</p>
