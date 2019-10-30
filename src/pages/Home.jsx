@@ -40,8 +40,10 @@ class Home extends Component {
 
   
   render() {
+    console.log(this.props.match.url);
     const projects = [...this.state.project].filter(el=>el.name.toLocaleLowerCase().indexOf(this.state.input)>-1);
     return(
+      
       <Fragment>
         <Logo />
         <div className='page-home-container'>
@@ -49,7 +51,7 @@ class Home extends Component {
         {this.state.loader?<Loader />:null}
         <p className="error">{this.state.error}</p>
         <Card projects={projects} role={this.state.tolken.role}/>
-        <Nav role={this.state.tolken.role} />
+        <Nav role={this.state.tolken.role} url={this.props.match.url}/>
         </div>
       </Fragment>
     );

@@ -23,7 +23,7 @@ class Conta extends Component{
       <Fragment>
         <Logo />
         <Detalhes role={this.state.tolken.role} name={this.state.tolken.name}/>
-        <Nav role={this.state.tolken.role} />
+        <Nav role={this.state.tolken.role} url={this.props.match.url}/>
       </Fragment>
     );
   }
