@@ -70,7 +70,9 @@ class AddNewProject extends Component {
   };
 
   handleDropDown = value => {
-    this.setState({ subjects: value })
+    debugger
+    this.setState({ subjects: value})
+
   };
 
   handleTeacherDropDown = value => {
@@ -87,7 +89,6 @@ class AddNewProject extends Component {
 
   handleAddproject = (e) => {
     e.preventDefault();
-    debugger
     let uploadData = new FormData();
     const {name, teachers, grade, classRoom, description, subjects, image} = this.state
     uploadData.append("image", image);
@@ -97,8 +98,7 @@ class AddNewProject extends Component {
     uploadData.set("classRoom", classRoom);
     uploadData.set("description", description);
     uploadData.set("subjects", subjects);
-    apiAxios
-    ({method:"post", url:"/project", data:uploadData, config:{header: {"Content-Type": "multipart/form-data"}}})
+    apiAxios({method:"post", url:"/project", data:uploadData, config:{header: {"Content-Type": "multipart/form-data"}}})
     .then(() => {
           this.setState({ name: '', teachers: [], grade: '', classRoom: '', description: '', subjects: [], image: '' })
           this.props.history.push("/projectCreated");
