@@ -69,7 +69,7 @@ class RecordBookMainPage extends Component {
           method={this.createRecord}
         />
          <h2 className='page-recordBook-title'>DIÁRIOS EXISTENTES</h2>
-        {this.state.allRecords.map((e,idx)=> <Link  key = {idx} to={`/project/${this.props.match.params.id}/RecordBook/${e.date}`}> <Button label={e.date} /> </Link> )}
+        {this.state.allRecords.map((e,idx)=> <Link  key = {idx} to={`/project/${this.props.match.params.id}/RecordBook/${e.date}`}> <Button label={moment(e.date).format("DD/MM/YYYY")} /> </Link> )}
         </div>
         <Navbar />
       </div>
