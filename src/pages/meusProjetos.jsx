@@ -50,7 +50,7 @@ class Home extends Component {
         {this.state.loader?<Loader />:null}
         <p className="error">{this.state.error}</p>
         <Card projects={projects}/>
-        <Nav role={this.state.tolken.role} />
+        <Nav role={this.state.tolken.role} url={this.props.match.url} />
         </div>
       </Fragment>
     );
