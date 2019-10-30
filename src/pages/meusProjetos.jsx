@@ -1,11 +1,12 @@
 import React, {Component, Fragment} from 'react';
 import {getUser} from "../services/auth";
 // COMPONENTS IMPORT
-import Logo from '../components/Logo'
-import Search from '../components/searchBar'
-import Card from '../components/CardProject'
-import Nav from '../components/navbar'
-import apiAxios from '../services/api'
+import Logo from '../components/Logo';
+import Search from '../components/searchBar';
+import Card from '../components/CardProject';
+import Nav from '../components/navbar';
+import apiAxios from '../services/api';
+import Loader from '../components/loader';
 
 class Home extends Component {
   constructor(props){
@@ -14,7 +15,8 @@ class Home extends Component {
       project: [],
       input:'',
       error: '',
-      tolken: []
+      tolken: [],
+      loader: true,
     }
     this.onChangeHandler = this.onChangeHandler.bind(this)
   }
@@ -22,8 +24,8 @@ class Home extends Component {
   componentDidMount(){
     this.setState({tolken: getUser()});
     apiAxios.get('/project/my')
-    .then(response => this.setState({project: response.data}, () => {
-      this.state.project.length === 0 ? this.setState({error: 'Ainda não há projetos'}) : this.setState({error: ''})
+    .then(response => this.setState({project: response.data, loader: false}, () => {
+      this.state.project.length === 0 ? this.setState({error: 'Ainda não há projetos', loader: false}) : this.setState({error: ''})
     })
     )
     .catch(err => console.log(err)
@@ -33,6 +35,7 @@ class Home extends Component {
   onChangeHandler(e){
     this.setState({
       input: e.target.value,
+
     })
   }
 
@@ -43,7 +46,8 @@ class Home extends Component {
       <Fragment>
         <Logo/>
         <div className='page-home-container'>
-        <Search placeholder='🔎 Buscar...' method={this.onChangeHandler}/>
+        {!this.state.loader?<Search placeholder='🔎 Buscar...' method={this.onChangeHandler}/>: null}
+        {this.state.loader?<Loader />:null}
         <p className="error">{this.state.error}</p>
         <Card projects={projects}/>
         <Nav role={this.state.tolken.role} />
