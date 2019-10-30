@@ -5,6 +5,7 @@ import StudentsList from "../components/StudentsList";
 import apiAxios from "../services/api";
 import Logo from "../components/Logo";
 import Navbar from "../components/navbar";
+import moment from "moment";
 
 class RecordBookPerDate extends Component {
   constructor(props){
@@ -34,8 +35,8 @@ class RecordBookPerDate extends Component {
       <div>
          <Logo />
          <div className='page-recordBook-container'>
+         <h1 className='page-recordBook-title'>{moment(this.props.match.params.date).format("DD/MM/YYYY")}</h1>
          <span className='page-recordBook-bottom'>
-         <h1 className='page-recordBook-title'>{this.props.match.params.date}</h1>
         <StudentsList students={this.state.allRecords} date = {this.props.match.params.date} project={this.props.match.params.id}/>
         </span>
         <Link to={`/project/${this.props.match.params.id}/RecordBook`}>

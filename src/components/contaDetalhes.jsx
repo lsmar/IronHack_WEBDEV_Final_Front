@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
+import {logout} from "../services/auth";
 import Title from './Title';
 import Button from './Botao';
 
@@ -16,7 +17,7 @@ const ContaDetalhes = ({name, role}) => {
       <p>Cargo: {role}</p>
       </div>
       <Link to='/'>
-      <Button label={'Sair'} onClick={() => console.log('ooi gragra')}/>
+      <Button label={'Logout'} method={logout}/>
       </Link>
       </div>
 
