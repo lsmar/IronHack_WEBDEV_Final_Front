@@ -477,6 +477,28 @@ margin: 0;
   font-weight: 700;
 }
 
+/* PAGE CONTA */
+
+.component-conta-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.component-conta-img {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.component-conta-img > img{
+  height: 150px;
+}
+
+.component-conta-p{
+  margin: 40px 0px 70px 0px;
+  font-size: 16jpx;
+}
 .page-recordBook-bottom{
   border-bottom: 1px solid lightgray;
   min-width: 280px;
