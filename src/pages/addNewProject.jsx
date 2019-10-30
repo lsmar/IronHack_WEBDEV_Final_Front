@@ -39,7 +39,7 @@ class AddNewProject extends Component {
         { text: "B", value: "B" },
         { text: "C", value: "C" },
       ],
-      tolken: [],
+      tolken: '',
 
     }
     this.getTeacher = this.getTeacher.bind(this)
