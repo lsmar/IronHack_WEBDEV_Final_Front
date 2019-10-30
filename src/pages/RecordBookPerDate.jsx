@@ -24,7 +24,6 @@ class RecordBookPerDate extends Component {
   getStudents(){  
     apiAxios.get(`/record/project/${this.props.match.params.id}/${this.props.match.params.date}`)
     .then(projectDetails => {
-        console.log(projectDetails)
         this.setState({ allRecords: projectDetails.data })
       })
     .catch(e => console.log(e))
