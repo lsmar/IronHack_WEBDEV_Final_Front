@@ -25,6 +25,10 @@ class RecordBookMainPage extends Component {
     this.getPreviousRecords();
   };
 
+  componentDidUpdate = () => {
+  this.getPreviousRecords();
+  }
+
   handleDateChange(e) {
     this.setState({ dateValue: e.target.value });
   }
@@ -69,7 +73,7 @@ class RecordBookMainPage extends Component {
           method={this.createRecord}
         />
         <h3 className='page-recordBook-title'>AVALIAÇŌES EXISTENTES</h3>
-        {this.state.allRecords.map((e,idx)=> <Link  key = {idx} to={`/project/${this.props.match.params.id}/RecordBook/${e.date}`}> <ButtonRecord  label={e.date} /> </Link> )}
+        {this.state.allRecords.map((e,idx)=> <Link  key = {idx} to={`/project/${this.props.match.params.id}/RecordBook/${e.date}`}> <ButtonRecord  label={moment(e.date).format("DD/MM/YYYY")} /> </Link> )}
         </div>
         <Navbar />
       </div>

@@ -16,7 +16,7 @@ class AddNewProject extends Component {
     super(props)
     this.state = {
       name: '',
-      teacher: [],
+      teachers: [],
       grade: '',
       classRoom: '',
       description: '',
@@ -37,7 +37,6 @@ class AddNewProject extends Component {
       dropDownClass:[
         { text: "A", value: "A" },
         { text: "B", value: "B" },
-        { text: "C", value: "C" },
       ],
       tolken: '',
 
@@ -71,11 +70,11 @@ class AddNewProject extends Component {
   };
 
   handleDropDown = value => {
-    this.setState({ subjects: value });
+    this.setState({ subjects: value })
   };
 
   handleTeacherDropDown = value => {
-    this.setState({ teachers: value });
+    this.setState({ teachers: value })
   };
 
   handleGradeDropDown = value => {
@@ -88,6 +87,7 @@ class AddNewProject extends Component {
 
   handleAddproject = (e) => {
     e.preventDefault();
+    debugger
     let uploadData = new FormData();
     const {name, teachers, grade, classRoom, description, subjects, image} = this.state
     uploadData.append("image", image);
@@ -132,6 +132,7 @@ class AddNewProject extends Component {
           <DropdownSelection  name='classRoom' onChange={this.handleClassRoomDropDown} values={this.state.dropDownClass} placeholder='Turma'/>
           <DropdownHabilidades  name='subjects' onChange={this.handleDropDown} values={this.state.dropDownOptions} placeholder='Habilidades'/>
           <TextArea handleChange={this.handleFormEdit} name='description' placeholder="Descrição" />
+          
           <InputFile  
             type="file"
             placeholder="imagem"
