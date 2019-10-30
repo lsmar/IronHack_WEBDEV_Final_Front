@@ -14,6 +14,7 @@ import EditProject from "../pages/editProject";
 import DeleteProject from "../pages/deleteProject";
 import Home from '../pages/Home';
 import MyProjects from '../pages/meusProjetos';
+import Conta from '../pages/conta';
 
 
 import { isAuthenticated } from "../services/auth";
@@ -33,6 +34,7 @@ const Routes = () => (
       <Route path="/signup" component={SignUp} />
       <PrivateRoute role='' exact path="/project" component={Home} />
       <PrivateRoute role='TEACHER' path='/project/my' component={MyProjects} />
+      <PrivateRoute role='' path='/conta' component={Conta} />
       <PrivateRoute path="/app" role="TEACHER" component={() => <h1>App</h1>} />
       <Route path="/newTeacher" role="COORDINATOR" component={AddNewProfessor} />
       <Route path="/newUser/:token" role="" component={CreatePassword} />
