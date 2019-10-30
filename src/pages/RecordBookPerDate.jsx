@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Botao";
-import Title from "../components/Title";
 import StudentsList from "../components/StudentsList";
 import apiAxios from "../services/api";
 import Logo from "../components/Logo";
@@ -35,8 +34,10 @@ class RecordBookPerDate extends Component {
       <div>
          <Logo />
          <div className='page-recordBook-container'>
-        <Title>{this.props.match.params.date}</Title>
+         <span className='page-recordBook-bottom'>
+         <h1 className='page-recordBook-title'>{this.props.match.params.date}</h1>
         <StudentsList students={this.state.allRecords} date = {this.props.match.params.date} project={this.props.match.params.id}/>
+        </span>
         <Link to={`/project/${this.props.match.params.id}/RecordBook`}>
         <Button type="submit" label={'Voltar'} /> </Link>
         </div>
