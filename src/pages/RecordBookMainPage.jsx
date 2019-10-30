@@ -62,7 +62,7 @@ class RecordBookMainPage extends Component {
       <div>
         <Logo />
         <div className='page-recordBook-container'>
-        <h1 className='page-recordBook-title'>Diário de classe</h1>
+        <h1 className='page-recordBook-title'>DIÁRIO DE CLASSE</h1>
         <p className='page-recordBook-text'>Escolha uma data:</p>
         <InputDate
           value={this.state.dateValue}
@@ -74,7 +74,7 @@ class RecordBookMainPage extends Component {
           label={"Iniciar diário"}
           method={this.createRecord}
         />
-         <h2 className='page-recordBook-title'>Diários existentes</h2>
+         <h2 className='page-recordBook-title'>DIÁRIOS EXISTENTES</h2>
         {this.state.allRecords.map((e,idx)=> <Link  key = {idx} to={`/project/${this.props.match.params.id}/RecordBook/${e.date}`}> <Button label={e.date} /> </Link> )}
         </div>
         <Navbar />

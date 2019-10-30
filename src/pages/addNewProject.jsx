@@ -56,9 +56,9 @@ class AddNewProject extends Component {
   }
 
   getTeacher = () => {
-    apiAxios.get('/user')
+    apiAxios.get('/user/teacher')
       .then(users => {
-        users = users.data.filter(e => e.role === 'TEACHER').map((e, idx) => {
+        users = users.data.map((e, idx) => {
           return {text: e.name, value: e._id, name: 'teachers' }
         })
         this.setState({ teacherList: users })
