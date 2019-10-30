@@ -153,13 +153,8 @@
 }
 
 .components-input {
-  border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #fff;
-  min-width: 250px;
-  height: 40px;
-  font-weight: normal;
-  margin-bottom: 20px;
   padding: 0 10px;
   color: black;
 }
@@ -269,7 +264,9 @@
 .page-loginSignup-bcg {
   background-image: linear-gradient(to bottom,
       #5eaaf8, #0b6acc);
-  height: 100vh;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  height:70vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -277,10 +274,8 @@
 }
 
 .page-loginSignup-container {
-  background-color: #fff;
   width: 85vw;
   height: 85vh;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -290,7 +285,7 @@
 .page-loginSignup-link {
   margin-top: 30px;
   text-decoration: none;
-  color: black;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /*PAGE ADD TEACHER AND PROJECT*/
