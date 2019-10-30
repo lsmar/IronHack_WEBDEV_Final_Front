@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import moment from "moment";
 import { Link } from "react-router-dom";
 import Button from "../components/Botao";
 import Title from "../components/Title";
@@ -8,12 +7,10 @@ import apiAxios from "../services/api";
 import Logo from "../components/Logo";
 import Navbar from "../components/navbar";
 
-
-class RecordBookMainPage extends Component {
+class RecordBookPerDate extends Component {
   constructor(props){
     super(props)
     this.state = {
-      dateValue: moment(new Date()).format('YYYY-MM-DD'),
       allRecords:[],
     }
     this.getStudents = this.getStudents.bind(this);
@@ -39,9 +36,8 @@ class RecordBookMainPage extends Component {
          <Logo />
          <div className='page-recordBook-container'>
         <Title>{this.props.match.params.date}</Title>
-        <StudentsList students={this.state.allRecords} date ={this.state.dateValue} project={this.props.match.params.id}/>
-        {/* {this.getStudents} */}
-        <Link to={`/project/${this.props.match.params.id}/RecordBook/`}>
+        <StudentsList students={this.state.allRecords} date = {this.props.match.params.date} project={this.props.match.params.id}/>
+        <Link to={`/project/${this.props.match.params.id}/RecordBook`}>
         <Button type="submit" label={'Voltar'} /> </Link>
         </div>
         <Navbar />
@@ -49,4 +45,4 @@ class RecordBookMainPage extends Component {
     );
   }
 }
-export default RecordBookMainPage;
+export default RecordBookPerDate;

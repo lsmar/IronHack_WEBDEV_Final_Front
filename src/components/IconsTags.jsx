@@ -1,27 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { Button } from 'semantic-ui-react'
 
-const IconsTags = ({ typeOf, tags, method }) => {
-  return (
-    typeOf === 'result' ?
-      <div>
-        {tags.map((elem, idx) => {
-          return <div>
-            <img src={elem.image} alt={elem.name} />
-            <p>`${elem.result} %`</p>
-          </div>
-        })}
-      </div> :
-      <div>
-        {tags.map((elem, idx) => {
-          return <div>
-            <img src={elem.image} alt={elem.name} />
-            <input type="checkbox" name={elem.name} onChange={method}/>
-            <label >{elem.name}</label>
-          </div>
-        })}
-      </div>
-  );
+class IconsTags extends Component {
+  constructor  (props){
+    super(props)
+  
+  this.state = {log: []}
+  }
+  
+
+  render() {
+    const { active } = this.props
+
+    return (
+      <Button toggle onClick={this.props.method} value={this.props.value}>
+          <img src={this.props.image_src} className={this.props.active} />
+           <p>{this.props.text}</p>
+      </Button>
+    )
+  }
 }
 
-export default IconsTags;
-
+export default IconsTags

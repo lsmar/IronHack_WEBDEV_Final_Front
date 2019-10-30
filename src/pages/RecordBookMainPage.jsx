@@ -25,10 +25,6 @@ class RecordBookMainPage extends Component {
     this.getPreviousRecords();
   };
 
-  componentDidUpdate = () => {
-    this.getPreviousRecords();
-  };
-
   handleDateChange(e) {
     this.setState({ dateValue: e.target.value });
   }
@@ -47,8 +43,6 @@ class RecordBookMainPage extends Component {
     e.preventDefault();
     const date = this.state.dateValue;
     const project = this.props.match.params.id;
-    console.log("id", project);
-    console.log("data", date);
     apiAxios
       .post("/record/all", { project, date })
       .then(diary => {

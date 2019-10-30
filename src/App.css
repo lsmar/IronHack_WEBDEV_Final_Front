@@ -388,7 +388,39 @@
   padding: 0 10px;
 }
 
+.img-tag {
+  width: 30vw;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.each-tag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.arrow-left {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+#arrow-img {
+  width: 120px;
+}
+
+.filter {
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
 /*DELETE AND EDIT */
+
 .page-delAndEdit-container {
   min-height: 100vh;
   display: flex;
