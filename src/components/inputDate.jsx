@@ -5,6 +5,7 @@ import React from "react";
 const inputDate = ({ name, type, method, value}) => {
 
   return ( <input
+        className='components-inputData'
         type='date'
         name={name}
         value= {value}

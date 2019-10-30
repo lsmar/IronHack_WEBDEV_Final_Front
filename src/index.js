@@ -5,11 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css';
 
-
-
 ReactDOM.render(
   <Fragment> 
-    <link href="https://fonts.googleapis.com/css?family=Assistant:600,700,800&display=swap" rel="stylesheet" />
     <App />
   </Fragment>, document.getElementById('root'));
 

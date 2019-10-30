@@ -5,6 +5,8 @@ import Button from "../components/Botao";
 import Title from "../components/Title";
 import InputDate from "../components/inputDate";
 import apiAxios from "../services/api";
+import Logo from "../components/Logo";
+import Navbar from "../components/navbar";
 
 class RecordBookMainPage extends Component {
   constructor(props) {
@@ -58,8 +60,10 @@ class RecordBookMainPage extends Component {
   render() {
     return (
       <div>
-        <Title>Diario de classe</Title>
-        <Title>Escolha uma data</Title>
+        <Logo />
+        <div className='page-recordBook-container'>
+        <h1 className='page-recordBook-title'>Diário de classe</h1>
+        <p className='page-recordBook-text'>Escolha uma data:</p>
         <InputDate
           value={this.state.dateValue}
           name="date"
@@ -70,8 +74,10 @@ class RecordBookMainPage extends Component {
           label={"Iniciar diário"}
           method={this.createRecord}
         />
-        <Title>Diários existentes</Title>
+         <h2 className='page-recordBook-title'>Diários existentes</h2>
         {this.state.allRecords.map((e,idx)=> <Link  key = {idx} to={`/project/${this.props.match.params.id}/RecordBook/${e.date}`}> <Button label={e.date} /> </Link> )}
+        </div>
+        <Navbar />
       </div>
     );
   }
