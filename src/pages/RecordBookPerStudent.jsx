@@ -12,10 +12,9 @@ class RecordBookPerStudent extends Component {
     super(props);
     this.state = {
       studentName: "",
-      tags: []
+      ausente:true,
     };
     this.sendTags = this.sendTags.bind(this);
-    this.handleTagSelected = this.handleTagSelected.bind(this);
   }
 
   componentDidMount = () => {
@@ -29,18 +28,12 @@ class RecordBookPerStudent extends Component {
       .then(record => this.setState({ studentName: record.data.student.name }))
       .catch(e => console.log(e));
   }
-  componentDidUpdate =()=>{
-    this.handleTagSelected();
+
+  handleClick = (e) => {
+    const tag = e.target.value;
+    this.setState((prevState) => ({[tag]: !prevState[tag] }))
   }
 
-  handleTagSelected = value => {
-    // let values = [...this.state.tags]
-    const newValues = this.state.tags.push(value)
-    debugger
-    this.setState({ tags: newValues });
-    // this.setState({ tags: values });
-    console.log(this.state.tags);
-  };
 
   sendTags() {
     apiAxios
@@ -52,21 +45,17 @@ class RecordBookPerStudent extends Component {
       .catch(e => console.log(e));
   }
 
-  previousStudent(){
-
-  }
-
   render() {
-    console.log(this.props);
     return (
       <div>
         <Title>{this.state.studentName}</Title>
         <div className="tags">
           <IconsTags
-            method={this.handleTagSelected}
+            method={this.handleClick}
             text="Ausente"
             image_src="/images/tags/ausente.png"
             value='ausente'
+            active={this.state.ausente? 'img-tag filter' : 'img-tag'}
           />
           <IconsTags
             method={this.handleTagSelected}

@@ -1,15 +1,24 @@
-import React from "react";
+import React, { Component } from 'react'
+import { Button } from 'semantic-ui-react'
 
-const IconsTags = ({ method, text, image_src, value }) => {
-  return (
-    <div className="each-tag">
-    <button onClick={method(value)} className="" name='tags'>
-      <img src={image_src} className="img-tags" />
-    <p>{text}</p>
-    </button>
-    </div>
-  );
+class IconsTags extends Component {
+  constructor  (props){
+    super(props)
   
-};
+  this.state = {log: []}
+  }
+  
 
-export default IconsTags;
+  render() {
+    const { active } = this.props
+
+    return (
+      <Button toggle onClick={this.props.method} value={this.props.value}>
+          <img src={this.props.image_src} className={this.props.active} />
+           <p>{this.props.text}</p>
+      </Button>
+    )
+  }
+}
+
+export default IconsTags

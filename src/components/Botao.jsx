@@ -7,3 +7,4 @@ const Button = ({label, method, type }) => {
 }
 
 export default Button;
+
