@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Input from "../components/input";
 import Button from "../components/Botao";
-import Title from "../components/Title";
+import TitleAndText from "../components/TitleAndText";
 import TextArea from "../components/TextArea";
 import apiAxios from "../services/api";
 import Navbar from "../components/navbar";
@@ -53,8 +53,6 @@ class EditProject extends Component {
   handleAddproject = (e) => {
     e.preventDefault();
     const { name, description } = this.state
-    console.log(this.props.match.params.id)
-    debugger
     apiAxios
       .patch(`/project/${this.props.match.params.id}`, { name, description })
       .then(() => {
@@ -70,7 +68,7 @@ class EditProject extends Component {
         <Logo />
         <span className='page-delAndEdit-container'>
           <form className='page-add-container-user' onSubmit={this.handleAddproject} >
-            <Title>Editar projeto</Title>
+            <TitleAndText>EDITAR PROJETO</TitleAndText>
             <figure className='page-sucess-figure'>
               <img className='page-sucess-img' src='/images/ImagensAndBcg/edit-icon.png' alt='sucess' />
             </figure>

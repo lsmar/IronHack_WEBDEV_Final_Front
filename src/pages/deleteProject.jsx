@@ -31,7 +31,7 @@ class ProjectDeleted extends Component{
       <div>
         <Logo />
         <span className='page-delAndEdit-container'>
-        {this.state.projectName!==''?<TitleAndText>Projeto foi deletado com sucesso!</TitleAndText>:<TitleAndText>Nenhum projeto foi encontrado</TitleAndText>}
+        {this.state.projectName!==''?<TitleAndText>PROJETO DELETADO COM SUCESSO!</TitleAndText>:<TitleAndText>NENHUM PROJETO FOI ENCONTRADO!</TitleAndText>}
         <figure className='page-sucess-figure'>
          <img  className='page-sucess-img' src='/images/ImagensAndBcg/delete-icon.png'alt='sucess'/> 
         </figure>

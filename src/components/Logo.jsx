@@ -7,7 +7,6 @@ const Logo = ({ title }) => {
     <figure className='components-logo'>
     <img className='components-logo-img' src="/images/logo_testes/LOGO/Logo_white.png" alt="Logo"/>
     </figure>
-    <Title>{title}</Title>
     </div>
   );
 }

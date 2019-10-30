@@ -41,7 +41,7 @@ class Home extends Component {
     const projects = [...this.state.project].filter(el=>el.name.toLocaleLowerCase().indexOf(this.state.input)>-1);
     return(
       <Fragment>
-        <Logo title={'Meus projetos'}/>
+        <Logo/>
         <div className='page-home-container'>
         <Search placeholder='🔎 Buscar...' method={this.onChangeHandler}/>
         <p className="error">{this.state.error}</p>
