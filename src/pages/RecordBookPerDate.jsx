@@ -5,6 +5,8 @@ import Button from "../components/Botao";
 import Title from "../components/Title";
 import StudentsList from "../components/StudentsList";
 import apiAxios from "../services/api";
+import Logo from "../components/Logo";
+import Navbar from "../components/navbar";
 
 
 class RecordBookMainPage extends Component {
@@ -33,13 +35,17 @@ class RecordBookMainPage extends Component {
 
   render() {
     return (
-      <Fragment>
+      <div>
+         <Logo />
+         <div className='page-recordBook-container'>
         <Title>{this.props.match.params.date}</Title>
         <StudentsList students={this.state.allRecords} date ={this.state.dateValue} project={this.props.match.params.id}/>
         {/* {this.getStudents} */}
         <Link to={`/project/${this.props.match.params.id}/RecordBook/`}>
         <Button type="submit" label={'Voltar'} /> </Link>
-      </Fragment>
+        </div>
+        <Navbar />
+      </div>
     );
   }
 }
