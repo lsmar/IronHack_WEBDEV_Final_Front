@@ -36,10 +36,10 @@ class ProjectDetail extends Component {
       <Fragment>
         <Logo />
         <div className='page-projectDetail-container'>
-          <h1 className='page-projectDetail-title'>"{this.state.name}"</h1>
+          <h1 className='page-projectDetail-title'>{this.state.name}</h1>
           <span className='page-projectDetail-text-span'>
-            <h5 className='page-projectDetail-text'>Professor: {this.state.teachers.map(e =><span className='page-projectDetail-text-value'>{e.name}</span>)}</h5>
-            <h5 className='page-projectDetail-text'>Habilidades: {this.state.subjects.map(e => (<span className='page-projectDetail-text-value'>{e }</span>))}</h5>
+            <h5 className='page-projectDetail-text'>Professor: {this.state.teachers.map((e, idx) =><span className='page-projectDetail-text-value' key={idx} >{e.name}</span>)}</h5>
+            <h5 className='page-projectDetail-text'>Habilidades: {this.state.subjects.map((e, idx) => (<span className='page-projectDetail-text-value' key={idx} >{e }</span>))}</h5>
              <h5 className='page-projectDetail-text'>Turma: {this.state.students.length > 0 ? <span className='page-projectDetail-text-value-class'>{this.state.students[0].grade}</span> : null}  {this.state.students.length > 0 ? <span className='page-projectDetail-text-value-class'>{this.state.students[0].classRoom}</span> : null} </h5>
             <h5 className='page-projectDetail-text'>Descrição: <span className='page-projectDetail-text-value'> {this.state.description}</span></h5>
           </span>
