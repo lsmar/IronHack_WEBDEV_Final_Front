@@ -46,8 +46,8 @@ const Routes = () => (
       <Route exact path="/project/:id/recordBook/:date" role="" component={RecordBookPerDate} />
       <Route exact path="/project/:id/recordBook/:date/:idRecord" role="" component={RecordBookPerStudent} />
       <Route exact path="/project/:id" role="" component={ProjectDetail} />
-      <Route exact exact path="/project/edit/:id" role="" component={EditProject} />
-      <Route exact exact path="/project/delete/:id" role="" component={DeleteProject} />
+      <Route exact path="/project/edit/:id" role="" component={EditProject} />
+      <Route exact path="/project/delete/:id" role="" component={DeleteProject} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
   </BrowserRouter>

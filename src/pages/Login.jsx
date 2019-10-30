@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import apiAxios from "../services/api";
-import { login, logout } from "../services/auth";
+import {login} from "../services/auth";
 import Button from '../components/Botao'
 import Input from "../components/input";
 import LogoSL from '../components/LogoSL'
