@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import Button from "../components/Botao";
-import Title from "../components/Title";
+import ButtonRecord  from "../components/ButtonRecord";
 import InputDate from "../components/inputDate";
 import apiAxios from "../services/api";
 import Logo from "../components/Logo";
@@ -56,7 +56,7 @@ class RecordBookMainPage extends Component {
       <div>
         <Logo />
         <div className='page-recordBook-container'>
-        <h1 className='page-recordBook-title'>DIÁRIO DE CLASSE</h1>
+        <h1 className='page-recordBook-title'>AVALIAÇÃ0 DIÁRIA</h1>
         <p className='page-recordBook-text'>Escolha uma data:</p>
         <InputDate
           value={this.state.dateValue}
@@ -68,8 +68,8 @@ class RecordBookMainPage extends Component {
           label={"Iniciar diário"}
           method={this.createRecord}
         />
-         <h2 className='page-recordBook-title'>DIÁRIOS EXISTENTES</h2>
-        {this.state.allRecords.map((e,idx)=> <Link  key = {idx} to={`/project/${this.props.match.params.id}/RecordBook/${e.date}`}> <Button label={moment(e.date).format("DD/MM/YYYY")} /> </Link> )}
+        <h3 className='page-recordBook-title'>AVALIAÇŌES EXISTENTES</h3>
+        {this.state.allRecords.map((e,idx)=> <Link  key = {idx} to={`/project/${this.props.match.params.id}/RecordBook/${e.date}`}> <ButtonRecord  label={e.date} /> </Link> )}
         </div>
         <Navbar />
       </div>
