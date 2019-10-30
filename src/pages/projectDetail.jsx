@@ -36,7 +36,7 @@ class ProjectDetail extends Component {
       <Fragment>
         <Logo />
         <div className='page-projectDetail-container'>
-          <h1 className='page-projectDetail-title'>"{this.state.name}"</h1>
+          <h1 className='page-projectDetail-title'>{this.state.name}</h1>
           <span className='page-projectDetail-text-span'>
             <h5 className='page-projectDetail-text'>Professor: {this.state.teachers.map((e, idx) =><span className='page-projectDetail-text-value' key={idx} >{e.name}</span>)}</h5>
             <h5 className='page-projectDetail-text'>Habilidades: {this.state.subjects.map((e, idx) => (<span className='page-projectDetail-text-value' key={idx} >{e }</span>))}</h5>

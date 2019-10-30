@@ -62,7 +62,7 @@
 .components-button {
   border: 0.5px solid #f77e0c;
   background-image: linear-gradient(to bottom, #f79f1c, #f77e0c);
-  border-radius: 10px;
+  border-radius: 5px;
   min-width: 250px;
   height: 40px;
   font-size: 18px;
@@ -92,10 +92,10 @@
 
 .components-cardProject-card {
   border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 5px 3px rgba(0, 0, 0, 0.1);
   width: 300px;
-  height: 230px;
+  min-height: 250px;
   margin: 20px 0;
   display: flex;
   margin: 30px;
@@ -105,7 +105,8 @@
 .components-cardProject-img {
   height: 140px;
   width: 100%;
-  border-radius: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .components-cardProject-text {
@@ -134,7 +135,7 @@
 
 .components-searchBar {
   border: 1px solid #f79f1c;
-  border-radius: 10px;
+  border-radius: 5px;
   height: 40px;
   width: 300px;
 }
@@ -142,7 +143,7 @@
 
 .components-TextArea {
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 0px 10px;
   width: 250px;
   height: 100px;
@@ -153,7 +154,7 @@
 
 .components-input {
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #fff;
   min-width: 250px;
   height: 40px;
@@ -165,7 +166,7 @@
 
 .components-inputFile {
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #fff;
   width: 250px;
   height: 40px;
@@ -233,7 +234,7 @@
 
 .components-inputData{
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #fff;
   min-width: 50px;
   height: 40px;
@@ -248,7 +249,7 @@
 .ui.fluid.dropdown {
   width: 250px !important;
   border: 1px solid black !important;
-  border-radius: 10px !important;
+  border-radius: 5px !important;
   min-height: 40px !important;
 }
 
@@ -425,4 +426,36 @@ margin: 0;
   font-family: 'Assistant', sans-serif;
   text-align: center;
   font-weight: 700;
+}
+
+/*MEDIAS*/
+
+@media (min-width: 426px) {
+  .page-loginSignup-container {
+    width: 70vw;
+  }
+}
+
+@media (min-width: 769px) {
+  .page-loginSignup-container {
+    width: 60vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-loginSignup-container {
+    width: 50vw;
+  }
+}
+
+@media (min-width: 1440px) {
+  .page-loginSignup-container {
+    width: 40vw;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page-loginSignup-container {
+    width: 30vw;
+  }
 }
