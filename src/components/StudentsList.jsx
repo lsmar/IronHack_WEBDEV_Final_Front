@@ -13,7 +13,7 @@ const StudentsList = props => {
             to={`/project/${props.project}/RecordBook/${props.date}/${elem._id}`}
           >
             <span>
-            <li className='components-studentsList-students'>{elem.student.name}</li>
+            <li className='components-studentsList-students'>{elem.student.name}{elem.tags.length === 0 ? null : ' ✔️'}</li>
             </span>
           </Link>
         );

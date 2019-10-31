@@ -11,13 +11,13 @@ import TitleAndText from '../components/TitleAndText'
 export default class chart extends Component {
   constructor(props) {
     super(props)
-    const { match: { params } } = this.props
-    this.state = {
+    const {match:{params}} = this.props
+    this.state={
       student: {},
-      studentId: params.studentId,
-      projectId: params.id,
-      dataGood: {},
-      dataBad: {},
+      studentId:params.studentId,
+      projectId:params.projectId,
+      dataGood:{},
+      dataBad:{},
       chartOptions: {},
       plugins: [{
         /* Adjust axis labelling font size according to chart size */

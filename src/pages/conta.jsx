@@ -18,7 +18,6 @@ class Conta extends Component{
   }
 
   render(){
-    console.log(this.state.tolken);
     return(
       <Fragment>
         <Logo />
