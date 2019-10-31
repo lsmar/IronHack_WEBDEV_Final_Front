@@ -20,7 +20,7 @@ const CardProject = (props) => {
               {props.role === 'COORDINATOR' ? <Link to={`/project/delete/${elem._id}`}><img className='components-cardProject-icon'src="/images/Icons/delete-icon.png" alt="delete"/></Link> : null} 
             </div>
             <Link to={`/project/${elem._id}`}>
-            <p className='components-cardProject-p'>Professores: {elem.teachers.map((e,idx) =><span className='page-projectDetail-text-value' key={idx} > {e.name} </span>)}</p>
+            <p className='components-cardProject-p'>Professores: {elem.teachers.map((e,idx) =><span className='page-projectDetail-text-value-class-card' key={idx} > {e.name} </span>)}</p>
             </Link>
             <Link  to={`/project/${elem._id}`}>
             <p className='components-cardProject-p'>Turma: {elem.students[0].grade} {elem.students[0].classRoom}</p>

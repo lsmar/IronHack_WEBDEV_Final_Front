@@ -130,7 +130,7 @@
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .components-cardProject-title-edit-delete {
@@ -445,7 +445,16 @@
   font-size: 18px;
 }
 
+.page-projectDetail-text-value-class-card{
+  font-weight: 100;
+  font-size: 18px;
+}
+
 .page-projectDetail-text-value-class:not(:last-child):after {
+  content: ', '
+}
+
+.page-projectDetail-text-value-class-card:not(:last-child):after {
   content: ', '
 }
 
@@ -522,8 +531,8 @@
   justify-content: flex-start;
   align-items: center;
   min-width: 100vw;
-  min-height: 80vh;
-  padding-top: 120px;
+  min-height: 100vh;
+  padding-top: 80px;
   padding-bottom: 80PX;
 }
 
@@ -542,6 +551,15 @@ font-size: 18px;
 }
 
 .page-recordBook-title {
+  color: #338ceb;
+  margin: 30px 20px;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-weight: 700;
+}
+
+.page-recordBook-title-ex{
   color: #338ceb;
   margin: 30px 20px;
   padding: 0;
@@ -676,6 +694,10 @@ font-size: 18px;
     margin: 0;
     min-height: 100vh;
   }
+
+  .page-recordBook-container{
+    padding-top: 120px;
+   }
 }
 
 /*IPAD PRO*/
@@ -731,11 +753,23 @@ font-size: 18px;
     font-size: 40px;
   }
 
+  .page-projectDetail-text-span {
+    margin: 100px 0;
+  }
+
+.page-projectDetail-text-value-class-card {
+font-size: 18px;
+}
+
   .page-projectDetail-text-value {
     font-size: 18px;
   }
 
   .page-projectDetail-text-value-class {
+    font-size: 32px;
+  }
+
+  .page-projectDetail-text-value-number {
     font-size: 32px;
   }
 
@@ -747,7 +781,6 @@ font-size: 18px;
 .components-input {
   min-width: 450px;
   height: 50px;
-  font-size: 20px;
 }
 
 .page-add-span {
@@ -756,18 +789,17 @@ font-size: 18px;
 
 .components-button {
   min-width: 450px;
-  height: 50px;
-  font-size: 20px;
+  height: 55px;
+  font-size: 28px;
 }
 
 .page-loginSignup-link {
-  font-size: 22px;
+  font-size: 25px;
 }
 
 .components-TextAreaProject{
   min-width: 450px;
   height: 100px;
-  font-size: 20px;
 }
 
 .ui.fluid.dropdown {
@@ -796,6 +828,49 @@ font-size: 18px;
   font-size: 55px;
 }
 
+.page-recordBook-container{
+ padding-top: 180px;
+}
+
+.page-recordBook-title {
+  font-size: 45px;
+  margin-bottom: 80px;
+}
+
+.page-recordBook-title-ex{
+  font-size: 35px;
+}
+
+.page-recordBook-text {
+  font-size: 22px;
+}
+
+.components-inputData {
+min-width: 250px;
+padding-left: 75px;
+font-size: 20px;
+}
+
+.components-buttonRecord {
+  min-width: 250px;
+  height: 45px;
+  font-size: 20px;
+}
+
+.page-recordBook-date {
+  font-size: 28px;
+}
+
+.components-studentsList-students {
+  font-size: 35px;
+  padding-left: 65px;
+  padding-bottom: 40px;
+}
+
+.page-recordBook-bottom {
+  min-width: 700px;
+  margin-bottom: 80px;
+}
 }
 
 
