@@ -140,7 +140,7 @@ class AddNewProject extends Component {
             // value={this.state.image}
           />
             <Button type="submit" label={'Cadastrar'} />
-          <Navbar role={this.state.tolken.role} />
+          <Navbar role={this.state.tolken.role} url={this.props.match.url}/>
         </form>
       </div>
     )
