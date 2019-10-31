@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import {getUser} from "../services/auth";
 import apiAxios from "../services/api";
 import Button from "../components/Botao"
 import Navbar from '../components/navbar';
@@ -17,6 +18,8 @@ class ProjectDetail extends Component {
       description: "",
       formattedSkills: [],
       loader: true,
+      tolken: [],
+      owner:false,
     }
     this.getSingleProject = this.getSingleProject.bind(this);
     this.formatSkills = this.formatSkills.bind(this);
@@ -24,6 +27,7 @@ class ProjectDetail extends Component {
 
   componentDidMount = () => {
     this.getSingleProject();
+    this.setState({tolken: getUser()});
   };
 
   getSingleProject = () => {
@@ -38,7 +42,9 @@ class ProjectDetail extends Component {
           subjects,
           description
         } = response.data;
-        this.setState({ name, teachers, students, subjects, description, loader:false }, () =>
+        let owner = false;
+        teachers.forEach( teacher => teacher._id === this.state.tolken._id ? owner = true : null)
+        this.setState({ name, teachers, students, subjects, description, owner, loader:false }, () =>
           this.formatSkills()
         );
       })
@@ -57,6 +63,8 @@ class ProjectDetail extends Component {
   };
 
   render() {
+    console.log(this.state.tolken._id)
+    console.log(this.state.teachers)
     return (
       <Fragment>
         <Logo />
@@ -101,7 +109,7 @@ class ProjectDetail extends Component {
               </span>
             </h5>
           </span> : null}
-          {!this.state.loader?<Link to={`/project/${this.props.match.params.id}/recordBook`}> <Button type="submit" label={'Avaliação'} /> </Link>:null}
+          {!this.state.loader?(this.state.owner?<Link to={`/project/${this.props.match.params.id}/recordBook`}> <Button type="submit" label={'Avaliação'} /> </Link>:null):null}
           {this.state.loader?<Loader />:null}
 
         </div>
