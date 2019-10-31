@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 import apiAxios from "../services/api";
 import Button from "../components/Botao"
 import Navbar from '../components/navbar';
@@ -101,7 +102,7 @@ class ProjectDetail extends Component {
             </h5>
           </span> : null}
 
-          {!this.state.loader?<Button type="submit" label={'Avaliação'} />:null}
+          {!this.state.loader?<Link to={`/project/${this.props.match.params.id}/recordBook`}> <Button type="submit" label={'Avaliação'} /> </Link>:null}
           {!this.state.loader?<Button type="submit" label={'Resultados'} />:null}
           {this.state.loader?<Loader />:null}
 
