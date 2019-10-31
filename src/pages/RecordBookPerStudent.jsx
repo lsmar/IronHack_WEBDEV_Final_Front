@@ -4,6 +4,7 @@ import Button from "../components/Botao";
 import Title from "../components/Title";
 import apiAxios from "../services/api";
 import IconsTags from "../components/IconsTags";
+import TextArea from "../components/TextArea";
 import Navbar from "../components/navbar";
 import Logo from "../components/Logo";
 import ButtonBlue from "../components/ButtonBlue";
@@ -22,14 +23,21 @@ class RecordBookPerStudent extends Component {
       ideasConnection: false,
       noEngagement: false,
       buttonLabel: "Salvar",
-      error: ''
+      error: '',
+      obs: ''
     };
     this.sendTags = this.sendTags.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleFormEdit = this.handleFormEdit.bind(this);
+
   }
 
   componentDidMount = () => {
     this.getStudentInfo();
+  };
+
+  handleFormEdit = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   getStudentInfo() {
@@ -76,8 +84,9 @@ class RecordBookPerStudent extends Component {
       }
     ];
     const presence = !this.state.presence;
+    const obs = this.state.obs
     apiAxios
-      .patch(`/record/${this.props.match.params.idRecord}`, {tags,presence})
+      .patch(`/record/${this.props.match.params.idRecord}`, {tags,presence, obs})
       .then(student => {
         this.setState({ tags: [],buttonLabel:"Salvo!" },()=>setTimeout(()=>this.setState({buttonLabel:"Salvar"}),2000));
       })
@@ -162,6 +171,8 @@ class RecordBookPerStudent extends Component {
             }
           />
         </div>
+        
+        <TextArea name="obs" value={this.state.obs} placeholder="Observações" handleChange={this.handleFormEdit}/>
         <div className='page-recordBook-perStudent-button'>
           {this.state.error && <p  className="error">{this.state.error}</p>}
           <span className='page-recordBook-perStudent-button-span'>
