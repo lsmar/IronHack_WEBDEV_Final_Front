@@ -9,8 +9,8 @@
   box-sizing: border-box;
 }
 
-.dimmer{
-  background-color: rgba(50, 139, 234, 0.1)!important;
+.dimmer {
+  background-color: rgba(50, 139, 234, 0.1) !important;
   /* height: 100vh!important; */
 }
 
@@ -137,7 +137,7 @@
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .components-cardProject-title-edit-delete {
@@ -154,7 +154,7 @@
   border-radius: 5px;
   box-shadow: 5px 3px rgba(0, 0, 0, 0.1);
   width: 300px;
-  min-height: 250px;
+  min-height: 270px;
   margin: 20px 0;
   display: flex;
   margin: 30px 0px;
@@ -198,6 +198,7 @@
   height: 40px;
   width: 300px;
   outline: none;
+  padding-left: 15px;
 }
 
 
@@ -213,7 +214,7 @@
   outline: none;
 }
 
-.components-TextAreaProject{
+.components-TextAreaProject {
   border: 1px solid black;
   border-radius: 5px;
   padding: 0px 10px;
@@ -251,7 +252,7 @@
 
 .components-logo-container {
   min-width: 100vw;
-  min-height: 10vh;
+  min-height: 8%;
   border-bottom: 1px solid lightgray;
   background-color: #338ceb;
   position: fixed;
@@ -396,10 +397,11 @@
 .page-chart-container {
   width: 100vw;
   min-height: 100vh;
-  padding: 80px 0px 70px 0px;;
+  padding: 80px 0px 70px 0px;
+  ;
 }
 
-.page-chart-container-radar{
+.page-chart-container-radar {
   margin-bottom: 50px;
 }
 
@@ -446,7 +448,21 @@
   font-size: 18px;
 }
 
-.page-projectDetail-text-value:not(:last-child):after {
+.page-projectDetail-text-value-number {
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.page-projectDetail-text-value-class-card {
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.page-projectDetail-text-value-class:not(:last-child):after {
+  content: ', '
+}
+
+.page-projectDetail-text-value-class-card:not(:last-child):after {
   content: ', '
 }
 
@@ -523,8 +539,8 @@
   justify-content: flex-start;
   align-items: center;
   min-width: 100vw;
-  min-height: 80vh;
-  padding-top: 120px;
+  min-height: 100vh;
+  padding-top: 80px;
   padding-bottom: 80PX;
 }
 
@@ -533,8 +549,8 @@
   flex-direction: row;
 }
 
-.page-recordBook-date{
-font-size: 18px;
+.page-recordBook-date {
+  font-size: 18px;
 }
 
 .page-recordBook-text {
@@ -543,6 +559,15 @@ font-size: 18px;
 }
 
 .page-recordBook-title {
+  color: #338ceb;
+  margin: 30px 20px;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-weight: 700;
+}
+
+.page-recordBook-title-ex {
   color: #338ceb;
   margin: 30px 20px;
   padding: 0;
@@ -569,9 +594,9 @@ font-size: 18px;
   padding: 0 20px;
 }
 
-.page-recordBook-perStudent-textArea{
+.page-recordBook-perStudent-textArea {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .page-recordBook-perStudent-button {
@@ -606,7 +631,6 @@ font-size: 18px;
 }
 
 .component-conta-img {
-  
   display: flex;
   justify-content: center;
 }
@@ -628,8 +652,6 @@ font-size: 18px;
 
 /*MEDIAS*/
 
-
-
 @media (min-width: 426px) {
   .page-loginSignup-container {
     width: 70vw;
@@ -642,7 +664,7 @@ font-size: 18px;
   }
 }
 
-/*TABLET*/
+/*IPAD*/
 
 @media (min-width: 768px) {
   .page-loginSignup-container {
@@ -655,11 +677,11 @@ font-size: 18px;
     margin-bottom: 30px;
   }
 
-  .components-cardProject-card{
+  .components-cardProject-card {
     margin-right: 20px;
   }
 
-  .components-searchBar-DF{
+  .components-searchBar-DF {
     margin: 20px 0;
   }
 
@@ -673,23 +695,237 @@ font-size: 18px;
   }
 
   .component-conta-container {
-   min-height: 100vh;
+    min-height: 100vh;
   }
 
   .page-add-container-pj {
     margin: 0;
     min-height: 100vh;
   }
+
+  .page-recordBook-container {
+    padding-top: 120px;
+  }
+
+  .component-recordBook-img{
+    margin-top: 20px;
+  }
+
 }
 
-
-
-@media (min-width: 1024px) {
+/*IPAD PRO*/
+@media (min-width: 1023px) {
   .page-loginSignup-container {
     width: 50vw;
   }
+
+  .component-navbar-nav {
+    height: 100px;
+  }
+
+  .components-logo-img {
+    width: 150%;
+  }
+
+  .component-logoSL {
+    height: 100px;
+  }
+
+  .component-navbar-img {
+    height: 80px;
+  }
+
+  .components-searchBar {
+    height: 60px;
+    width: 600px;
+  }
+
+  .components-searchBar-DF {
+    margin: 30px 0;
+  }
+
+  .components-cardProject-card {
+    width: 400px;
+    min-height: 300px;
+  }
+
+  .components-cardProject-img {
+    height: 180px;
+  }
+
+  .components-cardProject-title {
+    font-size: 28px;
+  }
+
+  .components-cardProject-p {
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+
+  .page-projectDetail-text {
+    font-size: 40px;
+  }
+
+  .page-projectDetail-text-span {
+    margin: 100px 0;
+  }
+
+  .page-projectDetail-text-value-class-card {
+    font-size: 18px;
+  }
+
+  .page-projectDetail-text-value {
+    font-size: 18px;
+  }
+
+  .page-projectDetail-text-value-class {
+    font-size: 32px;
+  }
+
+  .page-projectDetail-text-value-number {
+    font-size: 32px;
+  }
+
+  .component-titleAndText {
+    font-size: 60px;
+    padding: 0;
+  }
+
+  .components-input {
+    min-width: 450px;
+    height: 50px;
+  }
+
+  .page-add-span {
+    width: 400px;
+  }
+
+  .components-button {
+    min-width: 450px;
+    height: 55px;
+    font-size: 28px;
+  }
+
+  .components-buttonBlue {
+    min-width: 450px;
+    height: 55px;
+    font-size: 28px;
+  }
+
+  .page-loginSignup-link {
+    font-size: 25px;
+  }
+
+  .components-TextAreaProject {
+    min-width: 450px;
+    height: 100px;
+  }
+
+  .ui.fluid.dropdown {
+    width: 450px !important;
+    min-height: 50px !important;
+  }
+
+  .components-inputFile {
+    width: 450px;
+    height: 50px;
+  }
+
+  .component-conta-img>img {
+    height: 250px;
+  }
+
+  .component-title {
+    font-size: 40px;
+  }
+
+  .component-conta-p {
+    font-size: 24px;
+  }
+
+  .page-projectDetail-title {
+    font-size: 55px;
+  }
+
+  .page-recordBook-container {
+    padding-top: 180px;
+  }
+
+  .page-recordBook-title {
+    font-size: 45px;
+    margin-bottom: 80px;
+  }
+
+  .page-recordBook-title-ex {
+    font-size: 35px;
+  }
+
+  .page-recordBook-text {
+    font-size: 22px;
+  }
+
+  .components-inputData {
+    min-width: 250px;
+    padding-left: 75px;
+    font-size: 20px;
+  }
+
+  .components-buttonRecord {
+    min-width: 250px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .page-recordBook-date {
+    font-size: 28px;
+  }
+
+  .components-studentsList-students {
+    font-size: 35px;
+    padding-left: 65px;
+    padding-bottom: 40px;
+  }
+
+  .page-recordBook-bottom {
+    min-width: 700px;
+    margin-bottom: 80px;
+  }
+
+  .page-recordBook-perStudent {
+    margin: 150px 0 120px 0;
+  }
+
+  .components-TextArea {
+    width: 700px;
+    font-size: 22px;
+    margin: 20px 0;
+    height: 200px;
+}
+.component-recordBook-img>img {
+  height: 250px;
 }
 
+.img-tag {
+  width: 25vw;
+}
+
+.component-iconTag-text {
+  font-size: 25px;
+}
+
+.page-chart-container{
+  margin: 50px 0 80px 0;
+}
+
+.page-chart-container-radar {
+  margin: 60px 0;
+}
+}
+
+
+
+
+/*MACBOOKPRO*/
 @media (min-width: 1440px) {
   .page-loginSignup-container {
     width: 40vw;
