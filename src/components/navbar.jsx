@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 // SUBSTITUIR <a> POR <Link>
 // ADICIONAR IMAGENS DENTRO DOS <Link>
+// A
 
 const Navbar = ({role, url}) => {
 return(

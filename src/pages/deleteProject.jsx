@@ -5,30 +5,44 @@ import apiAxios from "../services/api";
 import Logo from "../components/Logo";
 import Navbar from "../components/navbar";
 import TitleAndText from "../components/TitleAndText";
+import Loader from "../components/loader"
 
 class ProjectDeleted extends Component{
   constructor(props){
     super(props)
     this.state={
       projectName: "",
+      canDelete: false,
+      loader: true
     }
     this.deleteOne = this.deleteOne.bind(this);
+    this.getOne = this.getOne.bind(this);
   }
 
   componentDidMount(){
-    this.deleteOne();
+    this.getOne();
   }
+
+  getOne = () => {
+    apiAxios
+    .get(`/project/${this.props.match.params.id}`)
+    .then(project => (
+      this.setState({projectName:project.data.name, loader: false})
+    ))
+    .catch(e => console.log(e));
+  }
+
   deleteOne = () => {
     apiAxios
     .delete(`/project/${this.props.match.params.id}`)
     .then(project => (
-      this.setState({projectName:project.data.name})
+      this.setState({projectName:project.data.name, canDelete:true})
     ))
     .catch(e => console.log(e));
   }
+
     render(){
-      return( 
-      <div>
+      const deletedMessege = (<div>
         <Logo />
         <span className='page-delAndEdit-container'>
         {this.state.projectName!==''?<TitleAndText>PROJETO DELETADO COM SUCESSO!</TitleAndText>:<TitleAndText>NENHUM PROJETO FOI ENCONTRADO!</TitleAndText>}
@@ -42,9 +56,24 @@ class ProjectDeleted extends Component{
           <Button type="submit" label={"Ir para home"} />
         </Link>
         </span>
+        {this.state.loader === true ? <Loader /> : null}
         <Navbar />
-      </div>
-      )
+      </div>);
+
+      const messageConfirmation = (<div>
+        <Logo />
+        {this.state.loader !== true ? <span className='page-delAndEdit-container'>
+        {this.state.projectName!==''?<TitleAndText>Apagar o projeto "{this.state.projectName}"</TitleAndText>:null}
+        <Button type="submit" method={this.deleteOne} label={"Sim"} />
+        <Link to="/project">
+          <Button type="submit" label={"Nao, retornar para a home"} />
+        </Link>
+        </span> : null}
+        {this.state.loader === true ? <Loader /> : null}
+        <Navbar />
+      </div>);
+
+      return( !this.state.canDelete ? messageConfirmation : deletedMessege )
     }
 };
 export default ProjectDeleted;
