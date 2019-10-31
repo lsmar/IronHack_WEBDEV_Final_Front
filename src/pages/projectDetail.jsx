@@ -101,9 +101,7 @@ class ProjectDetail extends Component {
               </span>
             </h5>
           </span> : null}
-
           {!this.state.loader?<Link to={`/project/${this.props.match.params.id}/recordBook`}> <Button type="submit" label={'Avaliação'} /> </Link>:null}
-          {!this.state.loader?<Button type="submit" label={'Resultados'} />:null}
           {this.state.loader?<Loader />:null}
 
         </div>
