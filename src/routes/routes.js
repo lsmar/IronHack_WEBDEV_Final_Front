@@ -50,7 +50,7 @@ const Routes = () => (
       <PrivateRoute exact path="/project/:id" role="" component={ProjectDetail} />
       <PrivateRoute exact path="/project/edit/:id" role="" component={EditProject} />
       <PrivateRoute exact path="/project/delete/:id" role="" component={DeleteProject} />
-      <PrivateRoute exact path="/project/review/:projectId/student/:studentId" role="" component={Chart} />
+      <PrivateRoute exact path="/project/review/:projectId/student/:studentId/:date" role="" component={Chart} />
       <PrivateRoute path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
   </BrowserRouter>

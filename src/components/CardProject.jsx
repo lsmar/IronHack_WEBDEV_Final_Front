@@ -3,9 +3,7 @@ import AOS from 'aos';
 import {Link} from 'react-router-dom'
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
-AOS.init();
-
-
+AOS.init({offset:80});
 
 const CardProject = (props) => {
   return (

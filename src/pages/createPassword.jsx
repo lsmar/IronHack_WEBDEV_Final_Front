@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import apiAxios from "../services/api";
 import Button from '../components/Botao';
 import Input from "../components/input";
-import Logo from '../components/Logo';
 import base64 from "base-64"
 import TitleAndText from "../components/TitleAndText";
 

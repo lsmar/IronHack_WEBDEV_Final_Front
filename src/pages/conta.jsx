@@ -21,7 +21,7 @@ class Conta extends Component{
     return(
       <div className='page-conta-conatiner'>
         <Logo />
-        <Detalhes role={this.state.tolken.role} name={this.state.tolken.name}/>
+        <Detalhes role={this.state.tolken.role} name={this.state.tolken.name} institution={this.state.tolken.institution}/>
         <Nav role={this.state.tolken.role} url={this.props.match.url}/>
       </div>
     );
