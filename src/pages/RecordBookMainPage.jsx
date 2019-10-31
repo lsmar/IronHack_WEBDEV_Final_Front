@@ -16,7 +16,8 @@ class RecordBookMainPage extends Component {
       dateValue: moment(new Date()).format("YYYY-MM-DD"),
       students: [],
       allRecords: [],
-      loader: true
+      loader: true,
+      buttonLabel:'Iniciar diário',
     };
     this.handleDateChange = this.handleDateChange.bind(this);
     this.createRecord = this.createRecord.bind(this);
@@ -36,13 +37,14 @@ class RecordBookMainPage extends Component {
     apiAxios
       .get(`record/projectGetDates/${project_id}`)
       .then(diary => {
-        this.setState({allRecords:diary.data, loader: false})
+        this.setState({allRecords:diary.data, loader: false,  buttonLabel: "Iniciado!"},() => setTimeout(() => this.setState({ buttonLabel: "Iniciar Diário" }), 2000))
       })
       .catch(e => console.log(e));
   };
 
   createRecord = e => {
     e.preventDefault();
+    this.setState({ buttonLabel: "Iniciando..." });
     const date = this.state.dateValue;
     const project = this.props.match.params.id;
     apiAxios
@@ -67,7 +69,7 @@ class RecordBookMainPage extends Component {
         />
         <Button
           type="submit"
-          label={"Iniciar diário"}
+          label={this.state.buttonLabel}
           method={this.createRecord}
         />
         <h3 className='page-recordBook-title'>AVALIAÇŌES EXISTENTES</h3>
