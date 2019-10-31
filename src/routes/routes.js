@@ -37,21 +37,21 @@ const Routes = () => (
       <PrivateRoute role='TEACHER' path='/project/my' component={MyProjects} />
       <PrivateRoute role='' path='/conta' component={Conta} />
       <PrivateRoute path="/app" role="TEACHER" component={() => <h1>App</h1>} />
-      <Route path="/newTeacher" role="COORDINATOR" component={AddNewProfessor} />
-      <Route path="/newUser/:token" role="" component={CreatePassword} />
-      <Route path="/newUser" role="COORDINATOR" component={AddNewProfessor} />
-      <Route path="/newProject" role="" component={AddNewProject} />
-      <Route path="/projectCreated" role="" component={ProjectCreated} />
-      <Route path="/projectEdited" role="" component={ProjectCreated} />
-      <Route path="/professorCreated" role="" component={ProfessorCreated} />
-      <Route exact path="/project/:id/recordBook" role="" component={RecordBookMainPage} />
-      <Route exact path="/project/:id/recordBook/:date" role="" component={RecordBookPerDate} />
-      <Route exact path="/project/:id/recordBook/:date/:idRecord" role="" component={RecordBookPerStudent} />
-      <Route exact path="/project/:id" role="" component={ProjectDetail} />
-      <Route exact path="/project/edit/:id" role="" component={EditProject} />
-      <Route exact path="/project/delete/:id" role="" component={DeleteProject} />
-      <Route exact path="/project/review/:projectId/student/:studentId/:date" role="" component={Chart} />
-      <Route path="*" component={() => <h1>Page not found</h1>} />
+      <PrivateRoute path="/newTeacher" role="COORDINATOR" component={AddNewProfessor} />
+      <PrivateRoute path="/newUser/:token" role="" component={CreatePassword} />
+      <PrivateRoute path="/newUser" role="COORDINATOR" component={AddNewProfessor} />
+      <PrivateRoute path="/newProject" role="" component={AddNewProject} />
+      <PrivateRoute path="/projectCreated" role="" component={ProjectCreated} />
+      <PrivateRoute path="/projectEdited" role="" component={ProjectCreated} />
+      <PrivateRoute path="/professorCreated" role="" component={ProfessorCreated} />
+      <PrivateRoute exact path="/project/:id/recordBook" role="" component={RecordBookMainPage} />
+      <PrivateRoute exact path="/project/:id/recordBook/:date" role="" component={RecordBookPerDate} />
+      <PrivateRoute exact path="/project/:id/recordBook/:date/:idRecord" role="" component={RecordBookPerStudent} />
+      <PrivateRoute exact path="/project/:id" role="" component={ProjectDetail} />
+      <PrivateRoute exact path="/project/edit/:id" role="" component={EditProject} />
+      <PrivateRoute exact path="/project/delete/:id" role="" component={DeleteProject} />
+      <PrivateRoute exact path="/project/review/:projectId/student/:studentId/:date" role="" component={Chart} />
+      <PrivateRoute path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
   </BrowserRouter>
 );

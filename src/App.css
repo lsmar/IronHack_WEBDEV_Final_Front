@@ -163,7 +163,7 @@
 
 .components-cardProject-text {
   margin-left: 20px;
-  margin-top: 5px;
+  margin-bottom: 10px;
   color:
     #f79f1c;
 }
@@ -175,7 +175,7 @@
 
 .components-cardProject-p {
   font-size: 15px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   line-height: 15px;
   color: rgba(0, 0, 0, 0.5);
 }
@@ -195,6 +195,18 @@
 
 
 .components-TextArea {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0px 10px;
+  width: 250px;
+  height: 100px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: black;
+  outline: none;
+}
+
+.components-TextAreaProject{
   border: 1px solid black;
   border-radius: 5px;
   padding: 0px 10px;
@@ -276,6 +288,7 @@
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
+  padding: 0 20px;
   /* margin-bottom: 30px; */
 }
 
@@ -417,7 +430,7 @@
 
 .page-projectDetail-text-value {
   font-weight: 100;
-  font-size: 18px;
+  /* font-size: 18px; */
   font-weight: 300;
 }
 
@@ -513,6 +526,10 @@
   flex-direction: row;
 }
 
+.page-recordBook-date{
+font-size: 18px;
+}
+
 .page-recordBook-text {
   padding: 10px 5px 0px 0px;
   margin: 0;
@@ -520,7 +537,7 @@
 
 .page-recordBook-title {
   color: #338ceb;
-  margin: 30px 0px;
+  margin: 30px 20px;
   padding: 0;
   font-family: 'Roboto', sans-serif;
   text-align: center;
@@ -543,6 +560,11 @@
   align-content: center;
   justify-content: space-around;
   padding: 0 20px;
+}
+
+.page-recordBook-perStudent-textArea{
+  display: flex;
+  justify-content: center; 
 }
 
 .page-recordBook-perStudent-button {
@@ -569,12 +591,15 @@
 
 .component-conta-container {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 .component-conta-img {
-  margin-top: 80px;
+  
   display: flex;
   justify-content: center;
 }
@@ -596,6 +621,8 @@
 
 /*MEDIAS*/
 
+
+
 @media (min-width: 426px) {
   .page-loginSignup-container {
     width: 70vw;
@@ -608,9 +635,11 @@
   }
 }
 
-@media (min-width: 769px) {
+/*TABLET*/
+
+@media (min-width: 768px) {
   .page-loginSignup-container {
-    width: 60vw;
+    min-width: 80vw;
   }
 
   .page-recordBook-bottom {
@@ -618,7 +647,35 @@
     min-width: 500px;
     margin-bottom: 30px;
   }
+
+  .components-cardProject-card{
+    margin-right: 20px;
+  }
+
+  .components-searchBar-DF{
+    margin: 20px 0;
+  }
+
+  .img-tag {
+    width: 18vw;
+  }
+
+  .components-TextArea {
+    width: 530px;
+    font-size: 16px;
+  }
+
+  .component-conta-container {
+   min-height: 100vh;
+  }
+
+  .page-add-container-pj {
+    margin: 0;
+    min-height: 100vh;
+  }
 }
+
+
 
 @media (min-width: 1024px) {
   .page-loginSignup-container {
