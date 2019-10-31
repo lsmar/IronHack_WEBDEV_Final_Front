@@ -25,13 +25,14 @@ const CardProject = props => {
             <div className="components-cardProject-text">
               <div className="components-cardProject-title-edit-delete">
                 <h5 className="components-cardProject-title">{elem.name}</h5>
-                <Link to={`/project/edit/${elem._id}`}>
+                {elem.teachers.map(el=>el._id).includes(props.ownId)? <Link to={`/project/edit/${elem._id}`}>
                   <img
                     className="components-cardProject-icon"
                     src="/images/Icons/edit-icon.png"
                     alt="edit"
                   />
-                </Link>
+                </Link> : null }
+                
                 {props.role === "COORDINATOR" ? (
                   <Link to={`/project/delete/${elem._id}`}>
                     <img
