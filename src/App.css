@@ -376,11 +376,11 @@
 .page-chart-container {
   width: 100vw;
   min-height: 100vh;
-  margin-top: 90px;
+  padding: 80px 0px 70px 0px;;
 }
 
 .page-chart-container-radar{
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 /*PAGE PROJECT DETAIL*/
