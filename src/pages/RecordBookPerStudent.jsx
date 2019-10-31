@@ -14,6 +14,8 @@ class RecordBookPerStudent extends Component {
     super(props);
     this.state = {
       studentName: "",
+      studentID: "",
+      tagStatus: false,
       presence: false,
       conversation: false,
       goodParticipation: false,
@@ -43,7 +45,37 @@ class RecordBookPerStudent extends Component {
   getStudentInfo() {
     apiAxios
       .get(`/record/${this.props.match.params.idRecord}`)
-      .then(record => this.setState({ studentName: record.data.student.name }))
+      .then(record => {
+        let hasTag = false;
+        let newConversation = false;
+        let newGoodParticipation = false;
+        let newCreativity = false;
+        let newComprehension = false;
+        let newTeamWork = false;
+        let newIdeasConnection = false;
+        let newNoEngagement = false;
+        if(record.data.tags.length !== 0 && record.data.presence){
+          hasTag = true 
+          record.data.tags.forEach(tag => {
+            if (tag.tagName === 'conversation')  newConversation = tag.value
+            else if (tag.tagName === 'goodParticipation') newGoodParticipation = tag.value
+            else if (tag.tagName === 'creativity') newCreativity = tag.value
+            else if (tag.tagName === 'comprehension') newComprehension = tag.value
+            else if (tag.tagName === 'teamWork') newTeamWork = tag.value
+            else if (tag.tagName === 'ideasConnection') newIdeasConnection = tag.value
+            else newNoEngagement = tag.value
+          })
+        }
+        this.setState({ studentName: record.data.student.name, studentId: record.data.student._id, tagStatus: hasTag, presence: !record.data.presence,
+        obs: record.data.obs,
+        conversation: newConversation,
+          goodParticipation: newGoodParticipation,
+          creativity: newCreativity,
+          comprehension: newComprehension,
+          teamWork: newTeamWork,
+          ideasConnection: newIdeasConnection,
+          noEngagement: newNoEngagement})
+      })
       .catch(e => console.log(e));
   }
 
@@ -178,10 +210,12 @@ class RecordBookPerStudent extends Component {
           <span className='page-recordBook-perStudent-button-span'>
         <Button label={this.state.buttonLabel} method={this.sendTags}/>
         </span>
+        {this.state.tagStatus ? (<span className='page-recordBook-perStudent-button-span'><Link to={`/project/review/${this.props.match.params.id}/student/${this.state.studentId}`}> <Button type="submit" label={'Resultados'} /></Link></span>) : null}
           <Link  className='page-recordBook-perStudent-button-span'
             to={`/project/${this.props.match.params.id}/RecordBook/${this.props.match.params.date}`}
           >
             <ButtonBlue label={"Voltar a lista de estudantes"} />
+
           </Link>
           </div>
       </div>
