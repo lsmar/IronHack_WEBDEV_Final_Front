@@ -40,7 +40,6 @@ class Home extends Component {
 
   
   render() {
-    console.log(this.props.match.url);
     const projects = [...this.state.project].filter(el=>el.name.toLocaleLowerCase().indexOf(this.state.input)>-1);
     return(
       

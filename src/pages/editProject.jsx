@@ -57,7 +57,7 @@ class EditProject extends Component {
       .patch(`/project/${this.props.match.params.id}`, { name, description })
       .then(() => {
         this.setState({ name: '', description: '', image: '' })
-        this.props.history.push("/projectCreated");
+        this.props.history.push("/projectEdited");
       })
       .catch(e => console.log(e))
   };

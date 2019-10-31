@@ -107,7 +107,6 @@ class AddNewProject extends Component {
   };
 
   handleFileUpload(event) {
-    console.log("The file to be uploaded is: ", event.target.files[0]);
     this.setState({ image: event.target.files[0]})
   }
 

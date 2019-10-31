@@ -42,6 +42,7 @@ const Routes = () => (
       <Route path="/newUser" role="COORDINATOR" component={AddNewProfessor} />
       <Route path="/newProject" role="" component={AddNewProject} />
       <Route path="/projectCreated" role="" component={ProjectCreated} />
+      <Route path="/projectEdited" role="" component={ProjectCreated} />
       <Route path="/professorCreated" role="" component={ProfessorCreated} />
       <Route exact path="/project/:id/recordBook" role="" component={RecordBookMainPage} />
       <Route exact path="/project/:id/recordBook/:date" role="" component={RecordBookPerDate} />
@@ -49,7 +50,7 @@ const Routes = () => (
       <Route exact path="/project/:id" role="" component={ProjectDetail} />
       <Route exact path="/project/edit/:id" role="" component={EditProject} />
       <Route exact path="/project/delete/:id" role="" component={DeleteProject} />
-      <Route exact path="/project/review/:id/student/:studentId" role="" component={Chart} />
+      <Route exact path="/project/review/:projectId/student/:studentId" role="" component={Chart} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
   </BrowserRouter>
