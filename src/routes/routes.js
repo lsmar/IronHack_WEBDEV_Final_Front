@@ -38,7 +38,7 @@ const Routes = () => (
       <PrivateRoute role='' path='/conta' component={Conta} />
       <PrivateRoute path="/app" role="TEACHER" component={() => <h1>App</h1>} />
       <Route path="/newTeacher" role="COORDINATOR" component={AddNewProfessor} />
-      <Route path="/newUser/:token" role="" component={CreatePassword} />
+      <Route exact path="/newUser/:token" role="" component={CreatePassword} />
       <Route path="/newUser" role="COORDINATOR" component={AddNewProfessor} />
       <Route path="/newProject" role="" component={AddNewProject} />
       <Route path="/projectCreated" role="" component={ProjectCreated} />
