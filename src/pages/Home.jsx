@@ -46,7 +46,7 @@ class Home extends Component {
       <Fragment>
         <Logo />
         <div className='page-home-container'>
-        {!this.state.loader?<Search placeholder='   🔎' method={this.onChangeHandler}/>: null}
+        {!this.state.loader?<Search placeholder='🔎' method={this.onChangeHandler}/>: null}
         {this.state.loader?<Loader />:null}
         <p className="error">{this.state.error}</p>
         <Card projects={projects} role={this.state.tolken.role}/>

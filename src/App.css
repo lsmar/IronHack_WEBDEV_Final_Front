@@ -130,7 +130,7 @@
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .components-cardProject-title-edit-delete {
@@ -147,7 +147,7 @@
   border-radius: 5px;
   box-shadow: 5px 3px rgba(0, 0, 0, 0.1);
   width: 300px;
-  min-height: 250px;
+  min-height: 270px;
   margin: 20px 0;
   display: flex;
   margin: 30px 0px;
@@ -191,6 +191,7 @@
   height: 40px;
   width: 300px;
   outline: none;
+  padding-left: 15px;
 }
 
 
@@ -244,7 +245,7 @@
 
 .components-logo-container {
   min-width: 100vw;
-  min-height: 10vh;
+  min-height: 8%;
   border-bottom: 1px solid lightgray;
   background-color: #338ceb;
   position: fixed;
@@ -439,7 +440,12 @@
   font-size: 18px;
 }
 
-.page-projectDetail-text-value:not(:last-child):after {
+.page-projectDetail-text-value-number {
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.page-projectDetail-text-value-class:not(:last-child):after {
   content: ', '
 }
 
@@ -599,7 +605,6 @@ font-size: 18px;
 }
 
 .component-conta-img {
-  
   display: flex;
   justify-content: center;
 }
@@ -621,8 +626,6 @@ font-size: 18px;
 
 /*MEDIAS*/
 
-
-
 @media (min-width: 426px) {
   .page-loginSignup-container {
     width: 70vw;
@@ -635,7 +638,7 @@ font-size: 18px;
   }
 }
 
-/*TABLET*/
+/*IPAD*/
 
 @media (min-width: 768px) {
   .page-loginSignup-container {
@@ -675,14 +678,130 @@ font-size: 18px;
   }
 }
 
-
-
-@media (min-width: 1024px) {
+/*IPAD PRO*/
+@media (min-width: 1023px) {
   .page-loginSignup-container {
     width: 50vw;
   }
+
+  .component-navbar-nav{
+    height: 100px;
+  }
+
+  .components-logo-img {
+    width: 150%;
+  }
+
+  .component-logoSL {
+    height: 100px;
+  }
+
+  .component-navbar-img {
+    height: 80px;
+  }
+
+  .components-searchBar {
+    height: 60px;
+    width: 600px;
+  }
+
+  .components-searchBar-DF{
+    margin: 30px 0;
+  }
+
+  .components-cardProject-card {
+    width: 400px;
+    min-height: 300px;
+  }
+
+  .components-cardProject-img {
+    height: 180px;
+  }
+
+  .components-cardProject-title {
+  font-size: 28px;
+  }
+
+  .components-cardProject-p {
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+
+  .page-projectDetail-text {
+    font-size: 40px;
+  }
+
+  .page-projectDetail-text-value {
+    font-size: 18px;
+  }
+
+  .page-projectDetail-text-value-class {
+    font-size: 32px;
+  }
+
+.component-titleAndText {
+  font-size: 40px;
+  padding:0;
 }
 
+.components-input {
+  min-width: 450px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.page-add-span {
+  width: 400px;
+}
+
+.components-button {
+  min-width: 450px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.page-loginSignup-link {
+  font-size: 22px;
+}
+
+.components-TextAreaProject{
+  min-width: 450px;
+  height: 100px;
+  font-size: 20px;
+}
+
+.ui.fluid.dropdown {
+  width: 450px !important;
+  min-height: 50px !important;
+}
+
+.components-inputFile {
+  width: 450px;
+  height: 50px;
+}
+
+.component-conta-img>img {
+  height: 250px;
+}
+
+.component-title {
+  font-size: 40px;
+}
+
+.component-conta-p {
+  font-size: 24px;
+}
+
+.page-projectDetail-title {
+  font-size: 55px;
+}
+
+}
+
+
+
+
+/*MACBOOKPRO*/
 @media (min-width: 1440px) {
   .page-loginSignup-container {
     width: 40vw;
