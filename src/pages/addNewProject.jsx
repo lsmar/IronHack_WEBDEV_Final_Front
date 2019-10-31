@@ -70,7 +70,6 @@ class AddNewProject extends Component {
   };
 
   handleDropDown = value => {
-    debugger
     this.setState({ subjects: value})
 
   };

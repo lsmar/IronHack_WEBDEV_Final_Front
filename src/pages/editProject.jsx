@@ -40,7 +40,7 @@ class EditProject extends Component {
     apiAxios.get(`/project/${this.props.match.params.id}`)
       .then(project => {
         const { name, description, image } = project.data;
-        this.setState({ name, description, image }, () => console.log(this.state))
+        this.setState({ name, description, image })
       })
       .catch(e => console.log(e))
   }
