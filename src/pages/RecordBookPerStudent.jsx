@@ -134,7 +134,7 @@ class RecordBookPerStudent extends Component {
         <Logo />
       <div className='page-recordBook-perStudent'>
       <figure className='component-recordBook-img'>
-      <img  src={this.state.image} alt="icone de usuário"/>
+      <img  src={this.state.image.replace("/upload/","/upload/w_150,h_150,c_thumb,g_face,r_max/")} alt="icone de usuário"/>
       </figure>
         <Title>{this.state.studentName}</Title>
         <div className="page-recordBook-perStudent-tags">
