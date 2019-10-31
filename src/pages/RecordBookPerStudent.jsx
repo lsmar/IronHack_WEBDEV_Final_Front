@@ -121,7 +121,7 @@ class RecordBookPerStudent extends Component {
     apiAxios
       .patch(`/record/${this.props.match.params.idRecord}`, {tags,presence, obs})
       .then(student => {
-        this.setState({ tags: [],buttonLabel:"Salvo!" },()=>setTimeout(()=>this.setState({buttonLabel:"Salvar"}),2000));
+        this.setState({ tags: [],buttonLabel:"Salvo!", tagStatus:true },()=>setTimeout(()=>this.setState({buttonLabel:"Salvar"}),2000));
       })
       .catch (err => {
         this.setState({ error: "Ocorreu um erro, tente novamente!" })});
