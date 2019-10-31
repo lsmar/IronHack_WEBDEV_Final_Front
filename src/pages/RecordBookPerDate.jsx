@@ -37,7 +37,7 @@ class RecordBookPerDate extends Component {
         <Logo />
         <div className="page-recordBook-container">
           <h1 className="page-recordBook-title">
-            {this.state.allRecords.length !== 0?this.state.allRecords[0].project.name:null} - {moment(this.props.match.params.date).format("DD/MM/YYYY")}
+            {this.state.allRecords.length !== 0?this.state.allRecords[0].project.name:null} <span className="page-recordBook-date"> - {moment(this.props.match.params.date).format("DD/MM/YYYY")} </span>
           </h1>
           <span className="page-recordBook-bottom">
             <StudentsList

@@ -1,4 +1,4 @@
-import  React, {Fragment, Component} from 'react';
+import  React, {Component} from 'react';
 import {getUser} from "../services/auth";
 import Nav from '../components/navbar'
 import Logo from '../components/Logo'
@@ -19,11 +19,11 @@ class Conta extends Component{
 
   render(){
     return(
-      <Fragment>
+      <div className='page-conta-conatiner'>
         <Logo />
         <Detalhes role={this.state.tolken.role} name={this.state.tolken.name}/>
         <Nav role={this.state.tolken.role} url={this.props.match.url}/>
-      </Fragment>
+      </div>
     );
   }
 }
