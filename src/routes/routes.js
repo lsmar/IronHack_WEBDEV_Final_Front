@@ -15,6 +15,7 @@ import DeleteProject from "../pages/deleteProject";
 import Home from '../pages/Home';
 import MyProjects from '../pages/meusProjetos';
 import Conta from '../pages/conta';
+import Chart from '../pages/chart'
 
 
 import { isAuthenticated } from "../services/auth";
@@ -48,6 +49,7 @@ const Routes = () => (
       <Route exact path="/project/:id" role="" component={ProjectDetail} />
       <Route exact path="/project/edit/:id" role="" component={EditProject} />
       <Route exact path="/project/delete/:id" role="" component={DeleteProject} />
+      <Route exact path="/project/review/:id/student/:studentId" role="" component={Chart} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
   </BrowserRouter>
