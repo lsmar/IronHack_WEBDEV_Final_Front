@@ -8,6 +8,7 @@ import TextArea from "../components/TextArea";
 import Navbar from "../components/navbar";
 import Logo from "../components/Logo";
 import ButtonBlue from "../components/ButtonBlue";
+import Loader from '../components/loader'
 
 class RecordBookPerStudent extends Component {
   constructor(props) {
@@ -26,8 +27,9 @@ class RecordBookPerStudent extends Component {
       noEngagement: false,
       buttonLabel: "Salvar",
       error: '',
-      obs: '', 
-      image:''
+      obs: '',
+      image: '',
+      loader: true
     };
     this.sendTags = this.sendTags.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -55,10 +57,10 @@ class RecordBookPerStudent extends Component {
         let newTeamWork = false;
         let newIdeasConnection = false;
         let newNoEngagement = false;
-        if(record.data.tags.length !== 0 && record.data.presence){
-          hasTag = true 
+        if (record.data.tags.length !== 0 && record.data.presence) {
+          hasTag = true
           record.data.tags.forEach(tag => {
-            if (tag.tagName === 'conversation')  newConversation = tag.value
+            if (tag.tagName === 'conversation') newConversation = tag.value
             else if (tag.tagName === 'goodParticipation') newGoodParticipation = tag.value
             else if (tag.tagName === 'creativity') newCreativity = tag.value
             else if (tag.tagName === 'comprehension') newComprehension = tag.value
@@ -67,15 +69,18 @@ class RecordBookPerStudent extends Component {
             else newNoEngagement = tag.value
           })
         }
-        this.setState({ studentName: record.data.student.name, studentId: record.data.student._id, image: record.data.student.image, tagStatus: hasTag, presence: !record.data.presence,
-        obs: record.data.obs,
-        conversation: newConversation,
+        this.setState({
+          studentName: record.data.student.name, studentId: record.data.student._id, image: record.data.student.image, tagStatus: hasTag, presence: !record.data.presence,
+          obs: record.data.obs,
+          conversation: newConversation,
           goodParticipation: newGoodParticipation,
           creativity: newCreativity,
           comprehension: newComprehension,
           teamWork: newTeamWork,
           ideasConnection: newIdeasConnection,
-          noEngagement: newNoEngagement})
+          noEngagement: newNoEngagement,
+          loader: false
+        })
       })
       .catch(e => console.log(e));
   }
@@ -85,7 +90,7 @@ class RecordBookPerStudent extends Component {
   };
 
   sendTags() {
-    this.setState({buttonLabel:"Salvando..." });
+    this.setState({ buttonLabel: "Salvando..." });
     const tags = [
       {
         tagName: "conversation",
@@ -119,12 +124,13 @@ class RecordBookPerStudent extends Component {
     const presence = !this.state.presence;
     const obs = this.state.obs
     apiAxios
-      .patch(`/record/${this.props.match.params.idRecord}`, {tags,presence, obs})
+      .patch(`/record/${this.props.match.params.idRecord}`, { tags, presence, obs })
       .then(student => {
-        this.setState({ tags: [],buttonLabel:"Salvo!", tagStatus:true },()=>setTimeout(()=>this.setState({buttonLabel:"Salvar"}),2000));
+        this.setState({ tags: [], buttonLabel: "Salvo!", tagStatus: true }, () => setTimeout(() => this.setState({ buttonLabel: "Salvar" }), 2000));
       })
-      .catch (err => {
-        this.setState({ error: "Ocorreu um erro, tente novamente!" })});
+      .catch(err => {
+        this.setState({ error: "Ocorreu um erro, tente novamente!" })
+      });
   }
 
   render() {
@@ -132,97 +138,98 @@ class RecordBookPerStudent extends Component {
     return (
       <div>
         <Logo />
-      <div className='page-recordBook-perStudent'>
-      <figure className='component-recordBook-img'>
-      <img  src={this.state.image.replace("/upload/","/upload/w_150,h_150,c_thumb,g_face,r_max/")} alt="icone de usuário"/>
-      </figure>
-        <Title>{this.state.studentName}</Title>
-        <div className="page-recordBook-perStudent-tags">
-          <IconsTags
-            method={this.handleClick}
-            text="Ausente"
-            image_src="/images/tags/ausente.png"
-            tag="presence"
-            active={this.state.presence ? "img-tag " : "img-tag filter-gray"}
-          />
-          <IconsTags
-            method={this.handleClick}
-            text="Criatividade"
-            image_src="/images/tags/criatividade.png"
-            tag="creativity"
-            active={this.state.creativity ? "img-tag " : "img-tag filter-gray"}
-          />
-          <IconsTags
-            method={this.handleClick}
-            text="Conversa Paralela"
-            image_src="/images/tags/conversa_paralela.png"
-            tag="conversation"
-            active={
-              this.state.conversation ? "img-tag " : "img-tag filter-gray"
-            }
-          />
-          <IconsTags
-            method={this.handleClick}
-            text="Entender o problema"
-            image_src="/images/tags/entender_problema.png"
-            tag="goodParticipation"
-            active={
-              this.state.goodParticipation ? "img-tag " : "img-tag filter-gray"
-            }
-          />
-          <IconsTags
-            method={this.handleClick}
-            text="Participação construtiva"
-            image_src="/images/tags/participacao_construtiva.png"
-            tag="comprehension"
-            active={
-              this.state.comprehension ? "img-tag " : "img-tag filter-gray"
-            }
-          />
-          <IconsTags
-            method={this.handleClick}
-            text="Trabalho em equipe"
-            image_src="/images/tags/trabalho_em_equipe.png"
-            tag="teamWork"
-            active={this.state.teamWork ? "img-tag " : "img-tag filter-gray"}
-          />
-          <IconsTags
-            method={this.handleClick}
-            text="Encadeamento de ideias"
-            image_src="/images/tags/encadeamento_de_ideias.png"
-            tag="ideasConnection"
-            active={
-              this.state.ideasConnection ? "img-tag " : "img-tag filter-gray"
-            }
-          />
-          <IconsTags
-            method={this.handleClick}
-            text="Falta de engajamento"
-            image_src="/images/tags/falta_de_engajamento.png"
-            tag="noEngagement"
-            active={
-              this.state.noEngagement ? "img-tag " : "img-tag filter-gray"
-            }
-          />
-        </div>
-        <span  className='page-recordBook-perStudent-textArea'>
-        <TextArea name="obs" value={this.state.obs} placeholder="Observações" handleChange={this.handleFormEdit}/>
-        </span>
-        <div className='page-recordBook-perStudent-button'>
-          {this.state.error && <p  className="error">{this.state.error}</p>}
-          <span className='page-recordBook-perStudent-button-span'>
-        <Button label={this.state.buttonLabel} method={this.sendTags}/>
-        </span>
-        {this.state.tagStatus ? (<span className='page-recordBook-perStudent-button-span'><Link to={`/project/review/${this.props.match.params.id}/student/${this.state.studentId}/${this.props.match.params.date}`}> <Button type="submit" label={'Resultados'} /></Link></span>) : null}
-          <Link  className='page-recordBook-perStudent-button-span'
-            to={`/project/${this.props.match.params.id}/RecordBook/${this.props.match.params.date}`}
-          >
-            <ButtonBlue label={"Lista de estudantes"} />
-
-          </Link>
+        {this.state.loader !== true ? <div className='page-recordBook-perStudent'>
+          <figure className='component-recordBook-img'>
+            <img src={this.state.image.replace("/upload/", "/upload/w_150,h_150,c_thumb,g_face,r_max/")} alt="icone de usuário" />
+          </figure>
+          <Title>{this.state.studentName}</Title>
+          <div className="page-recordBook-perStudent-tags">
+            <IconsTags
+              method={this.handleClick}
+              text="Ausente"
+              image_src="/images/tags/ausente.png"
+              tag="presence"
+              active={this.state.presence ? "img-tag " : "img-tag filter-gray"}
+            />
+            <IconsTags
+              method={this.handleClick}
+              text="Criatividade"
+              image_src="/images/tags/criatividade.png"
+              tag="creativity"
+              active={this.state.creativity ? "img-tag " : "img-tag filter-gray"}
+            />
+            <IconsTags
+              method={this.handleClick}
+              text="Conversa Paralela"
+              image_src="/images/tags/conversa_paralela.png"
+              tag="conversation"
+              active={
+                this.state.conversation ? "img-tag " : "img-tag filter-gray"
+              }
+            />
+            <IconsTags
+              method={this.handleClick}
+              text="Entender o problema"
+              image_src="/images/tags/entender_problema.png"
+              tag="goodParticipation"
+              active={
+                this.state.goodParticipation ? "img-tag " : "img-tag filter-gray"
+              }
+            />
+            <IconsTags
+              method={this.handleClick}
+              text="Participação construtiva"
+              image_src="/images/tags/participacao_construtiva.png"
+              tag="comprehension"
+              active={
+                this.state.comprehension ? "img-tag " : "img-tag filter-gray"
+              }
+            />
+            <IconsTags
+              method={this.handleClick}
+              text="Trabalho em equipe"
+              image_src="/images/tags/trabalho_em_equipe.png"
+              tag="teamWork"
+              active={this.state.teamWork ? "img-tag " : "img-tag filter-gray"}
+            />
+            <IconsTags
+              method={this.handleClick}
+              text="Encadeamento de ideias"
+              image_src="/images/tags/encadeamento_de_ideias.png"
+              tag="ideasConnection"
+              active={
+                this.state.ideasConnection ? "img-tag " : "img-tag filter-gray"
+              }
+            />
+            <IconsTags
+              method={this.handleClick}
+              text="Falta de engajamento"
+              image_src="/images/tags/falta_de_engajamento.png"
+              tag="noEngagement"
+              active={
+                this.state.noEngagement ? "img-tag " : "img-tag filter-gray"
+              }
+            />
           </div>
-      </div>
-      <Navbar />
+          <span className='page-recordBook-perStudent-textArea'>
+            <TextArea name="obs" value={this.state.obs} placeholder="Observações" handleChange={this.handleFormEdit} />
+          </span>
+          <div className='page-recordBook-perStudent-button'>
+            {this.state.error && <p className="error">{this.state.error}</p>}
+            <span className='page-recordBook-perStudent-button-span'>
+              <Button label={this.state.buttonLabel} method={this.sendTags} />
+            </span>
+            {this.state.tagStatus ? (<span className='page-recordBook-perStudent-button-span'><Link to={`/project/review/${this.props.match.params.id}/student/${this.state.studentId}/${this.props.match.params.date}`}> <Button type="submit" label={'Resultados'} /></Link></span>) : null}
+            <Link className='page-recordBook-perStudent-button-span'
+              to={`/project/${this.props.match.params.id}/RecordBook/${this.props.match.params.date}`}
+            >
+              <ButtonBlue label={"Lista de estudantes"} />
+
+            </Link>
+          </div>
+        </div>: null}
+        {this.state.loader === true ? <Loader /> : null}
+        <Navbar />
       </div>
     );
   }
