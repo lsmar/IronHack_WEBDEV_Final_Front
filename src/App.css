@@ -1,22 +1,639 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Saira+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+1p&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,700&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.error {
   text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
 }
 
-.App-logo {
-  height: 40vmin;
+/*COMPONENT*/
+.component-navbar-nav {
+  background-color: #338ceb;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 60px;
 }
 
-.App-header {
-  background-color: #282c34;
+.component-navbar-ul {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 5px;
+}
+
+.component-navbar-ul>li {
+  list-style: none;
+
+}
+
+.component-navbar-img {
+  height: 50px;
+}
+
+
+.component-student-green {
+  color: #A3B816;
+}
+
+.component-student-red {
+  color: #EE584C;
+}
+
+.components-studentsList {
+  list-style-type: none;
+}
+
+.components-studentsList-students {
+  font-size: 24px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.components-button-vertical {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.components-button {
+  border: 0.5px solid #f77e0c;
+  background-image: linear-gradient(to bottom, #fccf8d, #f77e0c);
+  border-radius: 5px;
+  min-width: 250px;
+  height: 40px;
+  font-size: 18px;
+  margin: 10px 0;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+}
+
+.components-buttonBlue {
+  border: 0.5px solid #0b6acc;
+  background-image: linear-gradient(to bottom,
+      #94c2f1, #0b6acc);
+  border-radius: 5px;
+  min-width: 250px;
+  height: 40px;
+  font-size: 18px;
+  margin: 10px 0;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+}
+
+.component-iconTag {
+  background-color: white;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.component-iconTag-text {
+  font-size: 14px;
+  width: 100%;
+}
+
+.components-buttonRecord {
+  border: 0.5px solid #0b6acc;
+  background-image: linear-gradient(to bottom,
+      #5eaaf8, #0b6acc);
+  border-radius: 5px;
+  min-width: 150px;
+  height: 35px;
+  font-size: 14px;
+  margin: 10px 0;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+}
+
+.components-cardproject-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.components-cardProject-title-edit-delete {
+  display: flex;
+  align-items: center;
+}
+
+.components-cardProject-icon {
+  height: 20px;
+}
+
+.components-cardProject-card {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  box-shadow: 5px 3px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  min-height: 250px;
+  margin: 20px 0;
+  display: flex;
+  margin: 30px 0px;
+  flex-direction: column;
+}
+
+.components-cardProject-img {
+  height: 140px;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.components-cardProject-text {
+  margin-left: 20px;
+  margin-top: 5px;
+  color:
+    #f79f1c;
+}
+
+.components-cardProject-title {
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.components-cardProject-p {
+  font-size: 15px;
+  margin-bottom: 0px;
+  line-height: 15px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.components-searchBar-DF {
+  display: flex;
+  justify-content: center;
+}
+
+.components-searchBar {
+  border: 1px solid #f79f1c;
+  border-radius: 5px;
+  height: 40px;
+  width: 300px;
+  outline: none;
+}
+
+
+.components-TextArea {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0px 10px;
+  width: 250px;
+  height: 100px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: black;
+  outline: none;
+}
+
+.components-input {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #fff;
+  min-width: 250px;
+  height: 40px;
+  font-weight: normal;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  color: black;
+}
+
+.components-inputFile {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #fff;
+  width: 250px;
+  height: 40px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  color: black;
+}
+
+.components-logo-container {
+  min-width: 100vw;
+  min-height: 10vh;
+  border-bottom: 1px solid lightgray;
+  background-color: #338ceb;
+  position: fixed;
+  top: 0px;
+  z-index: 4;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.component-logoSL {
+  height: 60px;
+  margin-bottom: 50px;
+}
+
+.components-logo {
+  width: 90px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+}
+
+.components-logo-img {
+  width: 100%;
+}
+
+.component-title {
+  color:
+    #f79f1c;
+  font-size: 25px;
+  margin-top: 0px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+
+.component-titleAndText {
+  color: #f79f1c;
+  font-size: 28px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  /* margin-bottom: 30px; */
+}
+
+::placeholder {
+  padding-left: 3px;
+  font-family: 'Assistant', sans-serif;
+  font-size: 15px;
+  color: black;
+}
+
+.components-inputData {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #fff;
+  min-width: 50px;
+  height: 40px;
+  font-weight: normal;
+  color: black;
+  padding-left: 25px;
+  margin-bottom: 50px;
+}
+
+/*component dropdown - biblioteca: REACT SEMANTIC UI*/
+.ui.fluid.dropdown {
+  width: 250px !important;
+  border: 1px solid black !important;
+  border-radius: 5px !important;
+  min-height: 40px !important;
+}
+
+.ui.multiple.dropdown>.text {
+  color: black !important;
+}
+
+.ui.dropdown>.text {
+  color: black !important;
+}
+
+.components-dropDown {
+  margin-bottom: 20px;
+}
+
+/*pages login and signup*/
+.page-loginSignup-bcg {
+  background-image: linear-gradient(to bottom,
+      #5eaaf8, #0b6acc);
   min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-loginSignup-container {
+  background-color: #fff;
+  width: 85vw;
+  min-height: 85vh;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.page-loginSignup-link {
+  margin-top: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+/*PAGE ADD TEACHER AND PROJECT*/
+.page-add-container-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin-top: 10px;
+}
+
+.page-add-container-pj {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 80px 0px 60px 0px;
+}
+
+.page-add-span {
+  margin: 0px 0px 50px 0px;
+  width: 300px;
+}
+
+/*CHART */
+.page-chart-container {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 80px 0px 70px 0px;;
+}
+
+.page-chart-container-radar{
+  margin-bottom: 50px;
+}
+
+/*PAGE PROJECT DETAIL*/
+.page-projectDetail-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 80vh;
+  margin: 80px 0 70px 0;
+}
+
+.page-projectDetail-title {
+  font-size: 30px;
+  color: #338ceb;
+  margin: 0 50px;
+  padding: 0;
+  font-family: 'Assistant', sans-serif;
+  text-align: center;
+  font-weight: 700;
+}
+
+.page-projectDetail-text {
+  margin: 10px;
+  font-size: 20px;
+  font-family: 'Assistant', sans-serif;
+  font-weight: 600;
+}
+
+.page-projectDetail-text-span {
+  margin: 25px 25px;
+}
+
+.page-projectDetail-text-value {
+  font-weight: 100;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.page-projectDetail-text-value-class {
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.page-projectDetail-text-value:not(:last-child):after {
+  content: ', '
+}
+
+/*PAGE HOME */
+.page-home-container {
+  padding-top: 100px;
+}
+
+/*PAGE SUCESS*/
+.page-sucess-figure {
+  width: 150px;
+  margin: 0px;
+}
+
+.page-sucess-img {
+  width: 100%;
+}
+
+.page-sucess-title {
+  color:
+    #f79f1c;
+  font-family: 'M PLUS 1p', sans-serif;
+  text-align: center;
+  font-size: 35px;
+  padding: 0 10px;
+}
+
+.img-tag {
+  width: 30vw;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.each-tag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.arrow-left {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+#arrow-img {
+  width: 120px;
+}
+
+.filter-gray {
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+/*DELETE AND EDIT */
+
+.page-delAndEdit-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/*RECORD BOOK */
+.page-recordBook-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 80vh;
+  padding-top: 120px;
+  padding-bottom: 80PX;
+}
+
+.page-recordBook-data {
+  display: flex;
+  flex-direction: row;
+}
+
+.page-recordBook-text {
+  padding: 10px 5px 0px 0px;
+  margin: 0;
+}
+
+.page-recordBook-title {
+  color: #338ceb;
+  margin: 30px 0px;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-weight: 700;
+}
+
+.page-recordBook-perStudent {
+  min-height: 80vh;
+  width: 100vw;
+  margin-top: 80px;
+  margin-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-recordBook-perStudent-tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  padding: 0 20px;
+}
+
+.page-recordBook-perStudent-button {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-recordBook-perStudent-button-span {
+  display: flex;
+  justify-content: center;
+}
+
+.component-recordBook-img {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.component-recordBook-img>img {
+  height: 150px;
+}
+
+/* PAGE CONTA */
+
+.component-conta-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.component-conta-img {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.component-conta-img>img {
+  height: 150px;
+}
+
+.component-conta-p {
+  margin: 40px 0px 50px 0px;
+  font-size: 16px;
+}
+
+.page-recordBook-bottom {
+  border-bottom: 1px solid lightgray;
+  min-width: 280px;
+  margin-bottom: 30px;
+}
+
+/*MEDIAS*/
+
+@media (min-width: 426px) {
+  .page-loginSignup-container {
+    width: 70vw;
+  }
+
+  .page-recordBook-bottom {
+    border-bottom: 1px solid lightgray;
+    min-width: 400px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 769px) {
+  .page-loginSignup-container {
+    width: 60vw;
+  }
+
+  .page-recordBook-bottom {
+    border-bottom: 1px solid lightgray;
+    min-width: 500px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-loginSignup-container {
+    width: 50vw;
+  }
+}
+
+@media (min-width: 1440px) {
+  .page-loginSignup-container {
+    width: 40vw;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page-loginSignup-container {
+    width: 30vw;
+  }
 }
