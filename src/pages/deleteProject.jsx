@@ -5,12 +5,14 @@ import apiAxios from "../services/api";
 import Logo from "../components/Logo";
 import Navbar from "../components/navbar";
 import TitleAndText from "../components/TitleAndText";
+import Loader from '../components/loader'
 
 class ProjectDeleted extends Component{
   constructor(props){
     super(props)
     this.state={
       projectName: "",
+      loader: true
     }
     this.deleteOne = this.deleteOne.bind(this);
   }
@@ -22,7 +24,7 @@ class ProjectDeleted extends Component{
     apiAxios
     .delete(`/project/${this.props.match.params.id}`)
     .then(project => (
-      this.setState({projectName:project.data.name})
+      this.setState({projectName:project.data.name, loader: false})
     ))
     .catch(e => console.log(e));
   }
@@ -42,6 +44,7 @@ class ProjectDeleted extends Component{
           <Button type="submit" label={"Ir para home"} />
         </Link>
         </span>
+        {this.state.loader === true ? <Loader /> : null}
         <Navbar />
       </div>
       )

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 // ADICIONAR IMAGENS DENTRO DOS <Link>
 
 const Navbar = ({role, url}) => {
-debugger;
 return(
     <nav className='component-navbar-nav'>
       <ul className='component-navbar-ul'>
