@@ -56,6 +56,7 @@ class ProjectDeleted extends Component{
           <Button type="submit" label={"Ir para home"} />
         </Link>
         </span>
+        {this.state.loader === true ? <Loader /> : null}
         <Navbar />
       </div>);
 

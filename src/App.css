@@ -9,6 +9,13 @@
   box-sizing: border-box;
 }
 
+.dimmer{
+  background-color: rgba(50, 139, 234, 0.1)!important;
+  height: 100vh!important;
+}
+
+
+
 .error {
   text-align: center;
   margin-top: 10px;
