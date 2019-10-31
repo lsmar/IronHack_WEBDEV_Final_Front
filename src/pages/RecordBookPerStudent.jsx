@@ -203,8 +203,9 @@ class RecordBookPerStudent extends Component {
             }
           />
         </div>
-        
+        <span  className='page-recordBook-perStudent-textArea'>
         <TextArea name="obs" value={this.state.obs} placeholder="Observações" handleChange={this.handleFormEdit}/>
+        </span>
         <div className='page-recordBook-perStudent-button'>
           {this.state.error && <p  className="error">{this.state.error}</p>}
           <span className='page-recordBook-perStudent-button-span'>

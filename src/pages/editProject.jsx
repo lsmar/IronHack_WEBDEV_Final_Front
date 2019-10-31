@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Input from "../components/input";
 import Button from "../components/Botao";
 import TitleAndText from "../components/TitleAndText";
-import TextArea from "../components/TextArea";
 import apiAxios from "../services/api";
 import Navbar from "../components/navbar";
 import Logo from "../components/Logo";
+import TextAreaProject from "../components/TextAreaProject";
 
 class EditProject extends Component {
   constructor(props) {
@@ -80,7 +80,7 @@ class EditProject extends Component {
               handleChange={this.handleFormEdit}
               value={this.state.name}
             />
-            <TextArea handleChange={this.handleFormEdit} name='description' placeholder="Descrição" value={this.state.description} />
+            <TextAreaProject handleChange={this.handleFormEdit} name='description' placeholder="Descrição" value={this.state.description} />
             <Button type="submit" label={'Atualizar'} />
           </form>
         </span>
