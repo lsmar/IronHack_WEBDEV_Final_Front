@@ -113,7 +113,7 @@ class ProjectDetail extends Component {
               </span>
             </h5>
           </span> : null}
-          {!this.state.loader?(this.state.owner?<Link to={`/project/${this.props.match.params.id}/recordBook`}> <Button type="submit" label={'Avaliação'} /> </Link>:null):null}
+          {!this.state.loader?(this.state.owner?<Link to={`/project/${this.props.match.params.id}/recordBook`}> <Button type="submit" label={'Avaliação'} /> </Link>:(this.state.tolken.role === 'COORDINATOR'?<Link to={`/project/${this.props.match.params.id}/recordBook`}> <Button type="submit" label={'Avaliação'} /> </Link>:null)):null }
           {this.state.loader?<Loader />:null}
 
         </div>

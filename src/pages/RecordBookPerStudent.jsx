@@ -121,13 +121,14 @@ class RecordBookPerStudent extends Component {
     apiAxios
       .patch(`/record/${this.props.match.params.idRecord}`, {tags,presence, obs})
       .then(student => {
-        this.setState({ tags: [],buttonLabel:"Salvo!" },()=>setTimeout(()=>this.setState({buttonLabel:"Salvar"}),2000));
+        this.setState({ tags: [],buttonLabel:"Salvo!", tagStatus:true },()=>setTimeout(()=>this.setState({buttonLabel:"Salvar"}),2000));
       })
       .catch (err => {
         this.setState({ error: "Ocorreu um erro, tente novamente!" })});
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <Logo />
@@ -212,11 +213,11 @@ class RecordBookPerStudent extends Component {
           <span className='page-recordBook-perStudent-button-span'>
         <Button label={this.state.buttonLabel} method={this.sendTags}/>
         </span>
-        {this.state.tagStatus ? (<span className='page-recordBook-perStudent-button-span'><Link to={`/project/review/${this.props.match.params.id}/student/${this.state.studentId}`}> <Button type="submit" label={'Resultados'} /></Link></span>) : null}
+        {this.state.tagStatus ? (<span className='page-recordBook-perStudent-button-span'><Link to={`/project/review/${this.props.match.params.id}/student/${this.state.studentId}/${this.props.match.params.date}`}> <Button type="submit" label={'Resultados'} /></Link></span>) : null}
           <Link  className='page-recordBook-perStudent-button-span'
             to={`/project/${this.props.match.params.id}/RecordBook/${this.props.match.params.date}`}
           >
-            <ButtonBlue label={"Voltar a lista de estudantes"} />
+            <ButtonBlue label={"Lista de estudantes"} />
 
           </Link>
           </div>
