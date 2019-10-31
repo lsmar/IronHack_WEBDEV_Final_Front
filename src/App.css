@@ -83,7 +83,7 @@
 .components-buttonBlue {
   border: 0.5px solid #0b6acc;
   background-image: linear-gradient(to bottom,
-  #94c2f1, #0b6acc);
+      #94c2f1, #0b6acc);
   border-radius: 5px;
   min-width: 250px;
   height: 40px;
@@ -372,6 +372,17 @@
   width: 300px;
 }
 
+/*CHART */
+.page-chart-container {
+  width: 100vw;
+  min-height: 100vh;
+  margin-top: 90px;
+}
+
+.page-chart-container-radar{
+  margin-bottom: 40px;
+}
+
 /*PAGE PROJECT DETAIL*/
 .page-projectDetail-container {
   display: flex;
@@ -543,7 +554,8 @@
   display: flex;
   justify-content: center;
 }
-.component-recordBook-img{
+
+.component-recordBook-img {
   display: flex;
   justify-content: center;
   margin: 0;
