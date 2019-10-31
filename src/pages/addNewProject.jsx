@@ -3,7 +3,6 @@ import {getUser} from "../services/auth";
 import Input from "../components/input";
 import InputFile from "../components/InputFile";
 import Button from "../components/Botao";
-import TextArea from "../components/TextArea";
 import DropdownHabilidades from "../components/DropDowMultiSelect";
 import DropdownSelection from "../components/DropDown"
 import apiAxios from "../services/api";
