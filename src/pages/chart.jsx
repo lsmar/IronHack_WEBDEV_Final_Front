@@ -9,7 +9,7 @@ export default class chart extends Component {
     const {match:{params}} = this.props
     this.state={
       studentId:params.studentId,
-      projectId:params.id,
+      projectId:params.projectId,
       dataGood:{},
       dataBad:{},
       chartOptions: {},
