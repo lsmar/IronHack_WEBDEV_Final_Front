@@ -49,7 +49,7 @@ const Routes = () => (
       <Route exact path="/project/:id" role="" component={ProjectDetail} />
       <Route exact path="/project/edit/:id" role="" component={EditProject} />
       <Route exact path="/project/delete/:id" role="" component={DeleteProject} />
-      <Route exact path="/project/review/:id/student/:studentId" role="" component={Chart} />
+      <Route exact path="/project/review/:projectId/student/:studentId" role="" component={Chart} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
   </BrowserRouter>
