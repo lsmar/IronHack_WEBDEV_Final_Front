@@ -26,7 +26,8 @@ class RecordBookPerStudent extends Component {
       noEngagement: false,
       buttonLabel: "Salvar",
       error: '',
-      obs: ''
+      obs: '', 
+      image:''
     };
     this.sendTags = this.sendTags.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -66,7 +67,7 @@ class RecordBookPerStudent extends Component {
             else newNoEngagement = tag.value
           })
         }
-        this.setState({ studentName: record.data.student.name, studentId: record.data.student._id, tagStatus: hasTag, presence: !record.data.presence,
+        this.setState({ studentName: record.data.student.name, studentId: record.data.student._id, image: record.data.student.image, tagStatus: hasTag, presence: !record.data.presence,
         obs: record.data.obs,
         conversation: newConversation,
           goodParticipation: newGoodParticipation,
@@ -132,7 +133,7 @@ class RecordBookPerStudent extends Component {
         <Logo />
       <div className='page-recordBook-perStudent'>
       <figure className='component-recordBook-img'>
-      <img  src="/images/Icons/perfil-icon.png" alt="icone de usuário"/>
+      <img  src={this.state.image} alt="icone de usuário"/>
       </figure>
         <Title>{this.state.studentName}</Title>
         <div className="page-recordBook-perStudent-tags">
