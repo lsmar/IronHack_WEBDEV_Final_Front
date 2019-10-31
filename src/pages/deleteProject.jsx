@@ -11,24 +11,36 @@ class ProjectDeleted extends Component{
     super(props)
     this.state={
       projectName: "",
+      canDelete: false,
     }
     this.deleteOne = this.deleteOne.bind(this);
+    this.getOne = this.getOne.bind(this);
   }
 
   componentDidMount(){
-    this.deleteOne();
+    this.getOne();
   }
-  deleteOne = () => {
+
+  getOne = () => {
     apiAxios
-    .delete(`/project/${this.props.match.params.id}`)
+    .get(`/project/${this.props.match.params.id}`)
     .then(project => (
       this.setState({projectName:project.data.name})
     ))
     .catch(e => console.log(e));
   }
+
+  deleteOne = () => {
+    apiAxios
+    .delete(`/project/${this.props.match.params.id}`)
+    .then(project => (
+      this.setState({projectName:project.data.name, canDelete:true})
+    ))
+    .catch(e => console.log(e));
+  }
+
     render(){
-      return( 
-      <div>
+      const deletedMessege = (<div>
         <Logo />
         <span className='page-delAndEdit-container'>
         {this.state.projectName!==''?<TitleAndText>PROJETO DELETADO COM SUCESSO!</TitleAndText>:<TitleAndText>NENHUM PROJETO FOI ENCONTRADO!</TitleAndText>}
@@ -43,8 +55,21 @@ class ProjectDeleted extends Component{
         </Link>
         </span>
         <Navbar />
-      </div>
-      )
+      </div>);
+
+      const messageConfirmation = (<div>
+        <Logo />
+        <span className='page-delAndEdit-container'>
+        {this.state.projectName!==''?<TitleAndText>Apagar o projeto "{this.state.projectName}"</TitleAndText>:null}
+        <Button type="submit" method={this.deleteOne} label={"Sim"} />
+        <Link to="/project">
+          <Button type="submit" label={"Nao, retornar para a home"} />
+        </Link>
+        </span>
+        <Navbar />
+      </div>);
+
+      return( !this.state.canDelete ? messageConfirmation : deletedMessege )
     }
 };
 export default ProjectDeleted;
