@@ -6,6 +6,7 @@ import Navbar from "../components/navbar";
 import ButtonBlue from "../components/ButtonBlue";
 import { Link } from "react-router-dom";
 import TitleAndText from "../components/TitleAndText";
+import Loader from '../components/loader'
 
 export default class chart extends Component {
   constructor(props) {
@@ -20,6 +21,8 @@ export default class chart extends Component {
       dataGood: {},
       dataBad: {},
       chartOptions: {},
+      noRecords:false,
+      loader: true,
       plugins: [
         {
           /* Adjust axis labelling font size according to chart size */
@@ -40,6 +43,10 @@ export default class chart extends Component {
         `record/studentReview/${this.state.studentId}/${this.state.projectId}`
       )
       .then(response => {
+        if(response.data.error) {
+          this.setState({noRecords:true,loader: false})
+          window.scrollTo(0, 0);
+        } else {
         const {
           conversation,
           goodParticipation,
@@ -117,18 +124,20 @@ export default class chart extends Component {
             legend: {
               position: "bottom"
             }
-          }
+          }, 
+        loader: false
         });
         window.scrollTo(0, 0);
-      })
+      }})
       .catch(err => console.log(err));
   }
   render() {
-    return (
+    const chart = (
       <div className="page-chart-container">
-        <Logo />
-        <TitleAndText>{this.state.student.name}</TitleAndText>
-        <div className="page-chart-container-radar">
+      <Logo />
+      <TitleAndText>{this.state.student.name}</TitleAndText>
+
+      <div className="page-chart-container-radar">
           <Radar
             data={this.state.dataGood}
             options={this.state.chartOptions}
@@ -150,8 +159,30 @@ export default class chart extends Component {
             <ButtonBlue label={"Lista de estudantes"} />
           </Link>
         </div>
+        {this.state.loader === true ? <Loader /> : null}
         <Navbar />
       </div>
-    );
-  }
+    )
+
+    const message = (
+      <div className="page-chart-container">
+      <Logo />
+      <TitleAndText>Não foram encontrados registros para esse aluno</TitleAndText>
+        <div>
+          <Link
+            className="page-recordBook-perStudent-button-span"
+            to={`/project/${this.props.match.params.projectId}/RecordBook/${this.props.match.params.date}`}
+          >
+            <ButtonBlue label={"Lista de estudantes"} />
+          </Link>
+        </div>
+        {this.state.loader === true ? <Loader /> : null}
+        <Navbar />
+      </div>
+    )
+  
+    return (
+      !this.state.noRecords ?  chart : message
+  )
+}
 }
