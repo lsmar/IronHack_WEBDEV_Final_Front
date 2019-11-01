@@ -14,7 +14,8 @@ class Login extends Component {
       name: "",
       email: "",
       password: "",
-      error: ""
+      error: "",
+      buttonLabel:'Login',
     };
     this.handleFormEdit = this.handleFormEdit.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
@@ -23,6 +24,7 @@ class Login extends Component {
   //* Form submit
   handleLogin = async e => {
     e.preventDefault();
+    this.setState({ buttonLabel: "Logando..." });
     const { email, password } = this.state;
     if (!email || !password) {
       this.setState({ error: "Preencha Email e senha" });
@@ -32,7 +34,7 @@ class Login extends Component {
         login(LoginResponse.data.token);
         this.props.history.push("/project");
       } catch (err) {
-        this.setState({ error: "Ocorreu um erro ao fazer o login" });
+        this.setState({ buttonLabel: "Login", error: "Ocorreu um erro ao fazer o login" });
       }
     }
   };
