@@ -37,7 +37,7 @@ class RecordBookMainPage extends Component {
     apiAxios
       .get(`record/projectGetDates/${project_id}`)
       .then(diary => {
-        this.setState({allRecords:diary.data, loader: false,  buttonLabel: "Iniciado!"},() => setTimeout(() => this.setState({ buttonLabel: "Iniciar Diário" }), 2000))
+        this.setState({allRecords:diary.data, loader: false})
       })
       .catch(e => console.log(e));
   };
@@ -51,6 +51,7 @@ class RecordBookMainPage extends Component {
       .post("/record/all", { project, date })
       .then(diary => {
         this.getPreviousRecords();
+        this.setState({ buttonLabel: "Iniciado!"},() => setTimeout(() => this.setState({ buttonLabel: "Iniciar Diário" }), 2000))
       })
       .catch(e => console.log(e));
   };
