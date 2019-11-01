@@ -30,6 +30,7 @@ class ProjectDetail extends Component {
   componentDidMount = () => {
     this.getSingleProject();
     this.setState({tolken: getUser()});
+    window.scrollTo(0, 0);    
   };
 
   getSingleProject = () => {

@@ -34,6 +34,14 @@ const CardProject = props => {
                 </Link> : null }
                 
                 {props.role === "COORDINATOR" ? (
+                  <>
+                  <Link to={`/project/edit/${elem._id}`}>
+                  <img
+                    className="components-cardProject-icon"
+                    src="/images/Icons/edit-icon.png"
+                    alt="edit"
+                  />
+                </Link>
                   <Link to={`/project/delete/${elem._id}`}>
                     <img
                       className="components-cardProject-icon"
@@ -41,15 +49,15 @@ const CardProject = props => {
                       alt="delete"
                     />
                   </Link>
+                  </>
                 ) : null}
               </div>
               <Link to={`/project/${elem._id}`}>
                 <p className="components-cardProject-p">
-                  Professores:{" "}
+                  Professores:
                   {elem.teachers.map((e, idx) => (
                     <span className="page-projectDetail-text-value" key={idx}>
-                      {" "}
-                      {e.name}{" "}
+                      {e.name}
                     </span>
                   ))}
                 </p>

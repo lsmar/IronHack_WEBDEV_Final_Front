@@ -52,6 +52,7 @@ class AddNewProject extends Component {
   componentDidMount = () => {
     this.setState({tolken: getUser()});
     this.getTeacher();
+    window.scrollTo(0, 0);
   }
 
   getTeacher = () => {
@@ -139,7 +140,7 @@ class AddNewProject extends Component {
             // value={this.state.image}
           />
             <Button type="submit" label={'Cadastrar'} />
-          <Navbar role={this.state.tolken.role} url={this.props.match.url}/>
+          <Navbar role={this.state.tolken.role} />
         </form>
       </div>
     )
