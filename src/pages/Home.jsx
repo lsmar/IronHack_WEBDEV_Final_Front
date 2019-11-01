@@ -37,13 +37,9 @@ class Home extends Component {
       input: e.target.value,
     })
   }
-
   
   render() {
     const projects = [...this.state.project].filter(el=>el.name.toLocaleLowerCase().indexOf(this.state.input)>-1);
-    
-    console.log(this.state.tolken._id);
-    
     
     return(
       
