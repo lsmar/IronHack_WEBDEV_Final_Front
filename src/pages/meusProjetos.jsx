@@ -49,7 +49,7 @@ class Home extends Component {
         {!this.state.loader?<Search placeholder='🔎 Buscar...' method={this.onChangeHandler}/>: null}
         {this.state.loader?<Loader />:null}
         <p className="error">{this.state.error}</p>
-        <Card projects={projects}/>
+        <Card projects={projects} ownId={this.state.tolken._id}/>
         <Nav role={this.state.tolken.role} url={this.props.match.url} />
         </div>
       </Fragment>

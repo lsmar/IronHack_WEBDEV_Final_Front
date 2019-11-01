@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import Input from "../components/input";
 import Button from "../components/Botao";
 import TitleAndText from "../components/TitleAndText";
-import TextArea from "../components/TextArea";
 import apiAxios from "../services/api";
 import Navbar from "../components/navbar";
 import Logo from "../components/Logo";
+import TextAreaProject from "../components/TextAreaProject";
+import Loader from '../components/loader'
 
 class EditProject extends Component {
   constructor(props) {
@@ -24,7 +25,8 @@ class EditProject extends Component {
         { text: "Matemática", value: "math", name: "subjects" },
         { text: "Ciências da natureza", value: "natureza", name: "subjects" },
         { text: "Ciências humanas", value: "humanas", name: "subjects" },
-      ]
+      ],
+      loader: true
     }
     this.getProjectInfo = this.getProjectInfo.bind(this)
     this.handleFormEdit = this.handleFormEdit.bind(this)
@@ -40,7 +42,7 @@ class EditProject extends Component {
     apiAxios.get(`/project/${this.props.match.params.id}`)
       .then(project => {
         const { name, description, image } = project.data;
-        this.setState({ name, description, image }, () => console.log(this.state))
+        this.setState({ name, description, image, loader: false })
       })
       .catch(e => console.log(e))
   }
@@ -67,7 +69,7 @@ class EditProject extends Component {
       <div>
         <Logo />
         <span className='page-delAndEdit-container'>
-          <form className='page-add-container-user' onSubmit={this.handleAddproject} >
+          {this.state.loader === true ? null : <form className='page-add-container-user' onSubmit={this.handleAddproject} >
             <TitleAndText>EDITAR PROJETO</TitleAndText>
             <figure className='page-sucess-figure'>
               <img className='page-sucess-img' src='/images/ImagensAndBcg/edit-icon.png' alt='sucess' />
@@ -80,10 +82,11 @@ class EditProject extends Component {
               handleChange={this.handleFormEdit}
               value={this.state.name}
             />
-            <TextArea handleChange={this.handleFormEdit} name='description' placeholder="Descrição" value={this.state.description} />
+            <TextAreaProject handleChange={this.handleFormEdit} name='description' placeholder="Descrição" value={this.state.description} />
             <Button type="submit" label={'Atualizar'} />
-          </form>
+          </form> }
         </span>
+        {this.state.loader === true ?<Loader />:null}
         <Navbar />
       </div>
     )

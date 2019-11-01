@@ -37,19 +37,19 @@ class Home extends Component {
       input: e.target.value,
     })
   }
-
   
   render() {
     const projects = [...this.state.project].filter(el=>el.name.toLocaleLowerCase().indexOf(this.state.input)>-1);
+    
     return(
       
       <Fragment>
         <Logo />
         <div className='page-home-container'>
-        {!this.state.loader?<Search placeholder='   🔎' method={this.onChangeHandler}/>: null}
+        {!this.state.loader?<Search placeholder='🔎' method={this.onChangeHandler}/>: null}
         {this.state.loader?<Loader />:null}
         <p className="error">{this.state.error}</p>
-        <Card projects={projects} role={this.state.tolken.role}/>
+        <Card projects={projects} role={this.state.tolken.role}  ownId={this.state.tolken._id} />
         <Nav role={this.state.tolken.role} url={this.props.match.url}/>
         </div>
       </Fragment>

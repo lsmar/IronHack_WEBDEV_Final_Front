@@ -3,13 +3,13 @@ import {getUser} from "../services/auth";
 import Input from "../components/input";
 import InputFile from "../components/InputFile";
 import Button from "../components/Botao";
-import TextArea from "../components/TextArea";
 import DropdownHabilidades from "../components/DropDowMultiSelect";
 import DropdownSelection from "../components/DropDown"
 import apiAxios from "../services/api";
 import Navbar from "../components/navbar"
 import Logo from "../components/Logo";
 import TitleAndText from "../components/TitleAndText";
+import TextAreaProject from "../components/TextAreaProject";
 
 class AddNewProject extends Component {
   constructor(props) {
@@ -52,6 +52,7 @@ class AddNewProject extends Component {
   componentDidMount = () => {
     this.setState({tolken: getUser()});
     this.getTeacher();
+    window.scrollTo(0, 0);
   }
 
   getTeacher = () => {
@@ -70,7 +71,6 @@ class AddNewProject extends Component {
   };
 
   handleDropDown = value => {
-    debugger
     this.setState({ subjects: value})
 
   };
@@ -130,7 +130,7 @@ class AddNewProject extends Component {
           <DropdownSelection  name='grade' onChange={this.handleGradeDropDown} values={this.state.dropDownGrade} placeholder='Série'/>
           <DropdownSelection  name='classRoom' onChange={this.handleClassRoomDropDown} values={this.state.dropDownClass} placeholder='Turma'/>
           <DropdownHabilidades  name='subjects' onChange={this.handleDropDown} values={this.state.dropDownOptions} placeholder='Habilidades'/>
-          <TextArea handleChange={this.handleFormEdit} name='description' placeholder="Descrição" />
+          <TextAreaProject handleChange={this.handleFormEdit} name='description' placeholder="Descrição" />
           
           <InputFile  
             type="file"

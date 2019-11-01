@@ -30,6 +30,7 @@ class ProjectDetail extends Component {
   componentDidMount = () => {
     this.getSingleProject();
     this.setState({tolken: getUser()});
+    window.scrollTo(0, 0);    
   };
 
   getSingleProject = () => {
@@ -75,22 +76,22 @@ class ProjectDetail extends Component {
             <h5 className="page-projectDetail-text">
               Professor:
               {this.state.teachers.map((e, idx) => (
-                <span className="page-projectDetail-text-value" key={idx}>
+                <span className="page-projectDetail-text-value-class" key={idx}>
                   {e.name}
                 </span>
               ))}
             </h5>
             <h5 className="page-projectDetail-text">Habilidades:
             {this.state.formattedSkills.map((e, idx) => (
-                <span className="page-projectDetail-text-value" key={idx}>
+                <span className="page-projectDetail-text-value-class" key={idx}>
                   {e}
                 </span>
             ))}
             </h5>
             <h5 className="page-projectDetail-text">
-              Turma:
+              Turma: 
               {this.state.students.length > 0 ? (
-                <span className="page-projectDetail-text-value-class">
+                <span className="page-projectDetail-text-value-number">
                   {this.state.students[0].grade}
                 </span>
               ) : null}
@@ -101,19 +102,19 @@ class ProjectDetail extends Component {
               ) : null}
             </h5>
             <h5 className="page-projectDetail-text">
-              Descrição: 
-              <span className="page-projectDetail-text-value">
+              Descrição:  
+              <span className="page-projectDetail-text-value-class">
                 {this.state.description}
               </span>
             </h5>
             <h5 className="page-projectDetail-text">
-              Iniciado em: 
-              <span className="page-projectDetail-text-value">
+              Iniciado em:  
+              <span className="page-projectDetail-text-value-number">
               {moment(this.state.createdAt).format("DD/MM/YYYY")}
               </span>
             </h5>
           </span> : null}
-          {!this.state.loader?(this.state.owner?<Link to={`/project/${this.props.match.params.id}/recordBook`}> <Button type="submit" label={'Avaliação'} /> </Link>:null):null}
+          {!this.state.loader?(this.state.owner?<Link to={`/project/${this.props.match.params.id}/recordBook`}> <Button type="submit" label={'Avaliação'} /> </Link>:(this.state.tolken.role === 'COORDINATOR'?<Link to={`/project/${this.props.match.params.id}/recordBook`}> <Button type="submit" label={'Avaliação'} /> </Link>:null)):null }
           {this.state.loader?<Loader />:null}
 
         </div>

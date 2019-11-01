@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import apiAxios from "../services/api";
 import Button from '../components/Botao';
 import Input from "../components/input";
-import Logo from '../components/Logo';
 import base64 from "base-64"
+import TitleAndText from "../components/TitleAndText";
 
 class CreatePassword extends Component {
   constructor(props) {
@@ -50,9 +50,8 @@ class CreatePassword extends Component {
     return (
       <div className='page-loginSignup-bcg'>
         <form className='page-loginSignup-container' onSubmit={this.handleCreatePass}>
-        <Logo />
           {this.state.error && <p>{this.state.error}</p>}
-          <h2>Olá, {this.state.name} utilize o formulário abaixo para cadastrar a sua senha.</h2>
+          <TitleAndText>Olá, {this.state.name} utilize o formulário abaixo para cadastrar a sua senha.</TitleAndText>
           <Input type="password" placeholder="Senha" name="password" handleChange={this.handleFormEdit} />
           <Input type="password" placeholder="Repita a senha" name="confirmPassword" handleChange={this.handleFormEdit} />
           <Button type="submit" label="Cadastrar senha"/>

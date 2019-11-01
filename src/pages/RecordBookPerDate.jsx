@@ -6,12 +6,14 @@ import apiAxios from "../services/api";
 import Logo from "../components/Logo";
 import Navbar from "../components/navbar";
 import moment from "moment";
+import Loader from '../components/loader'
 
 class RecordBookPerDate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allRecords: []
+      allRecords: [],
+      loader: true
     };
     this.getStudents = this.getStudents.bind(this);
   }
@@ -26,7 +28,7 @@ class RecordBookPerDate extends Component {
         `/record/project/${this.props.match.params.id}/${this.props.match.params.date}`
       )
       .then(projectDetails => {
-        this.setState({ allRecords: projectDetails.data })
+        this.setState({ allRecords: projectDetails.data, loader: false })
         })
       .catch(e => console.log(e));
   }
@@ -35,9 +37,9 @@ class RecordBookPerDate extends Component {
     return (
       <div>
         <Logo />
-        <div className="page-recordBook-container">
+        {this.state.loader !== true ? <div className="page-recordBook-container">
           <h1 className="page-recordBook-title">
-            {this.state.allRecords.length !== 0?this.state.allRecords[0].project.name:null} - {moment(this.props.match.params.date).format("DD/MM/YYYY")}
+            {this.state.allRecords.length !== 0?this.state.allRecords[0].project.name:null} <span className="page-recordBook-date"> - {moment(this.props.match.params.date).format("DD/MM/YYYY")} </span>
           </h1>
           <span className="page-recordBook-bottom">
             <StudentsList
@@ -49,7 +51,8 @@ class RecordBookPerDate extends Component {
           <Link to={`/project/${this.props.match.params.id}/RecordBook`}>
             <Button type="submit" label={"Voltar"} />
           </Link>
-        </div>
+        </div> : null}
+        {this.state.loader === true ? <Loader /> : null}
         <Navbar />
       </div>
     );

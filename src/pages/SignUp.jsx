@@ -32,11 +32,9 @@ class SignUp extends Component {
       try {
         const signupResponse = await apiAxios.post("/auth/signup", { institution, name, email, password, role });
         login(signupResponse.data.token)
-        debugger;
 
         this.props.history.push("/app");
       } catch (err) {
-        debugger;
         console.log(err);
         this.setState({ error: "Ocorreu um erro ao registrar sua conta." });
       }

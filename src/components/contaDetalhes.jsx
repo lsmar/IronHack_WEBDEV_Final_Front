@@ -4,7 +4,7 @@ import {logout} from "../services/auth";
 import Title from './Title';
 import Button from './Botao';
 
-const ContaDetalhes = ({name, role}) => {
+const ContaDetalhes = ({name, role, institution}) => {
   return(
     <Fragment>
       <div className="component-conta-container">
@@ -13,7 +13,7 @@ const ContaDetalhes = ({name, role}) => {
       </figure>
       <Title>{name}</Title>
       <div className="component-conta-p">
-      <p>Instituição: {'instituição no Tolken'}</p>
+      <p>Instituição: {institution}</p>
       <p>Cargo: {role}</p>
       </div>
       <Link to='/'>
